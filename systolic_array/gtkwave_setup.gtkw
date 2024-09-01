@@ -1,0 +1,57 @@
+[*]
+[*] GTKWave Analyzer v3.3.118 (w)1999-2023 BSI
+[*] Fri Jul 12 05:04:21 2024
+[*]
+[dumpfile] "/home/charlie/Workspace/pq_research/my_hwpq/tb_open_list_queue.vcd"
+[dumpfile_mtime] "Fri Jul 12 05:03:54 2024"
+[dumpfile_size] 12783
+[savefile] "/home/charlie/Workspace/pq_research/my_hwpq/gtkwave_setup.gtkw"
+[timestart] 0
+[size] 2536 1338
+[pos] -1 -1
+*-14.844912 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.tb_open_list_queue.
+[treeopen] TOP.tb_open_list_queue.u_open_list_queue.
+[sst_width] 323
+[signals_width] 386
+[sst_expanded] 1
+[sst_vpaned_height] 106
+@28
+TOP.tb_open_list_queue.u_open_list_queue.CLK
+TOP.tb_open_list_queue.u_open_list_queue.RSTn
+TOP.tb_open_list_queue.u_open_list_queue.i_wrt
+TOP.tb_open_list_queue.u_open_list_queue.i_read
+@24
+[color] 2
+TOP.tb_open_list_queue.u_open_list_queue.i_node_f[31:0]
+@28
+TOP.tb_open_list_queue.u_open_list_queue.o_empty
+TOP.tb_open_list_queue.u_open_list_queue.o_full
+TOP.tb_open_list_queue.u_open_list_queue.o_valid
+@24
+[color] 1
+TOP.tb_open_list_queue.u_open_list_queue.o_node_f[31:0]
+@28
+TOP.tb_open_list_queue.u_open_list_queue.o_ready_deq
+TOP.tb_open_list_queue.u_open_list_queue.o_ready_enq
+TOP.tb_open_list_queue.u_open_list_queue.o_ready_rep
+@24
+TOP.tb_open_list_queue.u_open_list_queue.inQueue[0][31:0]
+TOP.tb_open_list_queue.u_open_list_queue.inQueue[1][31:0]
+TOP.tb_open_list_queue.u_open_list_queue.inQueue[2][31:0]
+TOP.tb_open_list_queue.u_open_list_queue.inQueue[3][31:0]
+TOP.tb_open_list_queue.u_open_list_queue.inQueue[4][31:0]
+TOP.tb_open_list_queue.u_open_list_queue.inQueue[5][31:0]
+TOP.tb_open_list_queue.u_open_list_queue.inQueue[6][31:0]
+TOP.tb_open_list_queue.u_open_list_queue.inQueue[7][31:0]
+TOP.tb_open_list_queue.u_open_list_queue.outQueue[0][31:0]
+TOP.tb_open_list_queue.u_open_list_queue.outQueue[1][31:0]
+TOP.tb_open_list_queue.u_open_list_queue.outQueue[2][31:0]
+TOP.tb_open_list_queue.u_open_list_queue.outQueue[3][31:0]
+TOP.tb_open_list_queue.u_open_list_queue.outQueue[4][31:0]
+TOP.tb_open_list_queue.u_open_list_queue.outQueue[5][31:0]
+TOP.tb_open_list_queue.u_open_list_queue.outQueue[6][31:0]
+TOP.tb_open_list_queue.u_open_list_queue.outQueue[7][31:0]
+[pattern_trace] 1
+[pattern_trace] 0
