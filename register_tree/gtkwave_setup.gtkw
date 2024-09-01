@@ -1,0 +1,113 @@
+[*]
+[*] GTKWave Analyzer v3.3.120 (w)1999-2024 BSI
+[*] Sun Sep  1 20:09:17 2024
+[*]
+[dumpfile] "/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree_tb.vcd"
+[dumpfile_mtime] "Sun Sep  1 20:09:08 2024"
+[dumpfile_size] 34518
+[savefile] "/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/gtkwave_setup.gtkw"
+[timestart] 0
+[size] 2540 1336
+[pos] -1 -1
+*-3.672114 26 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.register_tree_tb.
+[treeopen] TOP.register_tree_tb.dut.
+[treeopen] TOP.register_tree_tb.dut.comparetor_units[0].
+[treeopen] TOP.register_tree_tb.dut.comparetor_units[1].
+[treeopen] TOP.register_tree_tb.dut.comparetor_units[2].
+[treeopen] TOP.register_tree_tb.dut.comparetor_units[3].
+[treeopen] TOP.register_tree_tb.dut.comparetor_units[4].
+[treeopen] TOP.register_tree_tb.dut.comparetor_units[5].
+[treeopen] TOP.register_tree_tb.dut.comparetor_units[6].
+[sst_width] 329
+[signals_width] 365
+[sst_expanded] 1
+[sst_vpaned_height] 492
+@28
+TOP.register_tree_tb.clk
+TOP.register_tree_tb.reset
+TOP.register_tree_tb.replace
+[color] 1
+TOP.register_tree_tb.dut.current_state[1:0]
+@24
+[color] 2
+TOP.register_tree_tb.new_item[31:0]
+[color] 4
+TOP.register_tree_tb.top_item[31:0]
+[color] 3
+TOP.register_tree_tb.dut.tree[0][31:0]
+[color] 3
+TOP.register_tree_tb.dut.tree[1][31:0]
+[color] 3
+TOP.register_tree_tb.dut.tree[2][31:0]
+[color] 3
+TOP.register_tree_tb.dut.tree[3][31:0]
+[color] 3
+TOP.register_tree_tb.dut.tree[4][31:0]
+[color] 3
+TOP.register_tree_tb.dut.tree[5][31:0]
+[color] 3
+TOP.register_tree_tb.dut.tree[6][31:0]
+[color] 3
+TOP.register_tree_tb.dut.tree[7][31:0]
+[color] 3
+TOP.register_tree_tb.dut.tree[8][31:0]
+[color] 3
+TOP.register_tree_tb.dut.tree[9][31:0]
+[color] 3
+TOP.register_tree_tb.dut.tree[10][31:0]
+[color] 3
+TOP.register_tree_tb.dut.tree[11][31:0]
+[color] 3
+TOP.register_tree_tb.dut.tree[12][31:0]
+[color] 3
+TOP.register_tree_tb.dut.tree[13][31:0]
+[color] 3
+TOP.register_tree_tb.dut.tree[14][31:0]
+[color] 5
+TOP.register_tree_tb.dut.new_parent[0][31:0]
+[color] 5
+TOP.register_tree_tb.dut.new_parent[1][31:0]
+[color] 5
+TOP.register_tree_tb.dut.new_parent[2][31:0]
+[color] 5
+TOP.register_tree_tb.dut.new_parent[3][31:0]
+[color] 5
+TOP.register_tree_tb.dut.new_parent[4][31:0]
+[color] 5
+TOP.register_tree_tb.dut.new_parent[5][31:0]
+[color] 5
+TOP.register_tree_tb.dut.new_parent[6][31:0]
+[color] 6
+TOP.register_tree_tb.dut.new_left_child[0][31:0]
+[color] 6
+TOP.register_tree_tb.dut.new_left_child[1][31:0]
+[color] 6
+TOP.register_tree_tb.dut.new_left_child[2][31:0]
+[color] 6
+TOP.register_tree_tb.dut.new_left_child[3][31:0]
+[color] 6
+TOP.register_tree_tb.dut.new_left_child[4][31:0]
+[color] 6
+TOP.register_tree_tb.dut.new_left_child[5][31:0]
+[color] 6
+TOP.register_tree_tb.dut.new_left_child[6][31:0]
+[color] 7
+TOP.register_tree_tb.dut.new_right_child[0][31:0]
+[color] 7
+TOP.register_tree_tb.dut.new_right_child[1][31:0]
+[color] 7
+TOP.register_tree_tb.dut.new_right_child[2][31:0]
+[color] 7
+TOP.register_tree_tb.dut.new_right_child[3][31:0]
+[color] 7
+TOP.register_tree_tb.dut.new_right_child[4][31:0]
+[color] 7
+TOP.register_tree_tb.dut.new_right_child[5][31:0]
+[color] 7
+TOP.register_tree_tb.dut.new_right_child[6][31:0]
+TOP.register_tree_tb.dut.comparetor_units[0].comparetor_inst.parent[31:0]
+TOP.register_tree_tb.dut.comparetor_units[0].comparetor_inst.new_parent[31:0]
+[pattern_trace] 1
+[pattern_trace] 0
