@@ -84,6 +84,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental /home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/vivado_register_tree/vivado_register_tree.srcs/utils_1/imports/synth_1/register_tree.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

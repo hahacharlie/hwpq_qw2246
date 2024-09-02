@@ -7,48 +7,36 @@
   **** SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
   **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
   **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-  **** Start of session at: Sun Sep  1 19:21:05 2024
+  **** Start of session at: Mon Sep  2 01:13:20 2024
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source register_tree.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental /home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/vivado_register_tree/vivado_register_tree.srcs/utils_1/imports/synth_1/register_tree.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/vivado_register_tree/vivado_register_tree.srcs/utils_1/imports/synth_1/register_tree.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top register_tree -part xcu250-figd2104-2L-e
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xcu250'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcu250'
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 333364
+INFO: [Synth 8-7075] Helper process launched with PID 1590899
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1800.969 ; gain = 383.777 ; free physical = 6808 ; free virtual = 17538
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1803.941 ; gain = 390.691 ; free physical = 13764 ; free virtual = 22949
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'register_tree' [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'comparator' [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/comparator.sv:1]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'comparator' (0#1) [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/comparator.sv:1]
-INFO: [Synth 8-226] default block is never used [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:51]
 INFO: [Synth 8-6155] done synthesizing module 'register_tree' (0#1) [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:1]
-WARNING: [Synth 8-7137] Register tree_reg[0] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
-WARNING: [Synth 8-7137] Register tree_reg[1] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
-WARNING: [Synth 8-7137] Register tree_reg[2] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
-WARNING: [Synth 8-7137] Register tree_reg[3] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
-WARNING: [Synth 8-7137] Register tree_reg[4] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
-WARNING: [Synth 8-7137] Register tree_reg[5] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
-WARNING: [Synth 8-7137] Register tree_reg[6] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
-WARNING: [Synth 8-7137] Register tree_reg[7] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
-WARNING: [Synth 8-7137] Register tree_reg[8] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
-WARNING: [Synth 8-7137] Register tree_reg[9] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
-WARNING: [Synth 8-7137] Register tree_reg[10] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
-WARNING: [Synth 8-7137] Register tree_reg[11] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
-WARNING: [Synth 8-7137] Register tree_reg[12] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
-WARNING: [Synth 8-7137] Register tree_reg[13] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
-WARNING: [Synth 8-7137] Register tree_reg[14] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
-WARNING: [Synth 8-7137] Register top_item_reg in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:65]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1878.938 ; gain = 461.746 ; free physical = 6712 ; free virtual = 17445
+Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1880.910 ; gain = 467.660 ; free physical = 13678 ; free virtual = 22863
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1893.781 ; gain = 476.590 ; free physical = 6704 ; free virtual = 17437
+Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1895.754 ; gain = 482.504 ; free physical = 13672 ; free virtual = 22857
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -57,19 +45,10 @@ Loading part: xcu250-figd2104-2L-e
 INFO: [Synth 8-6742] Reading net delay rules and data
 INFO: [Device 21-403] Loading part xcu250-figd2104-2L-e
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1910.691 ; gain = 493.500 ; free physical = 6696 ; free virtual = 17429
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1912.664 ; gain = 499.414 ; free physical = 13668 ; free virtual = 22853
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'register_tree'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                    LOAD |                               00 |                               00
- REMOVE_AND_COMPARE_EVEN |                               01 |                               10
-             COMPARE_ODD |                               10 |                               11
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'register_tree'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1910.691 ; gain = 493.500 ; free physical = 6680 ; free virtual = 17420
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1912.664 ; gain = 499.414 ; free physical = 13660 ; free virtual = 22846
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
@@ -78,11 +57,9 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Registers : 
 	               32 Bit    Registers := 16    
+	                1 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 50    
-	   3 Input   32 Bit        Muxes := 15    
-	   3 Input    2 Bit        Muxes := 1     
-	   3 Input    1 Bit        Muxes := 3     
+	   2 Input   32 Bit        Muxes := 56    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -101,20 +78,20 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2888.184 ; gain = 1470.992 ; free physical = 5485 ; free virtual = 16324
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2892.000 ; gain = 1478.750 ; free physical = 12556 ; free virtual = 21745
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2891.152 ; gain = 1473.961 ; free physical = 5481 ; free virtual = 16320
+Finished Timing Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2894.969 ; gain = 1481.719 ; free physical = 12556 ; free virtual = 21745
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2899.160 ; gain = 1481.969 ; free physical = 5477 ; free virtual = 16316
+Finished Technology Mapping : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2902.977 ; gain = 1489.727 ; free physical = 12555 ; free virtual = 21744
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -132,37 +109,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2899.160 ; gain = 1481.969 ; free physical = 5492 ; free virtual = 16331
+Finished IO Insertion : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2902.977 ; gain = 1489.727 ; free physical = 12560 ; free virtual = 21749
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2899.160 ; gain = 1481.969 ; free physical = 5492 ; free virtual = 16331
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2902.977 ; gain = 1489.727 ; free physical = 12560 ; free virtual = 21749
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2899.160 ; gain = 1481.969 ; free physical = 5492 ; free virtual = 16331
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2902.977 ; gain = 1489.727 ; free physical = 12560 ; free virtual = 21749
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2899.160 ; gain = 1481.969 ; free physical = 5492 ; free virtual = 16331
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2902.977 ; gain = 1489.727 ; free physical = 12560 ; free virtual = 21749
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2899.160 ; gain = 1481.969 ; free physical = 5492 ; free virtual = 16331
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2902.977 ; gain = 1489.727 ; free physical = 12560 ; free virtual = 21749
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2899.160 ; gain = 1481.969 ; free physical = 5492 ; free virtual = 16331
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2902.977 ; gain = 1489.727 ; free physical = 12560 ; free virtual = 21749
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -180,51 +157,49 @@ Report Cell Usage:
 +------+-------+------+
 |1     |BUFG   |     1|
 |2     |CARRY8 |    42|
-|3     |LUT1   |     4|
-|4     |LUT2   |     2|
-|5     |LUT3   |    13|
-|6     |LUT4   |   885|
-|7     |LUT5   |   436|
-|8     |LUT6   |   236|
-|9     |FDCE   |     5|
-|10    |FDRE   |   512|
-|11    |IBUF   |    35|
-|12    |OBUF   |    32|
+|3     |LUT1   |     1|
+|4     |LUT2   |     1|
+|5     |LUT3   |    32|
+|6     |LUT4   |   928|
+|7     |LUT6   |   416|
+|8     |FDRE   |   513|
+|9     |IBUF   |    34|
+|10    |OBUF   |    32|
 +------+-------+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |  2203|
+|1     |top      |       |  2000|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2899.160 ; gain = 1481.969 ; free physical = 5492 ; free virtual = 16331
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2902.977 ; gain = 1489.727 ; free physical = 12560 ; free virtual = 21749
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 17 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2899.160 ; gain = 1481.969 ; free physical = 5492 ; free virtual = 16331
-Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2899.168 ; gain = 1481.969 ; free physical = 5492 ; free virtual = 16331
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2902.977 ; gain = 1489.727 ; free physical = 12560 ; free virtual = 21749
+Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2902.984 ; gain = 1489.727 ; free physical = 12560 ; free virtual = 21749
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2914.098 ; gain = 0.000 ; free physical = 5741 ; free virtual = 16582
-INFO: [Netlist 29-17] Analyzing 78 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2917.914 ; gain = 0.000 ; free physical = 12850 ; free virtual = 22039
+INFO: [Netlist 29-17] Analyzing 77 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 WARNING: [Netlist 29-101] Netlist 'register_tree' is not ideal for floorplanning, since the cellview 'register_tree' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3067.805 ; gain = 0.000 ; free physical = 5709 ; free virtual = 16570
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3070.621 ; gain = 0.000 ; free physical = 12765 ; free virtual = 21954
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 36 instances were transformed.
+  A total of 35 instances were transformed.
   BUFG => BUFGCE: 1 instance 
-  IBUF => IBUF (IBUFCTRL, INBUF): 35 instances
+  IBUF => IBUF (IBUFCTRL, INBUF): 34 instances
 
-Synth Design complete | Checksum: 19949162
+Synth Design complete | Checksum: f017a51a
 INFO: [Common 17-83] Releasing license: Synthesis
-20 Infos, 18 Warnings, 0 Critical Warnings and 0 Errors encountered.
+21 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 3067.805 ; gain = 1650.613 ; free physical = 5708 ; free virtual = 16570
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2491.644; main = 2491.644; forked = 0.000
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3067.809; main = 3067.809; forked = 0.000
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3091.816 ; gain = 0.000 ; free physical = 5708 ; free virtual = 16570
+synth_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 3070.621 ; gain = 1657.371 ; free physical = 12765 ; free virtual = 21954
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2316.650; main = 2316.650; forked = 0.000
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3070.625; main = 3070.625; forked = 0.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3094.633 ; gain = 0.000 ; free physical = 12765 ; free virtual = 21954
 INFO: [Common 17-1381] The checkpoint '/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/vivado_register_tree/vivado_register_tree.runs/synth_1/register_tree.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file register_tree_utilization_synth.rpt -pb register_tree_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Sep  1 19:21:20 2024...
+INFO: [Common 17-206] Exiting Vivado at Mon Sep  2 01:13:36 2024...

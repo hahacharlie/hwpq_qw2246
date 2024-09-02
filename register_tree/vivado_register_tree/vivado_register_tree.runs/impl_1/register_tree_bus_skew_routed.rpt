@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version      : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date              : Sun Sep  1 19:23:26 2024
+| Date              : Mon Sep  2 01:16:59 2024
 | Host              : archlinux running 64-bit Arch Linux
 | Command           : report_bus_skew -warn_on_violation -file register_tree_bus_skew_routed.rpt -pb register_tree_bus_skew_routed.pb -rpx register_tree_bus_skew_routed.rpx
 | Design            : register_tree

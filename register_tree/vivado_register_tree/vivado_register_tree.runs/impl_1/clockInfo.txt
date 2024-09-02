@@ -1,6 +1,6 @@
 -------------------------------------
 | Tool Version : Vivado v.2024.1
-| Date         : Sun Sep  1 19:21:54 2024
+| Date         : Mon Sep  2 01:15:27 2024
 | Host         : archlinux
 | Design       : design_1
 | Device       : xcu250-figd2104-2L-E-
