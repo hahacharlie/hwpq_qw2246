@@ -39,10 +39,10 @@ module register_tree_tb;
         reset = 0;
 
         // Wait for the initial entries to be sorted
-        repeat (4) @(posedge clk);
+        repeat (TREE_DEPTH) @(posedge clk);
 
         // Test case 1: Insert items in ascending order
-        for (int i = 1; i <= 16; i++) begin
+        for (int i = 1; i <= (1 << TREE_DEPTH); i++) begin
             @(posedge clk);
             replace = 1;
             new_item = i;
@@ -52,7 +52,7 @@ module register_tree_tb;
         end
 
         // Test case 2: Insert items in descending order
-        for (int i = 16; i >= 1; i--) begin
+        for (int i = (1 << TREE_DEPTH); i >= 1; i--) begin
             @(posedge clk);
             replace = 1;
             new_item = i;

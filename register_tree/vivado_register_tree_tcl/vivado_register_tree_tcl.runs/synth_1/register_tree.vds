@@ -1,0 +1,833 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Sun Sep  1 22:22:06 2024
+# Process ID: 904506
+# Current directory: /home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.runs/synth_1
+# Command line: vivado -log register_tree.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source register_tree.tcl
+# Log file: /home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.runs/synth_1/register_tree.vds
+# Journal file: /home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.runs/synth_1/vivado.jou
+# Running On        :archlinux
+# Platform          :Arch
+# Operating System  :Arch Linux
+# Processor Detail  :12th Gen Intel(R) Core(TM) i9-12900KF
+# CPU Frequency     :4872.283 MHz
+# CPU Physical cores:16
+# CPU Logical cores :24
+# Host memory       :33479 MB
+# Swap memory       :4294 MB
+# Total Virtual     :37774 MB
+# Available Virtual :22781 MB
+#-----------------------------------------------------------
+source register_tree.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental /home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.srcs/utils_1/imports/synth_1/register_tree.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.srcs/utils_1/imports/synth_1/register_tree.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top register_tree -part xcu250-figd2104-2L-e -flatten_hierarchy none
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcu250'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcu250'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 904635
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1802.969 ; gain = 385.777 ; free physical = 14337 ; free virtual = 20653
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'register_tree' [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'comparator' [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/comparator.sv:1]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'comparator' (0#1) [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/comparator.sv:1]
+INFO: [Synth 8-226] default block is never used [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:51]
+INFO: [Synth 8-6155] done synthesizing module 'register_tree' (0#1) [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:1]
+WARNING: [Synth 8-7137] Register tree_reg[0] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[1] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[2] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[3] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[4] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[5] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[6] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[7] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[8] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[9] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[10] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[11] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[12] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[13] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[14] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[15] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[16] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[17] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[18] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[19] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[20] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[21] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[22] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[23] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[24] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[25] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[26] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[27] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[28] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[29] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[30] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[31] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[32] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[33] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[34] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[35] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[36] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[37] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[38] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[39] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[40] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[41] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[42] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[43] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[44] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[45] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[46] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[47] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[48] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[49] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[50] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[51] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[52] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[53] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[54] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[55] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[56] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[57] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[58] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[59] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[60] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[61] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[62] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[63] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[64] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[65] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[66] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[67] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[68] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[69] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[70] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[71] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[72] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[73] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[74] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[75] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[76] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[77] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[78] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[79] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[80] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[81] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[82] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[83] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[84] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[85] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[86] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[87] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[88] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[89] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[90] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[91] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[92] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[93] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[94] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[95] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[96] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[97] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[98] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+WARNING: [Synth 8-7137] Register tree_reg[99] in module register_tree has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/register_tree.sv:36]
+INFO: [Common 17-14] Message 'Synth 8-7137' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2012.938 ; gain = 595.746 ; free physical = 14098 ; free virtual = 20421
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2021.844 ; gain = 604.652 ; free physical = 14114 ; free virtual = 20438
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcu250-figd2104-2L-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+INFO: [Device 21-403] Loading part xcu250-figd2104-2L-e
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2029.848 ; gain = 612.656 ; free physical = 14114 ; free virtual = 20438
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Preparing Guide Design
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-6702] IncrSynth : Design change found in an area of the design that prevents previous synthesis information being used, Reverting to default synthesis
+---------------------------------------------------------------------------------
+Finished Doing Graph Differ : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2139.238 ; gain = 722.047 ; free physical = 14029 ; free virtual = 20356
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Preparing Guide Design : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2139.238 ; gain = 722.047 ; free physical = 14029 ; free virtual = 20356
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'register_tree'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    LOAD |                               00 |                               00
+ REMOVE_AND_COMPARE_EVEN |                               01 |                               10
+             COMPARE_ODD |                               10 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'register_tree'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:08 . Memory (MB): peak = 3111.410 ; gain = 1694.219 ; free physical = 12968 ; free virtual = 19296
+---------------------------------------------------------------------------------
+
+
+Incremental Synthesis Report Summary:
+
+1. Incremental synthesis run: no
+
+   Reason for not running incremental synthesis : Design change found in an area of the design that prevents previous synthesis information being used
+
+
+INFO: [Synth 8-7130] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1024  
++---Muxes : 
+	   3 Input   32 Bit        Muxes := 1023  
+	   2 Input   32 Bit        Muxes := 3578  
+	   3 Input    2 Bit        Muxes := 1     
+	   3 Input    1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 12288 (col length:96)
+BRAMs: 5376 (col length: RAMB18 384 RAMB36 192)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:36 . Memory (MB): peak = 3243.820 ; gain = 1826.629 ; free physical = 4175 ; free virtual = 10594
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:38 . Memory (MB): peak = 3268.664 ; gain = 1851.473 ; free physical = 4073 ; free virtual = 10584
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:42 . Memory (MB): peak = 3336.754 ; gain = 1919.562 ; free physical = 3959 ; free virtual = 10479
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:48 . Memory (MB): peak = 3360.066 ; gain = 1942.875 ; free physical = 3908 ; free virtual = 10491
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:48 . Memory (MB): peak = 3360.066 ; gain = 1942.875 ; free physical = 3909 ; free virtual = 10492
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:35 ; elapsed = 00:00:49 . Memory (MB): peak = 3360.066 ; gain = 1942.875 ; free physical = 3905 ; free virtual = 10488
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY8 |  3066|
+|3     |LUT1   |     1|
+|4     |LUT2   |     2|
+|5     |LUT3   | 16385|
+|6     |LUT4   | 98081|
+|7     |LUT5   |    32|
+|8     |LUT6   | 16352|
+|9     |FDCE   |     2|
+|10    |FDRE   | 32768|
+|11    |IBUF   |    35|
+|12    |OBUF   |    32|
++------+-------+------+
+
+Report Instance Areas: 
++------+------------------------------------------+----------------+-------+
+|      |Instance                                  |Module          |Cells  |
++------+------------------------------------------+----------------+-------+
+|1     |top                                       |                | 166757|
+|2     |  \comparator_units[479].comparator_inst  |comparator__1   |    198|
+|3     |  \comparator_units[110].comparator_inst  |comparator__2   |    198|
+|4     |  \comparator_units[109].comparator_inst  |comparator__3   |    198|
+|5     |  \comparator_units[480].comparator_inst  |comparator__4   |    198|
+|6     |  \comparator_units[481].comparator_inst  |comparator__5   |    198|
+|7     |  \comparator_units[216].comparator_inst  |comparator__6   |    198|
+|8     |  \comparator_units[217].comparator_inst  |comparator__7   |    198|
+|9     |  \comparator_units[218].comparator_inst  |comparator__8   |    198|
+|10    |  \comparator_units[433].comparator_inst  |comparator__9   |    198|
+|11    |  \comparator_units[482].comparator_inst  |comparator__10  |    198|
+|12    |  \comparator_units[434].comparator_inst  |comparator__11  |    198|
+|13    |  \comparator_units[483].comparator_inst  |comparator__12  |    198|
+|14    |  \comparator_units[241].comparator_inst  |comparator__13  |    198|
+|15    |  \comparator_units[221].comparator_inst  |comparator__14  |    198|
+|16    |  \comparator_units[222].comparator_inst  |comparator__15  |    198|
+|17    |  \comparator_units[435].comparator_inst  |comparator__16  |    198|
+|18    |  \comparator_units[54].comparator_inst   |comparator__17  |    198|
+|19    |  \comparator_units[436].comparator_inst  |comparator__18  |    198|
+|20    |  \comparator_units[437].comparator_inst  |comparator__19  |    198|
+|21    |  \comparator_units[438].comparator_inst  |comparator__20  |    198|
+|22    |  \comparator_units[443].comparator_inst  |comparator__21  |    198|
+|23    |  \comparator_units[444].comparator_inst  |comparator__22  |    198|
+|24    |  \comparator_units[445].comparator_inst  |comparator__23  |    198|
+|25    |  \comparator_units[240].comparator_inst  |comparator__24  |    198|
+|26    |  \comparator_units[446].comparator_inst  |comparator__25  |    198|
+|27    |  \comparator_units[239].comparator_inst  |comparator__26  |    198|
+|28    |  \comparator_units[432].comparator_inst  |comparator__27  |    198|
+|29    |  \comparator_units[431].comparator_inst  |comparator__28  |    198|
+|30    |  \comparator_units[60].comparator_inst   |comparator__29  |    198|
+|31    |  \comparator_units[59].comparator_inst   |comparator__30  |    198|
+|32    |  \comparator_units[53].comparator_inst   |comparator__31  |    198|
+|33    |  \comparator_units[29].comparator_inst   |comparator__32  |    198|
+|34    |  \comparator_units[26].comparator_inst   |comparator__33  |    198|
+|35    |  \comparator_units[215].comparator_inst  |comparator__34  |    198|
+|36    |  \comparator_units[107].comparator_inst  |comparator__35  |    198|
+|37    |  \comparator_units[108].comparator_inst  |comparator__36  |    198|
+|38    |  \comparator_units[14].comparator_inst   |comparator__37  |    198|
+|39    |  \comparator_units[12].comparator_inst   |comparator__38  |    198|
+|40    |  \comparator_units[6].comparator_inst    |comparator__39  |    198|
+|41    |  \comparator_units[5].comparator_inst    |comparator__40  |    198|
+|42    |  \comparator_units[2].comparator_inst    |comparator__41  |    198|
+|43    |  \comparator_units[119].comparator_inst  |comparator__42  |    198|
+|44    |  \comparator_units[120].comparator_inst  |comparator__43  |    198|
+|45    |  \comparator_units[0].comparator_inst    |comparator__44  |    198|
+|46    |  \comparator_units[122].comparator_inst  |comparator__45  |    198|
+|47    |  \comparator_units[494].comparator_inst  |comparator__46  |    198|
+|48    |  \comparator_units[493].comparator_inst  |comparator__47  |    198|
+|49    |  \comparator_units[492].comparator_inst  |comparator__48  |    198|
+|50    |  \comparator_units[491].comparator_inst  |comparator__49  |    198|
+|51    |  \comparator_units[486].comparator_inst  |comparator__50  |    198|
+|52    |  \comparator_units[485].comparator_inst  |comparator__51  |    198|
+|53    |  \comparator_units[484].comparator_inst  |comparator__52  |    198|
+|54    |  \comparator_units[242].comparator_inst  |comparator__53  |    198|
+|55    |  \comparator_units[246].comparator_inst  |comparator__54  |    198|
+|56    |  \comparator_units[245].comparator_inst  |comparator__55  |    198|
+|57    |  \comparator_units[423].comparator_inst  |comparator__56  |    198|
+|58    |  \comparator_units[424].comparator_inst  |comparator__57  |    198|
+|59    |  \comparator_units[425].comparator_inst  |comparator__58  |    198|
+|60    |  \comparator_units[426].comparator_inst  |comparator__59  |    198|
+|61    |  \comparator_units[427].comparator_inst  |comparator__60  |    198|
+|62    |  \comparator_units[428].comparator_inst  |comparator__61  |    198|
+|63    |  \comparator_units[429].comparator_inst  |comparator__62  |    198|
+|64    |  \comparator_units[430].comparator_inst  |comparator__63  |    198|
+|65    |  \comparator_units[106].comparator_inst  |comparator__64  |    198|
+|66    |  \comparator_units[105].comparator_inst  |comparator__65  |    198|
+|67    |  \comparator_units[52].comparator_inst   |comparator__66  |    198|
+|68    |  \comparator_units[25].comparator_inst   |comparator__67  |    198|
+|69    |  \comparator_units[214].comparator_inst  |comparator__68  |    198|
+|70    |  \comparator_units[213].comparator_inst  |comparator__69  |    198|
+|71    |  \comparator_units[211].comparator_inst  |comparator__70  |    198|
+|72    |  \comparator_units[212].comparator_inst  |comparator__71  |    198|
+|73    |  \comparator_units[330].comparator_inst  |comparator__72  |    198|
+|74    |  \comparator_units[174].comparator_inst  |comparator__73  |    198|
+|75    |  \comparator_units[173].comparator_inst  |comparator__74  |    198|
+|76    |  \comparator_units[172].comparator_inst  |comparator__75  |    198|
+|77    |  \comparator_units[171].comparator_inst  |comparator__76  |    198|
+|78    |  \comparator_units[168].comparator_inst  |comparator__77  |    198|
+|79    |  \comparator_units[167].comparator_inst  |comparator__78  |    198|
+|80    |  \comparator_units[166].comparator_inst  |comparator__79  |    198|
+|81    |  \comparator_units[165].comparator_inst  |comparator__80  |    198|
+|82    |  \comparator_units[83].comparator_inst   |comparator__81  |    198|
+|83    |  \comparator_units[331].comparator_inst  |comparator__82  |    198|
+|84    |  \comparator_units[332].comparator_inst  |comparator__83  |    198|
+|85    |  \comparator_units[333].comparator_inst  |comparator__84  |    198|
+|86    |  \comparator_units[334].comparator_inst  |comparator__85  |    198|
+|87    |  \comparator_units[335].comparator_inst  |comparator__86  |    198|
+|88    |  \comparator_units[336].comparator_inst  |comparator__87  |    198|
+|89    |  \comparator_units[350].comparator_inst  |comparator__88  |    198|
+|90    |  \comparator_units[349].comparator_inst  |comparator__89  |    198|
+|91    |  \comparator_units[348].comparator_inst  |comparator__90  |    198|
+|92    |  \comparator_units[347].comparator_inst  |comparator__91  |    198|
+|93    |  \comparator_units[346].comparator_inst  |comparator__92  |    198|
+|94    |  \comparator_units[345].comparator_inst  |comparator__93  |    198|
+|95    |  \comparator_units[337].comparator_inst  |comparator__94  |    198|
+|96    |  \comparator_units[338].comparator_inst  |comparator__95  |    198|
+|97    |  \comparator_units[344].comparator_inst  |comparator__96  |    198|
+|98    |  \comparator_units[343].comparator_inst  |comparator__97  |    198|
+|99    |  \comparator_units[86].comparator_inst   |comparator__98  |    198|
+|100   |  \comparator_units[85].comparator_inst   |comparator__99  |    198|
+|101   |  \comparator_units[82].comparator_inst   |comparator__100 |    198|
+|102   |  \comparator_units[81].comparator_inst   |comparator__101 |    198|
+|103   |  \comparator_units[164].comparator_inst  |comparator__102 |    198|
+|104   |  \comparator_units[42].comparator_inst   |comparator__103 |    198|
+|105   |  \comparator_units[41].comparator_inst   |comparator__104 |    198|
+|106   |  \comparator_units[40].comparator_inst   |comparator__105 |    198|
+|107   |  \comparator_units[20].comparator_inst   |comparator__106 |    198|
+|108   |  \comparator_units[19].comparator_inst   |comparator__107 |    198|
+|109   |  \comparator_units[9].comparator_inst    |comparator__108 |    198|
+|110   |  \comparator_units[4].comparator_inst    |comparator__109 |    198|
+|111   |  \comparator_units[1].comparator_inst    |comparator__110 |    198|
+|112   |  \comparator_units[329].comparator_inst  |comparator__111 |    198|
+|113   |  \comparator_units[87].comparator_inst   |comparator__112 |    198|
+|114   |  \comparator_units[88].comparator_inst   |comparator__113 |    198|
+|115   |  \comparator_units[351].comparator_inst  |comparator__114 |    198|
+|116   |  \comparator_units[352].comparator_inst  |comparator__115 |    198|
+|117   |  \comparator_units[353].comparator_inst  |comparator__116 |    198|
+|118   |  \comparator_units[354].comparator_inst  |comparator__117 |    198|
+|119   |  \comparator_units[355].comparator_inst  |comparator__118 |    198|
+|120   |  \comparator_units[356].comparator_inst  |comparator__119 |    198|
+|121   |  \comparator_units[357].comparator_inst  |comparator__120 |    198|
+|122   |  \comparator_units[358].comparator_inst  |comparator__121 |    198|
+|123   |  \comparator_units[175].comparator_inst  |comparator__122 |    198|
+|124   |  \comparator_units[176].comparator_inst  |comparator__123 |    198|
+|125   |  \comparator_units[367].comparator_inst  |comparator__124 |    198|
+|126   |  \comparator_units[368].comparator_inst  |comparator__125 |    198|
+|127   |  \comparator_units[371].comparator_inst  |comparator__126 |    198|
+|128   |  \comparator_units[372].comparator_inst  |comparator__127 |    198|
+|129   |  \comparator_units[373].comparator_inst  |comparator__128 |    198|
+|130   |  \comparator_units[374].comparator_inst  |comparator__129 |    198|
+|131   |  \comparator_units[375].comparator_inst  |comparator__130 |    198|
+|132   |  \comparator_units[376].comparator_inst  |comparator__131 |    198|
+|133   |  \comparator_units[377].comparator_inst  |comparator__132 |    198|
+|134   |  \comparator_units[378].comparator_inst  |comparator__133 |    198|
+|135   |  \comparator_units[379].comparator_inst  |comparator__134 |    198|
+|136   |  \comparator_units[380].comparator_inst  |comparator__135 |    198|
+|137   |  \comparator_units[381].comparator_inst  |comparator__136 |    198|
+|138   |  \comparator_units[382].comparator_inst  |comparator__137 |    198|
+|139   |  \comparator_units[177].comparator_inst  |comparator__138 |    198|
+|140   |  \comparator_units[178].comparator_inst  |comparator__139 |    198|
+|141   |  \comparator_units[183].comparator_inst  |comparator__140 |    198|
+|142   |  \comparator_units[185].comparator_inst  |comparator__141 |    198|
+|143   |  \comparator_units[186].comparator_inst  |comparator__142 |    198|
+|144   |  \comparator_units[187].comparator_inst  |comparator__143 |    198|
+|145   |  \comparator_units[188].comparator_inst  |comparator__144 |    198|
+|146   |  \comparator_units[189].comparator_inst  |comparator__145 |    198|
+|147   |  \comparator_units[190].comparator_inst  |comparator__146 |    198|
+|148   |  \comparator_units[94].comparator_inst   |comparator__147 |    198|
+|149   |  \comparator_units[93].comparator_inst   |comparator__148 |    198|
+|150   |  \comparator_units[92].comparator_inst   |comparator__149 |    198|
+|151   |  \comparator_units[91].comparator_inst   |comparator__150 |    198|
+|152   |  \comparator_units[46].comparator_inst   |comparator__151 |    198|
+|153   |  \comparator_units[45].comparator_inst   |comparator__152 |    198|
+|154   |  \comparator_units[43].comparator_inst   |comparator__153 |    198|
+|155   |  \comparator_units[22].comparator_inst   |comparator__154 |    198|
+|156   |  \comparator_units[21].comparator_inst   |comparator__155 |    198|
+|157   |  \comparator_units[10].comparator_inst   |comparator__156 |    198|
+|158   |  \comparator_units[464].comparator_inst  |comparator__157 |    198|
+|159   |  \comparator_units[465].comparator_inst  |comparator__158 |    198|
+|160   |  \comparator_units[466].comparator_inst  |comparator__159 |    198|
+|161   |  \comparator_units[467].comparator_inst  |comparator__160 |    198|
+|162   |  \comparator_units[468].comparator_inst  |comparator__161 |    198|
+|163   |  \comparator_units[469].comparator_inst  |comparator__162 |    198|
+|164   |  \comparator_units[306].comparator_inst  |comparator__163 |    198|
+|165   |  \comparator_units[463].comparator_inst  |comparator__164 |    198|
+|166   |  \comparator_units[454].comparator_inst  |comparator__165 |    198|
+|167   |  \comparator_units[453].comparator_inst  |comparator__166 |    198|
+|168   |  \comparator_units[452].comparator_inst  |comparator__167 |    198|
+|169   |  \comparator_units[451].comparator_inst  |comparator__168 |    198|
+|170   |  \comparator_units[450].comparator_inst  |comparator__169 |    198|
+|171   |  \comparator_units[449].comparator_inst  |comparator__170 |    198|
+|172   |  \comparator_units[448].comparator_inst  |comparator__171 |    198|
+|173   |  \comparator_units[447].comparator_inst  |comparator__172 |    198|
+|174   |  \comparator_units[226].comparator_inst  |comparator__173 |    198|
+|175   |  \comparator_units[359].comparator_inst  |comparator__174 |    198|
+|176   |  \comparator_units[360].comparator_inst  |comparator__175 |    198|
+|177   |  \comparator_units[361].comparator_inst  |comparator__176 |    198|
+|178   |  \comparator_units[362].comparator_inst  |comparator__177 |    198|
+|179   |  \comparator_units[363].comparator_inst  |comparator__178 |    198|
+|180   |  \comparator_units[364].comparator_inst  |comparator__179 |    198|
+|181   |  \comparator_units[365].comparator_inst  |comparator__180 |    198|
+|182   |  \comparator_units[366].comparator_inst  |comparator__181 |    198|
+|183   |  \comparator_units[225].comparator_inst  |comparator__182 |    198|
+|184   |  \comparator_units[111].comparator_inst  |comparator__183 |    198|
+|185   |  \comparator_units[90].comparator_inst   |comparator__184 |    198|
+|186   |  \comparator_units[89].comparator_inst   |comparator__185 |    198|
+|187   |  \comparator_units[224].comparator_inst  |comparator__186 |    198|
+|188   |  \comparator_units[223].comparator_inst  |comparator__187 |    198|
+|189   |  \comparator_units[112].comparator_inst  |comparator__188 |    198|
+|190   |  \comparator_units[182].comparator_inst  |comparator__189 |    198|
+|191   |  \comparator_units[57].comparator_inst   |comparator__190 |    198|
+|192   |  \comparator_units[55].comparator_inst   |comparator__191 |    198|
+|193   |  \comparator_units[44].comparator_inst   |comparator__192 |    198|
+|194   |  \comparator_units[28].comparator_inst   |comparator__193 |    198|
+|195   |  \comparator_units[27].comparator_inst   |comparator__194 |    198|
+|196   |  \comparator_units[13].comparator_inst   |comparator__195 |    198|
+|197   |  \comparator_units[181].comparator_inst  |comparator__196 |    198|
+|198   |  \comparator_units[180].comparator_inst  |comparator__197 |    198|
+|199   |  \comparator_units[179].comparator_inst  |comparator__198 |    198|
+|200   |  \comparator_units[231].comparator_inst  |comparator__199 |    198|
+|201   |  \comparator_units[152].comparator_inst  |comparator__200 |    198|
+|202   |  \comparator_units[470].comparator_inst  |comparator__201 |    198|
+|203   |  \comparator_units[305].comparator_inst  |comparator__202 |    198|
+|204   |  \comparator_units[232].comparator_inst  |comparator__203 |    198|
+|205   |  \comparator_units[233].comparator_inst  |comparator__204 |    198|
+|206   |  \comparator_units[234].comparator_inst  |comparator__205 |    198|
+|207   |  \comparator_units[116].comparator_inst  |comparator__206 |    198|
+|208   |  \comparator_units[115].comparator_inst  |comparator__207 |    198|
+|209   |  \comparator_units[238].comparator_inst  |comparator__208 |    198|
+|210   |  \comparator_units[237].comparator_inst  |comparator__209 |    198|
+|211   |  \comparator_units[236].comparator_inst  |comparator__210 |    198|
+|212   |  \comparator_units[117].comparator_inst  |comparator__211 |    198|
+|213   |  \comparator_units[118].comparator_inst  |comparator__212 |    198|
+|214   |  \comparator_units[235].comparator_inst  |comparator__213 |    198|
+|215   |  \comparator_units[327].comparator_inst  |comparator__214 |    198|
+|216   |  \comparator_units[328].comparator_inst  |comparator__215 |    198|
+|217   |  \comparator_units[58].comparator_inst   |comparator__216 |    198|
+|218   |  \comparator_units[478].comparator_inst  |comparator__217 |    198|
+|219   |  \comparator_units[477].comparator_inst  |comparator__218 |    198|
+|220   |  \comparator_units[476].comparator_inst  |comparator__219 |    198|
+|221   |  \comparator_units[475].comparator_inst  |comparator__220 |    198|
+|222   |  \comparator_units[474].comparator_inst  |comparator__221 |    198|
+|223   |  \comparator_units[473].comparator_inst  |comparator__222 |    198|
+|224   |  \comparator_units[163].comparator_inst  |comparator__223 |    198|
+|225   |  \comparator_units[472].comparator_inst  |comparator__224 |    198|
+|226   |  \comparator_units[471].comparator_inst  |comparator__225 |    198|
+|227   |  \comparator_units[184].comparator_inst  |comparator__226 |    198|
+|228   |  \comparator_units[227].comparator_inst  |comparator__227 |    198|
+|229   |  \comparator_units[228].comparator_inst  |comparator__228 |    198|
+|230   |  \comparator_units[229].comparator_inst  |comparator__229 |    198|
+|231   |  \comparator_units[230].comparator_inst  |comparator__230 |    198|
+|232   |  \comparator_units[114].comparator_inst  |comparator__231 |    198|
+|233   |  \comparator_units[113].comparator_inst  |comparator__232 |    198|
+|234   |  \comparator_units[369].comparator_inst  |comparator__233 |    198|
+|235   |  \comparator_units[370].comparator_inst  |comparator__234 |    198|
+|236   |  \comparator_units[455].comparator_inst  |comparator__235 |    198|
+|237   |  \comparator_units[456].comparator_inst  |comparator__236 |    198|
+|238   |  \comparator_units[457].comparator_inst  |comparator__237 |    198|
+|239   |  \comparator_units[56].comparator_inst   |comparator__238 |    198|
+|240   |  \comparator_units[458].comparator_inst  |comparator__239 |    198|
+|241   |  \comparator_units[459].comparator_inst  |comparator__240 |    198|
+|242   |  \comparator_units[460].comparator_inst  |comparator__241 |    198|
+|243   |  \comparator_units[461].comparator_inst  |comparator__242 |    198|
+|244   |  \comparator_units[462].comparator_inst  |comparator__243 |    198|
+|245   |  \comparator_units[255].comparator_inst  |comparator__244 |    198|
+|246   |  \comparator_units[142].comparator_inst  |comparator__245 |    198|
+|247   |  \comparator_units[140].comparator_inst  |comparator__246 |    198|
+|248   |  \comparator_units[139].comparator_inst  |comparator__247 |    198|
+|249   |  \comparator_units[132].comparator_inst  |comparator__248 |    198|
+|250   |  \comparator_units[131].comparator_inst  |comparator__249 |    198|
+|251   |  \comparator_units[130].comparator_inst  |comparator__250 |    198|
+|252   |  \comparator_units[129].comparator_inst  |comparator__251 |    198|
+|253   |  \comparator_units[3].comparator_inst    |comparator__252 |    198|
+|254   |  \comparator_units[128].comparator_inst  |comparator__253 |    198|
+|255   |  \comparator_units[127].comparator_inst  |comparator__254 |    198|
+|256   |  \comparator_units[7].comparator_inst    |comparator__255 |    198|
+|257   |  \comparator_units[15].comparator_inst   |comparator__256 |    198|
+|258   |  \comparator_units[16].comparator_inst   |comparator__257 |    198|
+|259   |  \comparator_units[70].comparator_inst   |comparator__258 |    198|
+|260   |  \comparator_units[31].comparator_inst   |comparator__259 |    198|
+|261   |  \comparator_units[32].comparator_inst   |comparator__260 |    198|
+|262   |  \comparator_units[34].comparator_inst   |comparator__261 |    198|
+|263   |  \comparator_units[63].comparator_inst   |comparator__262 |    198|
+|264   |  \comparator_units[64].comparator_inst   |comparator__263 |    198|
+|265   |  \comparator_units[65].comparator_inst   |comparator__264 |    198|
+|266   |  \comparator_units[66].comparator_inst   |comparator__265 |    198|
+|267   |  \comparator_units[69].comparator_inst   |comparator__266 |    198|
+|268   |  \comparator_units[133].comparator_inst  |comparator__267 |    198|
+|269   |  \comparator_units[134].comparator_inst  |comparator__268 |    198|
+|270   |  \comparator_units[256].comparator_inst  |comparator__269 |    198|
+|271   |  \comparator_units[257].comparator_inst  |comparator__270 |    198|
+|272   |  \comparator_units[258].comparator_inst  |comparator__271 |    198|
+|273   |  \comparator_units[259].comparator_inst  |comparator__272 |    198|
+|274   |  \comparator_units[260].comparator_inst  |comparator__273 |    198|
+|275   |  \comparator_units[261].comparator_inst  |comparator__274 |    198|
+|276   |  \comparator_units[262].comparator_inst  |comparator__275 |    198|
+|277   |  \comparator_units[263].comparator_inst  |comparator__276 |    198|
+|278   |  \comparator_units[264].comparator_inst  |comparator__277 |    198|
+|279   |  \comparator_units[265].comparator_inst  |comparator__278 |    198|
+|280   |  \comparator_units[266].comparator_inst  |comparator__279 |    198|
+|281   |  \comparator_units[267].comparator_inst  |comparator__280 |    198|
+|282   |  \comparator_units[268].comparator_inst  |comparator__281 |    198|
+|283   |  \comparator_units[269].comparator_inst  |comparator__282 |    198|
+|284   |  \comparator_units[270].comparator_inst  |comparator__283 |    198|
+|285   |  \comparator_units[279].comparator_inst  |comparator__284 |    198|
+|286   |  \comparator_units[286].comparator_inst  |comparator__285 |    198|
+|287   |  \comparator_units[285].comparator_inst  |comparator__286 |    198|
+|288   |  \comparator_units[282].comparator_inst  |comparator__287 |    198|
+|289   |  \comparator_units[281].comparator_inst  |comparator__288 |    198|
+|290   |  \comparator_units[280].comparator_inst  |comparator__289 |    198|
+|291   |  \comparator_units[495].comparator_inst  |comparator__290 |    198|
+|292   |  \comparator_units[496].comparator_inst  |comparator__291 |    198|
+|293   |  \comparator_units[499].comparator_inst  |comparator__292 |    198|
+|294   |  \comparator_units[500].comparator_inst  |comparator__293 |    198|
+|295   |  \comparator_units[501].comparator_inst  |comparator__294 |    198|
+|296   |  \comparator_units[502].comparator_inst  |comparator__295 |    198|
+|297   |  \comparator_units[503].comparator_inst  |comparator__296 |    198|
+|298   |  \comparator_units[504].comparator_inst  |comparator__297 |    198|
+|299   |  \comparator_units[505].comparator_inst  |comparator__298 |    198|
+|300   |  \comparator_units[506].comparator_inst  |comparator__299 |    198|
+|301   |  \comparator_units[507].comparator_inst  |comparator__300 |    198|
+|302   |  \comparator_units[508].comparator_inst  |comparator__301 |    198|
+|303   |  \comparator_units[509].comparator_inst  |comparator__302 |    198|
+|304   |  \comparator_units[510].comparator_inst  |comparator__303 |    198|
+|305   |  \comparator_units[254].comparator_inst  |comparator__304 |    198|
+|306   |  \comparator_units[253].comparator_inst  |comparator__305 |    198|
+|307   |  \comparator_units[252].comparator_inst  |comparator__306 |    198|
+|308   |  \comparator_units[251].comparator_inst  |comparator__307 |    198|
+|309   |  \comparator_units[250].comparator_inst  |comparator__308 |    198|
+|310   |  \comparator_units[249].comparator_inst  |comparator__309 |    198|
+|311   |  \comparator_units[247].comparator_inst  |comparator__310 |    198|
+|312   |  \comparator_units[126].comparator_inst  |comparator__311 |    198|
+|313   |  \comparator_units[125].comparator_inst  |comparator__312 |    198|
+|314   |  \comparator_units[124].comparator_inst  |comparator__313 |    198|
+|315   |  \comparator_units[123].comparator_inst  |comparator__314 |    198|
+|316   |  \comparator_units[62].comparator_inst   |comparator__315 |    198|
+|317   |  \comparator_units[61].comparator_inst   |comparator__316 |    198|
+|318   |  \comparator_units[30].comparator_inst   |comparator__317 |    198|
+|319   |  \comparator_units[220].comparator_inst  |comparator__318 |    198|
+|320   |  \comparator_units[243].comparator_inst  |comparator__319 |    198|
+|321   |  \comparator_units[383].comparator_inst  |comparator__320 |    198|
+|322   |  \comparator_units[384].comparator_inst  |comparator__321 |    198|
+|323   |  \comparator_units[210].comparator_inst  |comparator__322 |    198|
+|324   |  \comparator_units[209].comparator_inst  |comparator__323 |    198|
+|325   |  \comparator_units[244].comparator_inst  |comparator__324 |    198|
+|326   |  \comparator_units[248].comparator_inst  |comparator__325 |    198|
+|327   |  \comparator_units[385].comparator_inst  |comparator__326 |    198|
+|328   |  \comparator_units[498].comparator_inst  |comparator__327 |    198|
+|329   |  \comparator_units[386].comparator_inst  |comparator__328 |    198|
+|330   |  \comparator_units[387].comparator_inst  |comparator__329 |    198|
+|331   |  \comparator_units[388].comparator_inst  |comparator__330 |    198|
+|332   |  \comparator_units[389].comparator_inst  |comparator__331 |    198|
+|333   |  \comparator_units[390].comparator_inst  |comparator__332 |    198|
+|334   |  \comparator_units[497].comparator_inst  |comparator__333 |    198|
+|335   |  \comparator_units[490].comparator_inst  |comparator__334 |    198|
+|336   |  \comparator_units[489].comparator_inst  |comparator__335 |    198|
+|337   |  \comparator_units[488].comparator_inst  |comparator__336 |    198|
+|338   |  \comparator_units[487].comparator_inst  |comparator__337 |    198|
+|339   |  \comparator_units[442].comparator_inst  |comparator__338 |    198|
+|340   |  \comparator_units[441].comparator_inst  |comparator__339 |    198|
+|341   |  \comparator_units[440].comparator_inst  |comparator__340 |    198|
+|342   |  \comparator_units[439].comparator_inst  |comparator__341 |    198|
+|343   |  \comparator_units[422].comparator_inst  |comparator__342 |    198|
+|344   |  \comparator_units[415].comparator_inst  |comparator__343 |    198|
+|345   |  \comparator_units[416].comparator_inst  |comparator__344 |    198|
+|346   |  \comparator_units[417].comparator_inst  |comparator__345 |    198|
+|347   |  \comparator_units[418].comparator_inst  |comparator__346 |    198|
+|348   |  \comparator_units[419].comparator_inst  |comparator__347 |    198|
+|349   |  \comparator_units[420].comparator_inst  |comparator__348 |    198|
+|350   |  \comparator_units[421].comparator_inst  |comparator__349 |    198|
+|351   |  \comparator_units[284].comparator_inst  |comparator__350 |    198|
+|352   |  \comparator_units[154].comparator_inst  |comparator__351 |    198|
+|353   |  \comparator_units[303].comparator_inst  |comparator__352 |    198|
+|354   |  \comparator_units[304].comparator_inst  |comparator__353 |    198|
+|355   |  \comparator_units[307].comparator_inst  |comparator__354 |    198|
+|356   |  \comparator_units[308].comparator_inst  |comparator__355 |    198|
+|357   |  \comparator_units[309].comparator_inst  |comparator__356 |    198|
+|358   |  \comparator_units[310].comparator_inst  |comparator__357 |    198|
+|359   |  \comparator_units[104].comparator_inst  |comparator__358 |    198|
+|360   |  \comparator_units[219].comparator_inst  |comparator__359 |    198|
+|361   |  \comparator_units[283].comparator_inst  |comparator__360 |    198|
+|362   |  \comparator_units[208].comparator_inst  |comparator__361 |    198|
+|363   |  \comparator_units[207].comparator_inst  |comparator__362 |    198|
+|364   |  \comparator_units[194].comparator_inst  |comparator__363 |    198|
+|365   |  \comparator_units[193].comparator_inst  |comparator__364 |    198|
+|366   |  \comparator_units[192].comparator_inst  |comparator__365 |    198|
+|367   |  \comparator_units[191].comparator_inst  |comparator__366 |    198|
+|368   |  \comparator_units[153].comparator_inst  |comparator__367 |    198|
+|369   |  \comparator_units[151].comparator_inst  |comparator__368 |    198|
+|370   |  \comparator_units[141].comparator_inst  |comparator__369 |    198|
+|371   |  \comparator_units[121].comparator_inst  |comparator__370 |    198|
+|372   |  \comparator_units[103].comparator_inst  |comparator__371 |    198|
+|373   |  \comparator_units[96].comparator_inst   |comparator__372 |    198|
+|374   |  \comparator_units[95].comparator_inst   |comparator__373 |    198|
+|375   |  \comparator_units[76].comparator_inst   |comparator__374 |    198|
+|376   |  \comparator_units[75].comparator_inst   |comparator__375 |    198|
+|377   |  \comparator_units[51].comparator_inst   |comparator__376 |    198|
+|378   |  \comparator_units[47].comparator_inst   |comparator__377 |    198|
+|379   |  \comparator_units[37].comparator_inst   |comparator__378 |    198|
+|380   |  \comparator_units[341].comparator_inst  |comparator__379 |    198|
+|381   |  \comparator_units[342].comparator_inst  |comparator__380 |    198|
+|382   |  \comparator_units[391].comparator_inst  |comparator__381 |    198|
+|383   |  \comparator_units[340].comparator_inst  |comparator__382 |    198|
+|384   |  \comparator_units[339].comparator_inst  |comparator__383 |    198|
+|385   |  \comparator_units[392].comparator_inst  |comparator__384 |    198|
+|386   |  \comparator_units[393].comparator_inst  |comparator__385 |    198|
+|387   |  \comparator_units[394].comparator_inst  |comparator__386 |    198|
+|388   |  \comparator_units[395].comparator_inst  |comparator__387 |    198|
+|389   |  \comparator_units[396].comparator_inst  |comparator__388 |    198|
+|390   |  \comparator_units[397].comparator_inst  |comparator__389 |    198|
+|391   |  \comparator_units[398].comparator_inst  |comparator__390 |    198|
+|392   |  \comparator_units[198].comparator_inst  |comparator__391 |    198|
+|393   |  \comparator_units[197].comparator_inst  |comparator__392 |    198|
+|394   |  \comparator_units[196].comparator_inst  |comparator__393 |    198|
+|395   |  \comparator_units[195].comparator_inst  |comparator__394 |    198|
+|396   |  \comparator_units[170].comparator_inst  |comparator__395 |    198|
+|397   |  \comparator_units[169].comparator_inst  |comparator__396 |    198|
+|398   |  \comparator_units[98].comparator_inst   |comparator__397 |    198|
+|399   |  \comparator_units[97].comparator_inst   |comparator__398 |    198|
+|400   |  \comparator_units[84].comparator_inst   |comparator__399 |    198|
+|401   |  \comparator_units[48].comparator_inst   |comparator__400 |    198|
+|402   |  \comparator_units[23].comparator_inst   |comparator__401 |    198|
+|403   |  \comparator_units[17].comparator_inst   |comparator__402 |    198|
+|404   |  \comparator_units[33].comparator_inst   |comparator__403 |    198|
+|405   |  \comparator_units[35].comparator_inst   |comparator__404 |    198|
+|406   |  \comparator_units[36].comparator_inst   |comparator__405 |    198|
+|407   |  \comparator_units[302].comparator_inst  |comparator__406 |    198|
+|408   |  \comparator_units[67].comparator_inst   |comparator__407 |    198|
+|409   |  \comparator_units[68].comparator_inst   |comparator__408 |    198|
+|410   |  \comparator_units[71].comparator_inst   |comparator__409 |    198|
+|411   |  \comparator_units[72].comparator_inst   |comparator__410 |    198|
+|412   |  \comparator_units[73].comparator_inst   |comparator__411 |    198|
+|413   |  \comparator_units[74].comparator_inst   |comparator__412 |    198|
+|414   |  \comparator_units[135].comparator_inst  |comparator__413 |    198|
+|415   |  \comparator_units[136].comparator_inst  |comparator__414 |    198|
+|416   |  \comparator_units[137].comparator_inst  |comparator__415 |    198|
+|417   |  \comparator_units[138].comparator_inst  |comparator__416 |    198|
+|418   |  \comparator_units[143].comparator_inst  |comparator__417 |    198|
+|419   |  \comparator_units[144].comparator_inst  |comparator__418 |    198|
+|420   |  \comparator_units[145].comparator_inst  |comparator__419 |    198|
+|421   |  \comparator_units[146].comparator_inst  |comparator__420 |    198|
+|422   |  \comparator_units[147].comparator_inst  |comparator__421 |    198|
+|423   |  \comparator_units[148].comparator_inst  |comparator__422 |    198|
+|424   |  \comparator_units[149].comparator_inst  |comparator__423 |    198|
+|425   |  \comparator_units[150].comparator_inst  |comparator__424 |    198|
+|426   |  \comparator_units[272].comparator_inst  |comparator__425 |    198|
+|427   |  \comparator_units[271].comparator_inst  |comparator__426 |    198|
+|428   |  \comparator_units[300].comparator_inst  |comparator__427 |    198|
+|429   |  \comparator_units[299].comparator_inst  |comparator__428 |    198|
+|430   |  \comparator_units[298].comparator_inst  |comparator__429 |    198|
+|431   |  \comparator_units[297].comparator_inst  |comparator__430 |    198|
+|432   |  \comparator_units[296].comparator_inst  |comparator__431 |    198|
+|433   |  \comparator_units[295].comparator_inst  |comparator__432 |    198|
+|434   |  \comparator_units[294].comparator_inst  |comparator__433 |    198|
+|435   |  \comparator_units[293].comparator_inst  |comparator__434 |    198|
+|436   |  \comparator_units[292].comparator_inst  |comparator__435 |    198|
+|437   |  \comparator_units[273].comparator_inst  |comparator__436 |    198|
+|438   |  \comparator_units[274].comparator_inst  |comparator__437 |    198|
+|439   |  \comparator_units[275].comparator_inst  |comparator__438 |    198|
+|440   |  \comparator_units[276].comparator_inst  |comparator__439 |    198|
+|441   |  \comparator_units[291].comparator_inst  |comparator__440 |    198|
+|442   |  \comparator_units[290].comparator_inst  |comparator__441 |    198|
+|443   |  \comparator_units[289].comparator_inst  |comparator__442 |    198|
+|444   |  \comparator_units[301].comparator_inst  |comparator__443 |    198|
+|445   |  \comparator_units[288].comparator_inst  |comparator__444 |    198|
+|446   |  \comparator_units[287].comparator_inst  |comparator__445 |    198|
+|447   |  \comparator_units[278].comparator_inst  |comparator__446 |    198|
+|448   |  \comparator_units[277].comparator_inst  |comparator__447 |    198|
+|449   |  \comparator_units[206].comparator_inst  |comparator__448 |    198|
+|450   |  \comparator_units[205].comparator_inst  |comparator__449 |    198|
+|451   |  \comparator_units[204].comparator_inst  |comparator__450 |    198|
+|452   |  \comparator_units[203].comparator_inst  |comparator__451 |    198|
+|453   |  \comparator_units[202].comparator_inst  |comparator__452 |    198|
+|454   |  \comparator_units[201].comparator_inst  |comparator__453 |    198|
+|455   |  \comparator_units[200].comparator_inst  |comparator__454 |    198|
+|456   |  \comparator_units[199].comparator_inst  |comparator__455 |    198|
+|457   |  \comparator_units[102].comparator_inst  |comparator__456 |    198|
+|458   |  \comparator_units[101].comparator_inst  |comparator__457 |    198|
+|459   |  \comparator_units[100].comparator_inst  |comparator__458 |    198|
+|460   |  \comparator_units[99].comparator_inst   |comparator__459 |    198|
+|461   |  \comparator_units[50].comparator_inst   |comparator__460 |    198|
+|462   |  \comparator_units[49].comparator_inst   |comparator__461 |    198|
+|463   |  \comparator_units[24].comparator_inst   |comparator__462 |    198|
+|464   |  \comparator_units[11].comparator_inst   |comparator__463 |    198|
+|465   |  \comparator_units[399].comparator_inst  |comparator__464 |    198|
+|466   |  \comparator_units[400].comparator_inst  |comparator__465 |    198|
+|467   |  \comparator_units[401].comparator_inst  |comparator__466 |    198|
+|468   |  \comparator_units[414].comparator_inst  |comparator__467 |    198|
+|469   |  \comparator_units[413].comparator_inst  |comparator__468 |    198|
+|470   |  \comparator_units[412].comparator_inst  |comparator__469 |    198|
+|471   |  \comparator_units[411].comparator_inst  |comparator__470 |    198|
+|472   |  \comparator_units[410].comparator_inst  |comparator__471 |    198|
+|473   |  \comparator_units[409].comparator_inst  |comparator__472 |    198|
+|474   |  \comparator_units[408].comparator_inst  |comparator__473 |    198|
+|475   |  \comparator_units[407].comparator_inst  |comparator__474 |    198|
+|476   |  \comparator_units[406].comparator_inst  |comparator__475 |    198|
+|477   |  \comparator_units[405].comparator_inst  |comparator__476 |    198|
+|478   |  \comparator_units[404].comparator_inst  |comparator__477 |    198|
+|479   |  \comparator_units[403].comparator_inst  |comparator__478 |    198|
+|480   |  \comparator_units[402].comparator_inst  |comparator__479 |    198|
+|481   |  \comparator_units[326].comparator_inst  |comparator__480 |    198|
+|482   |  \comparator_units[325].comparator_inst  |comparator__481 |    198|
+|483   |  \comparator_units[324].comparator_inst  |comparator__482 |    198|
+|484   |  \comparator_units[323].comparator_inst  |comparator__483 |    198|
+|485   |  \comparator_units[322].comparator_inst  |comparator__484 |    198|
+|486   |  \comparator_units[321].comparator_inst  |comparator__485 |    198|
+|487   |  \comparator_units[320].comparator_inst  |comparator__486 |    198|
+|488   |  \comparator_units[319].comparator_inst  |comparator__487 |    198|
+|489   |  \comparator_units[318].comparator_inst  |comparator__488 |    198|
+|490   |  \comparator_units[317].comparator_inst  |comparator__489 |    198|
+|491   |  \comparator_units[316].comparator_inst  |comparator__490 |    198|
+|492   |  \comparator_units[315].comparator_inst  |comparator__491 |    198|
+|493   |  \comparator_units[314].comparator_inst  |comparator__492 |    198|
+|494   |  \comparator_units[313].comparator_inst  |comparator__493 |    198|
+|495   |  \comparator_units[312].comparator_inst  |comparator__494 |    198|
+|496   |  \comparator_units[311].comparator_inst  |comparator__495 |    198|
+|497   |  \comparator_units[162].comparator_inst  |comparator__496 |    198|
+|498   |  \comparator_units[161].comparator_inst  |comparator__497 |    198|
+|499   |  \comparator_units[160].comparator_inst  |comparator__498 |    198|
+|500   |  \comparator_units[159].comparator_inst  |comparator__499 |    198|
+|501   |  \comparator_units[158].comparator_inst  |comparator__500 |    198|
+|502   |  \comparator_units[157].comparator_inst  |comparator__501 |    198|
+|503   |  \comparator_units[156].comparator_inst  |comparator__502 |    198|
+|504   |  \comparator_units[155].comparator_inst  |comparator__503 |    198|
+|505   |  \comparator_units[80].comparator_inst   |comparator__504 |    198|
+|506   |  \comparator_units[79].comparator_inst   |comparator__505 |    198|
+|507   |  \comparator_units[78].comparator_inst   |comparator__506 |    198|
+|508   |  \comparator_units[77].comparator_inst   |comparator__507 |    198|
+|509   |  \comparator_units[39].comparator_inst   |comparator__508 |    198|
+|510   |  \comparator_units[38].comparator_inst   |comparator__509 |    198|
+|511   |  \comparator_units[18].comparator_inst   |comparator__510 |    198|
+|512   |  \comparator_units[8].comparator_inst    |comparator      |    198|
++------+------------------------------------------+----------------+-------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:35 ; elapsed = 00:00:50 . Memory (MB): peak = 3360.066 ; gain = 1942.875 ; free physical = 3908 ; free virtual = 10491
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1025 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:36 ; elapsed = 00:00:54 . Memory (MB): peak = 3363.977 ; gain = 1946.785 ; free physical = 12818 ; free virtual = 19403
+Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:54 . Memory (MB): peak = 3363.977 ; gain = 1946.785 ; free physical = 12831 ; free virtual = 19400
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.71 ; elapsed = 00:00:00.71 . Memory (MB): peak = 3363.977 ; gain = 0.000 ; free physical = 12853 ; free virtual = 19424
+INFO: [Netlist 29-17] Analyzing 3102 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3521.277 ; gain = 0.000 ; free physical = 12714 ; free virtual = 19286
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 36 instances were transformed.
+  BUFG => BUFGCE: 1 instance 
+  IBUF => IBUF (IBUFCTRL, INBUF): 35 instances
+
+Synth Design complete | Checksum: ca617544
+INFO: [Common 17-83] Releasing license: Synthesis
+24 Infos, 101 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:48 ; elapsed = 00:01:05 . Memory (MB): peak = 3521.277 ; gain = 2104.086 ; free physical = 12721 ; free virtual = 19292
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 11720.160; main = 2897.245; forked = 9286.930
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 16824.527; main = 3521.281; forked = 13491.688
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.23 ; elapsed = 00:00:00.08 . Memory (MB): peak = 3545.289 ; gain = 0.000 ; free physical = 12708 ; free virtual = 19294
+INFO: [Common 17-1381] The checkpoint '/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.runs/synth_1/register_tree.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file register_tree_utilization_synth.rpt -pb register_tree_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Sep  1 22:23:21 2024...

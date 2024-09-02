@@ -21,18 +21,18 @@ module register_tree #(
     // Register array to store the tree nodes
     reg [DATA_WIDTH-1:0] tree [0:NUM_NODES - 1];
 
-    // Wires to connect the comparetor units
+    // Wires to connect the comparator units
     wire [DATA_WIDTH-1:0] new_parent [0:NUM_NODES / 2 - 1];         // NUM_NODES/2 - 1 = 7 for depth 4
     wire [DATA_WIDTH-1:0] new_left_child [0:NUM_NODES / 2 - 1];
     wire [DATA_WIDTH-1:0] new_right_child [0:NUM_NODES / 2 - 1];
 
-    // Instantiate comparetor units for each applicable node
+    // Instantiate comparator units for each applicable node
     genvar i;
     generate
-        for (i = 0; i < NUM_NODES / 2; i = i + 1) begin : comparetor_units
-            comparetor #(
+        for (i = 0; i < NUM_NODES / 2; i = i + 1) begin : comparator_units
+            comparator #(
                 .DATA_WIDTH(DATA_WIDTH)
-            ) comparetor_inst (
+            ) comparator_inst (
                 .parent(tree[i]),
                 .left_child(tree[2*i+1]),
                 .right_child(tree[2*i+2]),
@@ -50,22 +50,9 @@ module register_tree #(
         end else begin
             case (state)
                 LOAD: begin
-                    // Initialize tree entries to fixed values
-                    tree[0] <= 10;
-                    tree[1] <= 20;
-                    tree[2] <= 30;
-                    tree[3] <= 40;
-                    tree[4] <= 50;
-                    tree[5] <= 60;
-                    tree[6] <= 70;
-                    tree[7] <= 80;
-                    tree[8] <= 90;
-                    tree[9] <= 100;
-                    tree[10] <= 110;
-                    tree[11] <= 120;
-                    tree[12] <= 130;
-                    tree[13] <= 140;
-                    tree[14] <= 150;
+                    for (integer j = 0; j < NUM_NODES; j = j + 1) begin
+                        tree[j] <= (j + 1) * 10; // Initialize tree entries to fixed values
+                    end
                     state <= REMOVE_AND_COMPARE_EVEN;
                 end
                 IDLE: begin
@@ -78,27 +65,24 @@ module register_tree #(
                         top_item <= tree[0];
                         tree[0] <= new_item;
                     end
-                    tree[3] <= new_parent[3];
-                    tree[7] <= new_left_child[3];
-                    tree[8] <= new_right_child[3];
-                    tree[4] <= new_parent[4];
-                    tree[9] <= new_left_child[4];
-                    tree[10] <= new_right_child[4];
-                    tree[5] <= new_parent[5];
-                    tree[11] <= new_left_child[5];
-                    tree[12] <= new_right_child[5];
-                    tree[6] <= new_parent[6];
-                    tree[13] <= new_left_child[6];
-                    tree[14] <= new_right_child[6];
+                    // Handle even levels
+                    for (integer k = 2; k < TREE_DEPTH; k = k + 2) begin
+                        for (integer j = 2**k - 1; j <= 2**(k+1) - 2; j = j + 1) begin
+                            tree[j] <= new_parent[j];
+                            tree[2*j+1] <= new_left_child[j];
+                            tree[2*j+2] <= new_right_child[j];
+                        end
+                    end
                     state <= COMPARE_ODD;
                 end
                 COMPARE_ODD: begin
-                    tree[1] <= new_parent[1];
-                    tree[3] <= new_left_child[1];
-                    tree[4] <= new_right_child[1];
-                    tree[2] <= new_parent[2];
-                    tree[5] <= new_left_child[2];
-                    tree[6] <= new_right_child[2];
+                    for (integer m = 1; m < TREE_DEPTH - 1; m = m + 2) begin
+                        for (integer n = 2**m - 1; n <= 2**(m+1) - 2; n = n + 1) begin
+                            tree[n] <= new_parent[n];
+                            tree[2*n+1] <= new_left_child[n];
+                            tree[2*n+2] <= new_right_child[n];
+                        end
+                    end
                     state <= REMOVE_AND_COMPARE_EVEN;
                 end
                 default: begin
@@ -109,3 +93,4 @@ module register_tree #(
     end
 
 endmodule
+
