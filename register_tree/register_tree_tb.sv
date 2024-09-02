@@ -3,7 +3,6 @@ module register_tree_tb;
     parameter DATA_WIDTH = 32;
 
     reg clk;
-    reg reset;
     reg replace;
     reg [DATA_WIDTH-1:0] new_item;
     wire [DATA_WIDTH-1:0] top_item;
@@ -13,7 +12,6 @@ module register_tree_tb;
         .DATA_WIDTH(DATA_WIDTH)
     ) dut (
         .clk(clk),
-        .reset(reset),
         .replace(replace),
         .new_item(new_item),
         .top_item(top_item)
@@ -26,7 +24,6 @@ module register_tree_tb;
     initial begin
         // Initialize signals
         clk = 0;
-        reset = 1;
         replace = 0;
         new_item = 0;
 
@@ -34,11 +31,6 @@ module register_tree_tb;
         $dumpfile("register_tree_tb.vcd");  // Specify the dump file name
         $dumpvars(0, register_tree_tb);     // Dump all variables in the module
 
-        // Apply reset
-        @(posedge clk);
-        reset = 0;
-
-        // Wait for the initial entries to be sorted
         repeat (TREE_DEPTH) @(posedge clk);
 
         // Test case 1: Insert items in ascending order
