@@ -1,54 +1,60 @@
 module register_array_tb;
 
     // Parameters
-    parameter QUEUE_SIZE = 4;
-    parameter WIDTH = 32;
+    parameter QUEUE_SIZE = 8;
+    parameter DATA_WIDTH = 32;
 
     // Testbench signals
     logic clk;
-    logic [WIDTH-1:0] new_entry;
-    logic [WIDTH-1:0] top_entry;
+    logic [DATA_WIDTH-1:0] new_entry;
+    logic [DATA_WIDTH-1:0] max_entry;
+    logic replace;
 
-    // Instantiate the register_array module
+    // Instantiate the priority_queue module
     register_array #(
         .QUEUE_SIZE(QUEUE_SIZE),
-        .WIDTH(WIDTH)
+        .DATA_WIDTH(DATA_WIDTH)
     ) uut (
         .clk(clk),
+        .replace(replace),
         .new_entry(new_entry),
-        .top_entry(top_entry)
+        .max_entry(max_entry)
     );
 
     // Clock generation
-    initial begin
-        clk = 0;
-        forever #5 clk = ~clk; // 10 time units period
-    end
+    always #5 clk <= ~clk;
 
     // Test sequence
     initial begin
+        
         // Initialize inputs
+        clk = 0;
+        replace = 0;
         new_entry = 0;
 
-        // Wait for a few clock cycles
-        #20;
+        // Waveform generation
+        $dumpfile("register_array_tb.vcd");
+        $dumpvars(0, register_array_tb);
 
-        // Apply test vectors
-        new_entry = 32'hA; #10; // Insert 10
-        new_entry = 32'h5; #10; // Insert 5
-        new_entry = 32'hF; #10; // Insert 15
-        new_entry = 32'h1; #10; // Insert 1
+        // Wait for a few clock cycles
+        repeat (8) @(posedge clk);
+        
+        // Test case 1: Insert items in ascending order
+        for (int i = 1; i <= 4; i++) begin
+            @(posedge clk);
+            replace = 1;
+            new_entry = i * 10;
+            @(posedge clk);
+            replace = 0;
+            repeat (2) @(posedge clk);
+            $display("max_entry: %d", max_entry);
+        end
 
         // Wait for a few clock cycles to observe the output
-        #50;
+        repeat (2) @(posedge clk);
 
         // Finish simulation
         $finish;
-    end
-
-    // Monitor the output
-    initial begin
-        $monitor("At time %t, new_entry = %h, top_entry = %h", $time, new_entry, top_entry);
     end
 
 endmodule
