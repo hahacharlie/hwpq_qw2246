@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Tue Sep  3 14:55:57 2024
+# Process ID: 2691861
+# Current directory: /home/charlie-wu/Workspace/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.runs/impl_1
+# Command line: vivado -log register_tree.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source register_tree.tcl -notrace
+# Log file: /home/charlie-wu/Workspace/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.runs/impl_1/register_tree.vdi
+# Journal file: /home/charlie-wu/Workspace/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.runs/impl_1/vivado.jou
+# Running On        :Charlie-ThinkPad-P53
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 24.04.1 LTS
+# Processor Detail  :Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
+# CPU Frequency     :3999.667 MHz
+# CPU Physical cores:6
+# CPU Logical cores :12
+# Host memory       :16467 MB
+# Swap memory       :4294 MB
+# Total Virtual     :20762 MB
+# Available Virtual :13242 MB
+#-----------------------------------------------------------
+source register_tree.tcl -notrace

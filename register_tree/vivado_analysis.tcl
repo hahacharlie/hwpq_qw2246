@@ -5,6 +5,7 @@ set depths {4 5 6 7 8 9 10}
 create_project -force vivado_register_tree_tcl ./vivado_register_tree_tcl -part xcu250-figd2104-2L-e
 add_files ./register_tree.sv
 add_files ./comparator.sv
+close_project
 
 # Create the results directory if it doesn't exist
 file mkdir ./vivado_register_tree_analysis_results
@@ -31,10 +32,11 @@ foreach depth $depths {
     close $file_id
 
     set log_file "./vivado_register_tree_analysis_results/vivado_analysis_on_tree_depth_${depth}.txt"
-    set fileId [open $log_file "w"]
 
     # Loop through each frequency
-    for {set freq 50} {$freq <= 400} {incr freq 10} {
+    for {set freq 100} {$freq <= 400} {incr freq 10} {
+
+        open_project ./vivado_register_tree_tcl/vivado_register_tree_tcl.xpr
 
         # Set the clock period (in nanoseconds)
         set period_ns [expr {1000.0 / $freq}]
@@ -43,7 +45,7 @@ foreach depth $depths {
         reset_run synth_1
 
         # Set the synthesis options to preserve hierarchy
-        set_property STEPS.SYNTH_DESIGN.ARGS.FLATTEN_HIERARCHY none [get_runs synth_1]
+        # set_property STEPS.SYNTH_DESIGN.ARGS.FLATTEN_HIERARCHY none [get_runs synth_1]
 
         # Start a new synthesis and time how long it takes
         set synth_start_time [clock seconds]
@@ -121,6 +123,8 @@ foreach depth $depths {
         # Calculate the achieved frequency using WNS and target frequency with 3 significant digits
         set achieved_frequency [format "%.3f" [expr {1000.0 / ($period_ns - $wns)}]]
 
+        set fileId [open $log_file "a+"]
+
         # Print the results to the log file
         puts $fileId "Frequency: ${freq} MHz -> Synthesis: ${synth_duration_str} -> ${synth_duration}s"
         puts $fileId "Frequency: ${freq} MHz -> Implementation: ${impl_duration_str} -> ${impl_duration}s"
@@ -142,8 +146,11 @@ foreach depth $depths {
             puts $fileId "CLB LUTs Util% exceeded 50%, finished"
             break
         }
+
+        close $fileId
+        close_project
+
     }
-    close $fileId
 }
 
 # Open the register_tree.sv file
@@ -164,5 +171,3 @@ puts -nonewline $file_id $updated_content
 # Close the file
 close $file_id
 
-# Close the project
-close_project
