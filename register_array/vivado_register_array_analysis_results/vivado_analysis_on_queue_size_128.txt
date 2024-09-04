@@ -30,3 +30,11 @@ Frequency: 400 MHz -> WNS: -0.504 ns
 Frequency: 400 MHz -> Achieved Frequency: 332.889 MHz
 
 
+Frequency: 50 MHz -> Synthesis: 35s -> 35s
+Frequency: 50 MHz -> Implementation: 4m 45s -> 285s
+Frequency: 50 MHz -> Power: 3.149 W
+Frequency: 50 MHz -> LUTs Util%: 0.65 %
+Frequency: 50 MHz -> WNS: 14.865 ns
+Frequency: 50 MHz -> Achieved Frequency: 194.742 MHz
+
+

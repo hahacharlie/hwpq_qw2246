@@ -1,6 +1,6 @@
 -------------------------------------
 | Tool Version : Vivado v.2024.1
-| Date         : Wed Sep  4 12:34:59 2024
+| Date         : Wed Sep  4 15:38:52 2024
 | Host         : archlinux
 | Design       : checkpoint_register_array
 | Device       : xcu250-figd2104-2L-E-
@@ -27,7 +27,7 @@ Clock Net Route Info (CRP Input)
 Clock 1: clk_IBUF_BUFG
 	Clock source type: BUFGCE
 	Clock source region: X4Y7
-	initial rect ((4, 7), (5, 7))
+	initial rect ((4, 6), (5, 7))
 
 
 
