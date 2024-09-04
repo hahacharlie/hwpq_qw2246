@@ -1,26 +1,25 @@
-# Define the range of TREE_DEPTH and clock frequencies to test
-set depths {11 12 13 14 15}
+# Define the range of QUEUE_SIZE and clock frequencies to test
+set queue_sizes {32}
 
 # Create a single project
-create_project -force vivado_register_tree_tcl ./vivado_register_tree_tcl -part xcu250-figd2104-2L-e
-add_files ./register_tree.sv
-add_files ./comparator.sv
+create_project -force vivado_register_array_tcl ./vivado_register_array_tcl -part xcu250-figd2104-2L-e
+add_files ./register_array.sv
 close_project
 
 # Create the results directory if it doesn't exist
-file mkdir ./vivado_register_tree_analysis_results
+file mkdir ./vivado_register_array_analysis_results
 
-# Loop through each TREE_DEPTH
-foreach depth $depths {
+# Loop through each QUEUE_SIZE
+foreach queue_size $queue_sizes {
 
-    # Open the register_tree.sv file
-    set file_id [open "./register_tree.sv" r+]
+    # Open the register_array.sv file
+    set file_id [open "./register_array.sv" r+]
 
     # Read the file content
     set file_content [read $file_id]
 
-    # Replace the parameter TREE_DEPTH value
-    set updated_content [regsub {parameter TREE_DEPTH = \d+} $file_content "parameter TREE_DEPTH = $depth"]
+    # Replace the parameter QUEUE_SIZE value
+    set updated_content [regsub {parameter QUEUE_SIZE = \d+} $file_content "parameter QUEUE_SIZE = $queue_size"]
 
     # Rewind the file pointer to the beginning
     seek $file_id 0
@@ -31,12 +30,12 @@ foreach depth $depths {
     # Close the file
     close $file_id
 
-    set log_file "./vivado_register_tree_analysis_results/vivado_analysis_on_tree_depth_${depth}.txt"
+    set log_file "./vivado_register_array_analysis_results/vivado_analysis_on_queue_size_${queue_size}.txt"
 
     # Loop through each frequency
-    for {set freq 50} {$freq <= 400} {incr freq 10} {
+    for {set freq 250} {$freq <= 360} {incr freq 10} {
 
-        open_project ./vivado_register_tree_tcl/vivado_register_tree_tcl.xpr
+        open_project ./vivado_register_array_tcl/vivado_register_array_tcl.xpr
 
         # Set the clock period (in nanoseconds)
         set period_ns [expr {1000.0 / $freq}]
@@ -153,14 +152,14 @@ foreach depth $depths {
     }
 }
 
-# Open the register_tree.sv file
-set file_id [open "./register_tree.sv" r+]
+# Open the register_array.sv file
+set file_id [open "./register_array.sv" r+]
 
 # Read the file content
 set file_content [read $file_id]
 
-# Replace the parameter TREE_DEPTH value
-set updated_content [regsub {parameter TREE_DEPTH = \d+} $file_content "parameter TREE_DEPTH = 4"]
+# Replace the parameter QUEUE_SIZE value
+set updated_content [regsub {parameter QUEUE_SIZE = \d+} $file_content "parameter QUEUE_SIZE = 4"]
 
 # Rewind the file pointer to the beginning
 seek $file_id 0
@@ -170,4 +169,3 @@ puts -nonewline $file_id $updated_content
 
 # Close the file
 close $file_id
-

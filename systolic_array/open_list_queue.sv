@@ -1,9 +1,22 @@
+/*
+    This module implements a priority queue using two buffers.
+    It is used to store the open list in the A* search algorithm.
+    This architecture is proposed in the paper published in 2020, 
+    written by Zhou etc.
+    P.S. This is a Min Queue, which means the smallest element is always at the head of the queue.
+*/
+
+/* verilator lint_off ASCRANGE */
+/* verilator lint_off ALWCOMBORDER */
+/* verilator lint_off UNOPTFLAT */
+/* verilator lint_off LATCH */
+
 module open_list_queue #(
     parameter QUEUE_SIZE = 8,
     parameter DATA_WIDTH = 32
 ) (
     input logic clk,
-    input logic rst_n,
+    // input logic rst_n,
     input logic insert,
     input logic pop,
     input logic [DATA_WIDTH-1:0] in_data,
@@ -18,73 +31,79 @@ module open_list_queue #(
   typedef struct packed {
     logic [DATA_WIDTH-1:0] data;  // this will be the x, y coordinates value of the node
     logic [DATA_WIDTH-1:0] f_value;
-    logic valid;
   } node_t;
 
-  node_t ib[QUEUE_SIZE-1:0];
+  node_t ib[QUEUE_SIZE-2:0];
   node_t ob[QUEUE_SIZE-1:0];
+  node_t temp_node;
 
-  // Internal signals
-  logic [QUEUE_SIZE-1:0] ib_valid, ob_valid;
-  logic [$clog2(QUEUE_SIZE)-1:0] ib_head, ob_head;
+  logic [0:QUEUE_SIZE-2] ib_valid;
+  logic [0:QUEUE_SIZE-1] ob_valid;
 
-  //Intialization
+  // synthesis translate_off
+  //Intialization of two buffers to invalid state indicating that the buffers are empty
   initial begin
-    ib_valid = 0;
-    ob_valid = 0;
-    ib_head  = 0;
-    ob_head  = 0;
+    for (int i = 0; i < QUEUE_SIZE; i++) begin
+      ib[i].data = 32'hFFFFFFFF;
+      ib[i].f_value = 32'hFFFFFFFF;
+      ob[i].data = 32'hFFFFFFFF;
+      ob[i].f_value = 32'hFFFFFFFF;
+    end
   end
+  // synthesis translate_on
 
   // Main logic
-  //   always_ff @(posedge clk or negedge rst_n) begin
-  //     if (!rst_n) begin
-  //       // Reset logic
-  //       // ... (initialize ib, ob, ib_valid, ob_valid, ib_head, ob_head)
-  //     end else begin
-
-  //     end
-  //   end
-
-  always_comb begin
-    if (insert) begin
-      // Insert new node into IB
-      // ... (insert logic)
+  always_ff @(posedge clk) begin
+    if (insert && !full) begin
+      for (int i = 0; i < QUEUE_SIZE - 2; i++) begin
+        ib[i+1] <= ib[i];
+      end
+      ib[0].data <= in_data;
+      ib[0].f_value <= in_f_value;
     end
-
     if (pop) begin
-      // Pop node from OB
-      ob[ob_head].valid = 0;
-      ob_head = (ob_head + 1) % QUEUE_SIZE;
-
-      // Handle bubble in OB0
-      if (ib[0].valid) begin
-        if (!ob[1].valid || ib[0].f_value < ob[1].f_value) begin
-          ob[0] = ib[0];
-          ib[0].valid = 0;
-        end else begin
-          ob[0] = ob[1];
-          ob[1].valid = 0;
-        end
-      end
-    end
-
-    // Comparison and swapping logic
-    for (int i = 0; i < QUEUE_SIZE - 1; i++) begin
-      if (ib[i].valid && (!ob[i+1].valid || ib[i].f_value < ob[i+1].f_value)) begin
-        // Swap nodes
-        node_t tmp_node;
-        tmp_node = ob[i+1];
-        ob[i+1] = ib[i];
-        ib[i] = tmp_node;
-      end
+      out_data <= ob[0].data;
+      out_f_value <= ob[0].f_value;
+      ob[0].data <= 32'hFFFFFFFF;
+      ob[0].f_value <= 32'hFFFFFFFF;
     end
   end
 
-  // Output assignment
-  assign out_data = ob[ob_head].data;
-  assign out_f_value = ob[ob_head].f_value;
-  assign empty = !ob_valid[ob_head];
-  assign full = &ib_valid;
+  always_comb begin
+    // Sorting process, similar to bubble sort
+    for (int i = 0; i < QUEUE_SIZE - 2; i++) begin
+      if (ib[i].f_value < ob[i+1].f_value) begin
+        // Swap nodes
+        temp_node = ob[i+1];
+        ob[i+1] = ib[i];
+        ib[i] = temp_node;
+      end
+    end
+    if (ob[0].f_value == 32'hFFFFFFFF) begin
+      if (ib[0].f_value < ob[1].f_value) begin
+        ob[0] = ib[0];
+        ib[0].f_value = 32'hFFFFFFFF;
+      end else begin // if the valud f if IB[0] is not smaller than the f value of OB[1], the node in OB[1] will be put in OB[0], and the bubble will shift right
+        ob[0] = ob[1];
+        ob[1].f_value = 32'hFFFFFFFF;
+      end
+    end
+    // identify for validity
+    for (int i = 0; i < QUEUE_SIZE-1; i++) begin
+      if (ib[i].f_value == 32'hFFFFFFFF) begin
+        ib_valid [i] = 0;
+      end else begin
+        ib_valid [i] = 1;
+      end
+      if (ob[i].f_value == 32'hFFFFFFFF) begin
+        ob_valid [i] = 0;
+      end else begin
+        ob_valid [i] = 1;
+      end
+    end
+  end 
+
+  assign empty = ob_valid == {QUEUE_SIZE{1'b0}};
+  assign full = ib_valid == {QUEUE_SIZE-1{1'b1}};
 
 endmodule

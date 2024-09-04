@@ -1,0 +1,32 @@
+Frequency: 370 MHz -> Synthesis: 1m 11s -> 71s
+Frequency: 370 MHz -> Implementation: 14m 37s -> 877s
+Frequency: 370 MHz -> Power: 8.369 W
+Frequency: 370 MHz -> LUTs Util%: 2.89 %
+Frequency: 370 MHz -> WNS: -0.309 ns
+Frequency: 370 MHz -> Achieved Frequency: 332.038 MHz
+
+
+Frequency: 380 MHz -> Synthesis: 39s -> 39s
+Frequency: 380 MHz -> Implementation: 15m 21s -> 921s
+Frequency: 380 MHz -> Power: 8.562 W
+Frequency: 380 MHz -> LUTs Util%: 3.06 %
+Frequency: 380 MHz -> WNS: -0.382 ns
+Frequency: 380 MHz -> Achieved Frequency: 331.831 MHz
+
+
+Frequency: 390 MHz -> Synthesis: 39s -> 39s
+Frequency: 390 MHz -> Implementation: 13m 18s -> 798s
+Frequency: 390 MHz -> Power: 8.640 W
+Frequency: 390 MHz -> LUTs Util%: 3.13 %
+Frequency: 390 MHz -> WNS: -0.356 ns
+Frequency: 390 MHz -> Achieved Frequency: 342.454 MHz
+
+
+Frequency: 400 MHz -> Synthesis: 38s -> 38s
+Frequency: 400 MHz -> Implementation: 13m 14s -> 794s
+Frequency: 400 MHz -> Power: 8.825 W
+Frequency: 400 MHz -> LUTs Util%: 3.20 %
+Frequency: 400 MHz -> WNS: -0.433 ns
+Frequency: 400 MHz -> Achieved Frequency: 340.948 MHz
+
+

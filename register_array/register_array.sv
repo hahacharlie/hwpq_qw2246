@@ -3,7 +3,7 @@
     Paper
 */
 module register_array #(
-    parameter QUEUE_SIZE = 4, 
+    parameter QUEUE_SIZE = 32, 
     parameter DATA_WIDTH = 32
 )
 (
