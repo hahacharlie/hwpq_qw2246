@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Wed Sep  4 03:31:18 2024
+| Date         : Wed Sep  4 12:36:20 2024
 | Host         : archlinux running 64-bit Arch Linux
 | Command      : report_control_sets -verbose -file register_array_control_sets_placed.rpt
 | Design       : register_array
@@ -58,10 +58,10 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             992 |          312 |
+| No           | No                    | No                     |            2016 |          605 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |              32 |            4 |
+| Yes          | No                    | No                     |              32 |            3 |
 | Yes          | No                    | Yes                    |               0 |            0 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
@@ -73,8 +73,8 @@ Table of Contents
 +----------------+------------------------------+------------------+------------------+----------------+--------------+
 |  Clock Signal  |         Enable Signal        | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
 +----------------+------------------------------+------------------+------------------+----------------+--------------+
-|  clk_IBUF_BUFG | register_reg[31][31]_i_1_n_0 |                  |                4 |             32 |         8.00 |
-|  clk_IBUF_BUFG |                              |                  |              312 |            992 |         3.18 |
+|  clk_IBUF_BUFG | register_reg[63][31]_i_1_n_0 |                  |                3 |             32 |        10.67 |
+|  clk_IBUF_BUFG |                              |                  |              605 |           2016 |         3.33 |
 +----------------+------------------------------+------------------+------------------+----------------+--------------+
 
 

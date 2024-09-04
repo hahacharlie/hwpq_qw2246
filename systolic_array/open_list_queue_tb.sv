@@ -57,41 +57,41 @@ module open_list_queue_tb;
     // Insert fixed elements
     @(posedge clk);
     insert = 1;
-    in_data = 0;
-    in_f_value = 25;
+    in_data = 32'd0;
+    in_f_value = 32'd25;
 
     @(posedge clk);
-    in_data = 1;
-    in_f_value = 82;
+    in_data = 32'd1;
+    in_f_value = 32'd82;
 
     @(posedge clk);
-    in_data = 2;
-    in_f_value = 1;
+    in_data = 32'd2;
+    in_f_value = 32'd1;
 
     @(posedge clk);
-    in_data = 3;
-    in_f_value = 23;
+    in_data = 32'd3;
+    in_f_value = 32'd23;
 
     @(posedge clk);
-    in_data = 4;
-    in_f_value = 52;
+    in_data = 32'd4;
+    in_f_value = 32'd52;
 
     @(posedge clk);
-    in_data = 5;
-    in_f_value = 67;
+    in_data = 32'd5;
+    in_f_value = 32'd67;
 
     @(posedge clk);
-    in_data = 6;
-    in_f_value = 92;
+    in_data = 32'd6;
+    in_f_value = 32'd92;
 
     @(posedge clk);
-    in_data = 7;
-    in_f_value = 32;
+    in_data = 32'd7;
+    in_f_value = 32'd32;
 
     // this should not be inserted as the queue is full
     @(posedge clk);
-    in_data = 8;
-    in_f_value = 10;
+    in_data = 32'd8;
+    in_f_value = 32'd10;
 
     @(posedge clk);
     insert = 0;

@@ -55,13 +55,10 @@ module open_list_queue #(
   // Main logic
   always_ff @(posedge clk) begin
     if (insert && !full) begin
-      for (int i = 0; i < QUEUE_SIZE - 2; i++) begin
-        ib[i+1] <= ib[i];
-      end
       ib[0].data <= in_data;
       ib[0].f_value <= in_f_value;
     end
-    if (pop) begin
+    if (pop && !empty) begin
       out_data <= ob[0].data;
       out_f_value <= ob[0].f_value;
       ob[0].data <= 32'hFFFFFFFF;
@@ -70,22 +67,40 @@ module open_list_queue #(
   end
 
   always_comb begin
-    // Sorting process, similar to bubble sort
-    for (int i = 0; i < QUEUE_SIZE - 2; i++) begin
-      if (ib[i].f_value < ob[i+1].f_value) begin
-        // Swap nodes
-        temp_node = ob[i+1];
-        ob[i+1] = ib[i];
-        ib[i] = temp_node;
-      end
-    end
     if (ob[0].f_value == 32'hFFFFFFFF) begin
       if (ib[0].f_value < ob[1].f_value) begin
         ob[0] = ib[0];
+        ib[0].data = 32'hFFFFFFFF;
         ib[0].f_value = 32'hFFFFFFFF;
       end else begin // if the valud f if IB[0] is not smaller than the f value of OB[1], the node in OB[1] will be put in OB[0], and the bubble will shift right
         ob[0] = ob[1];
+        ob[1].data = 32'hFFFFFFFF;
         ob[1].f_value = 32'hFFFFFFFF;
+      end
+    end
+    // IB[i] sorting logic 
+    for (int i = 0; i <= QUEUE_SIZE - 2; i++) begin
+      if (ib[i].f_value < ob[i].f_value) begin
+        ob[i] = ib[i];
+        ib[i].data = 32'hFFFFFFFF;
+        ib[i].f_value = 32'hFFFFFFFF;
+      end else begin
+        if (ib[i].f_value < ob[i+1].f_value) begin
+          temp_node = ob[i+1];
+          ob[i+1] = ib[i];
+          ib[i+1] = temp_node;
+          ib[i].data = 32'hFFFFFFFF;
+          ib[i].f_value = 32'hFFFFFFFF;
+        end else begin
+          ib[i+1] = ib[i];
+          ib[i].data = 32'hFFFFFFFF;
+          ib[i].f_value = 32'hFFFFFFFF;
+        end
+      end
+      if (ob[i+1].f_value < ob[i].f_value) begin
+        temp_node = ob[i+1];
+        ob[i+1] = ob[i];
+        ob[i] = temp_node;
       end
     end
     // identify for validity

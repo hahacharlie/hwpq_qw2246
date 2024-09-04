@@ -1,5 +1,5 @@
 # Define the range of QUEUE_SIZE and clock frequencies to test
-set queue_sizes {32}
+set queue_sizes {64}
 
 # Create a single project
 create_project -force vivado_register_array_tcl ./vivado_register_array_tcl -part xcu250-figd2104-2L-e
@@ -33,7 +33,7 @@ foreach queue_size $queue_sizes {
     set log_file "./vivado_register_array_analysis_results/vivado_analysis_on_queue_size_${queue_size}.txt"
 
     # Loop through each frequency
-    for {set freq 250} {$freq <= 360} {incr freq 10} {
+    for {set freq 220} {$freq <= 360} {incr freq 10} {
 
         open_project ./vivado_register_array_tcl/vivado_register_array_tcl.xpr
 

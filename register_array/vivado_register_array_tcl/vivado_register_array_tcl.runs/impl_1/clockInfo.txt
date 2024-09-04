@@ -1,6 +1,6 @@
 -------------------------------------
 | Tool Version : Vivado v.2024.1
-| Date         : Wed Sep  4 03:29:53 2024
+| Date         : Wed Sep  4 12:34:59 2024
 | Host         : archlinux
 | Design       : checkpoint_register_array
 | Device       : xcu250-figd2104-2L-E-
@@ -19,7 +19,6 @@ Number of global clocks: 1
 	Number of BUFG_GT: 0
 	Number of BUFG_PS: 0
 	Number of BUFG_FABRIC: 0
-	Running suboptimal placement checker for 1 clocks (and their loads) which do not have the CLOCK_LOW_FANOUT property but have a fanout less than 2000...
 Pre-CRP Checker took 0 secs
 
 ********************************
@@ -28,7 +27,7 @@ Clock Net Route Info (CRP Input)
 Clock 1: clk_IBUF_BUFG
 	Clock source type: BUFGCE
 	Clock source region: X4Y7
-	initial rect ((4, 7), (4, 7))
+	initial rect ((4, 7), (5, 7))
 
 
 

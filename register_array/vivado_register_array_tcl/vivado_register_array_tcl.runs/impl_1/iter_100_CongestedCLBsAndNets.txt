@@ -1,0 +1,14 @@
+List of CLB Tiles
+CLEL_L_X86Y433
+CLEL_R_X86Y433
+CLEL_L_X84Y438
+CLEL_R_X84Y438
+CLEL_L_X84Y446
+CLEL_R_X84Y446
+
+List of Congested Nets
+register_reg[32][29]
+register[32][31]_i_99_n_0
+register_reg[37][17]
+register[36][31]_i_105_n_0
+

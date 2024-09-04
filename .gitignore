@@ -66,6 +66,9 @@ xst/
 _ngo/
 _xmsgs/
 
+# Vivado specific files
+.Xil/
+
 # editor specific folders
 .nvim/
 .vscode/
