@@ -1,6 +1,3 @@
-/* verilator lint_off UNUSEDSIGNAL */
-
-`timescale 1ns / 1ps
 `define CLK_PERIOD 10
 
 module tb_open_list_queue ();

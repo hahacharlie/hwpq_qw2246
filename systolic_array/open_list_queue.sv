@@ -1,227 +1,90 @@
-/* verilator lint_off UNUSEDPARAM */
-/* verilator lint_off UNUSEDSIGNAL */
-
-`timescale 1ns / 1ps
-
 module open_list_queue #(
-    parameter QUEUE_SIZE = 4,  // Number of slots in each queue
-    parameter DATA_WIDTH = 32,  // Data width for node f values
-    parameter MAP_WIDTH = 16,  // Width of the map
-    parameter MAP_HEIGHT = 16,  // Height of the map
-    parameter MAX_F = 32'hFFFFFFFF  // Maximum value for f
+    parameter QUEUE_SIZE = 8,
+    parameter DATA_WIDTH = 32
 ) (
-    input logic CLK,
-    input logic RSTn,
-
-    /* Input control signals */
-    input logic i_wrt,  // enqueue
-    input logic i_read,  // dequeue
-    input logic i_valid,  // ready for next instruction
-    // Node data inputs
-    input logic [DATA_WIDTH-1:0] i_node_f,
-    // input logic [ MAP_WIDTH-1:0] i_node_i,
-    // input logic [MAP_HEIGHT-1:0] i_node_j,
-
-    /* Output control signals */
-    output logic o_ready_deq,  // read ready flag
-    output logic o_ready_enq,  // write ready flag
-    output logic o_ready_rep,  // replace ready flag
-    output logic o_full,  // OB full
-    output logic o_empty,  // OB empty
-    output logic o_valid,  // OB[0] valid
-    // Node data outputs
-    output logic [DATA_WIDTH-1:0] o_node_f
-    // output logic [ MAP_WIDTH-1:0] o_node_i,
-    // output logic [MAP_HEIGHT-1:0] o_node_j
+    input logic clk,
+    input logic rst_n,
+    input logic insert,
+    input logic pop,
+    input logic [DATA_WIDTH-1:0] in_data,
+    input logic [DATA_WIDTH-1:0] in_f_value,
+    output logic [DATA_WIDTH-1:0] out_data,
+    output logic [DATA_WIDTH-1:0] out_f_value,
+    output logic empty,
+    output logic full
 );
 
-  localparam l_bits = $clog2(QUEUE_SIZE);
+  // Define structures for IB and OB
+  typedef struct packed {
+    logic [DATA_WIDTH-1:0] data;  // this will be the x, y coordinates value of the node
+    logic [DATA_WIDTH-1:0] f_value;
+    logic valid;
+  } node_t;
 
-  logic [(l_bits+1):0] next_size, curr_size;
+  node_t ib[QUEUE_SIZE-1:0];
+  node_t ob[QUEUE_SIZE-1:0];
 
-  logic [QUEUE_SIZE-1:0][DATA_WIDTH-1:0] inQueue, nextInQueue;
-  logic [QUEUE_SIZE-1:0][DATA_WIDTH-1:0] outQueue, nextOutQueue;
+  // Internal signals
+  logic [QUEUE_SIZE-1:0] ib_valid, ob_valid;
+  logic [$clog2(QUEUE_SIZE)-1:0] ib_head, ob_head;
 
-  logic [QUEUE_SIZE-1:0] inQueueValid;
-  logic [QUEUE_SIZE-1:0] nextInQueueValid;
-  logic [QUEUE_SIZE-1:0] outQueueValid;
-  logic [QUEUE_SIZE-1:0] nextOutQueueValid;
-
-  logic [QUEUE_SIZE-1:0] lessThanPrevInQueue;
-  logic [QUEUE_SIZE-1:0] lessThanNextInQueue;
-  logic [QUEUE_SIZE-1:0] lessThanSameOutQueue;
-  logic [QUEUE_SIZE-1:0] lessThanNextOutQueue;
-  logic [QUEUE_SIZE-1:0] lessThanNextNextOutQueue;
-
-  integer i, j;
-
-  assign o_full   = next_size == QUEUE_SIZE;
-  assign o_empty  = next_size == '0;
-
-  assign o_node_f = outQueue[0];
-  assign o_valid  = outQueueValid[0];
-
-  always_comb begin
-    // defaults
-    next_size = curr_size;
-    nextInQueue = '1;
-    nextInQueueValid = '0;
-    nextOutQueue = outQueue;
-    nextOutQueueValid = outQueueValid;
-
-    // push and pop operation control
-    if (i_wrt && i_read) begin
-      next_size = curr_size;
-      if ((i_node_f < outQueue[0]) && (i_node_f < outQueue[1]) && (!inQueueValid[0] || (i_node_f < inQueue[0]))) begin
-        // enqueue directly into outQueue[0]
-        nextOutQueue[0] = i_node_f;
-        nextOutQueueValid[0] = 1;
-      end else begin
-        // enqueue into inQueue[0]
-        nextInQueue[0] = i_node_f;
-        nextInQueueValid[0] = 1;
-        // dequeue outQueue[0]
-        nextOutQueue[0] = '1;
-        nextOutQueueValid[0] = 0;
-      end
-    end else if (i_wrt) begin
-      next_size = curr_size + 1;
-      if ((i_node_f < outQueue[0]) && (i_node_f < outQueue[1]) && (!inQueueValid[0] || (i_node_f < inQueue[0]))) begin
-        // enqueue directly into outQueue[0]
-        nextOutQueue[0] = i_node_f;
-        nextOutQueueValid[0] = 1;
-        // Bump outQueue[0] into inQueue[0]
-        nextInQueue[0] = outQueue[0];
-        nextInQueueValid[0] = outQueueValid[0];
-      end else begin
-        // enqueue into inQueue[0]
-        nextInQueue[0] = i_node_f;
-        nextInQueueValid[0] = 1;
-      end
-    end else if (i_read) begin
-      next_size = curr_size - 1;
-      nextOutQueue[0] = '1;
-      nextOutQueueValid[0] = 0;
-    end
-
-    // Initialize the comparators
-    lessThanPrevInQueue      = '0;
-    lessThanNextInQueue      = '0;
-    lessThanSameOutQueue     = '0;
-    lessThanNextOutQueue     = '0;
-    lessThanNextNextOutQueue = '0;
-
-    // comparsion for each node in queue
-    for (j = 0; j < QUEUE_SIZE; j += 1) begin
-      lessThanPrevInQueue[j] = (j > 0) ? (inQueue[j] < inQueue[j-1] ) : !i_wrt || (inQueue[j] <= i_node_f);
-      lessThanNextInQueue[j] = (j < QUEUE_SIZE - 1) ? (inQueue[j] < inQueue[j+1]) : 1;
-      lessThanSameOutQueue[j] = (inQueue[j] < outQueue[j]);
-      lessThanNextOutQueue[j] = (j < QUEUE_SIZE - 1) ? (inQueue[j] < outQueue[j+1]) : 1;
-      lessThanNextNextOutQueue[j] = (j < QUEUE_SIZE - 2) ? (inQueue[j] < outQueue[j+2]) : 1;
-    end
-
-    // Perform sorting based on comaprator result
-    for (j = 0; j < QUEUE_SIZE - 1; j += 1) begin
-      if (lessThanSameOutQueue[j] && lessThanNextOutQueue[j] && lessThanPrevInQueue[j]) begin
-        // Insert inQueue into empty outQueue slot
-        nextOutQueue[j] = inQueue[j];
-        nextOutQueueValid[j] = inQueueValid[j];
-      end else if (lessThanNextOutQueue[j] && lessThanNextInQueue[j] && lessThanNextNextOutQueue[j]) begin
-        // Swap inQueue and outQueue
-        nextInQueue[j+1] = outQueue[j+1];
-        nextInQueueValid[j+1] = outQueueValid[j+1];
-        nextOutQueue[j+1] = inQueue[j];
-        nextOutQueueValid[j+1] = inQueueValid[j];
-      end else if ((j == QUEUE_SIZE - 2) && !outQueueValid[j+1] && inQueueValid[j+1]) begin
-        nextOutQueue[j+1] = inQueue[j+1];
-        nextOutQueueValid[j+1] = inQueueValid[j+1];
-      end else begin
-        // Shift inQueue down
-        nextInQueue[j+1] = inQueue[j];
-        nextInQueueValid[j+1] = inQueueValid[j];
-      end
-    end
-
-    // Shift outQueue length forward if there is a gap
-    for (j = 0; j < QUEUE_SIZE - 1; j += 1) begin
-      if (!outQueueValid[j] && !nextOutQueueValid[j]) begin
-        nextOutQueue[j] = outQueue[j+1];
-        nextOutQueueValid[j] = outQueueValid[j+1];
-        nextOutQueue[j+1] = '1;
-        nextOutQueueValid[j+1] = 0;
-      end
-    end
+  //Intialization
+  initial begin
+    ib_valid = 0;
+    ob_valid = 0;
+    ib_head  = 0;
+    ob_head  = 0;
   end
 
-  //========================================================================
-  // ready logic
-  //========================================================================
+  // Main logic
+  //   always_ff @(posedge clk or negedge rst_n) begin
+  //     if (!rst_n) begin
+  //       // Reset logic
+  //       // ... (initialize ib, ob, ib_valid, ob_valid, ib_head, ob_head)
+  //     end else begin
 
-  typedef enum {
-    WRITE,
-    READ
-  } State;
-
-  State curr_state;
-  State next_state;
+  //     end
+  //   end
 
   always_comb begin
+    if (insert) begin
+      // Insert new node into IB
+      // ... (insert logic)
+    end
 
-    case (curr_state)
+    if (pop) begin
+      // Pop node from OB
+      ob[ob_head].valid = 0;
+      ob_head = (ob_head + 1) % QUEUE_SIZE;
 
-      WRITE: begin
-        o_ready_deq = 1;
-        o_ready_enq = 1;
-        o_ready_rep = 1;
-        if ((i_read && !i_wrt) || (i_read && i_wrt)) begin
-          next_state = READ;
+      // Handle bubble in OB0
+      if (ib[0].valid) begin
+        if (!ob[1].valid || ib[0].f_value < ob[1].f_value) begin
+          ob[0] = ib[0];
+          ib[0].valid = 0;
         end else begin
-          next_state = WRITE;
+          ob[0] = ob[1];
+          ob[1].valid = 0;
         end
       end
-
-      READ: begin
-        o_ready_deq = 1;
-        o_ready_enq = 0;
-        o_ready_rep = 0;
-        next_state  = WRITE;
-      end
-
-      default: begin
-        o_ready_deq = 0;
-        o_ready_enq = 0;
-        o_ready_rep = 0;
-        next_state  = WRITE;
-      end
-
-    endcase
-
-  end
-
-  always_ff @(posedge CLK) begin
-
-    if (!RSTn) begin
-
-      curr_size <= '0;
-      curr_state <= WRITE;
-
-      inQueueValid <= '0;
-      outQueueValid <= '0;
-
-      for (i = 0; i < QUEUE_SIZE; i += 1) begin
-        inQueue[i]  <= '1;
-        outQueue[i] <= '1;
-      end
-
-    end else begin
-      curr_size     <= next_size;
-      curr_state    <= next_state;
-      inQueue       <= nextInQueue;
-      inQueueValid  <= nextInQueueValid;
-      outQueue      <= nextOutQueue;
-      outQueueValid <= nextOutQueueValid;
     end
 
+    // Comparison and swapping logic
+    for (int i = 0; i < QUEUE_SIZE - 1; i++) begin
+      if (ib[i].valid && (!ob[i+1].valid || ib[i].f_value < ob[i+1].f_value)) begin
+        // Swap nodes
+        node_t tmp_node;
+        tmp_node = ob[i+1];
+        ob[i+1] = ib[i];
+        ib[i] = tmp_node;
+      end
+    end
   end
+
+  // Output assignment
+  assign out_data = ob[ob_head].data;
+  assign out_f_value = ob[ob_head].f_value;
+  assign empty = !ob_valid[ob_head];
+  assign full = &ib_valid;
 
 endmodule
