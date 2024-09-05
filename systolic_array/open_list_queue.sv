@@ -111,7 +111,7 @@ module open_list_queue #(
         ib_valid [i] = 1;
       end
       if (ob[i].f_value == 32'hFFFFFFFF) begin
-        ob_valid [i] = 0;
+        ob_valid[i] = 0;
       end else begin
         ob_valid [i] = 1;
       end
