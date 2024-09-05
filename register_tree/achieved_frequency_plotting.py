@@ -57,7 +57,7 @@ def extrapolate_final_achieved_frequency(achieved_frequencies, num_points=3):
 
 
 # Directory containing the log files
-log_dir = "vivado_register_tree_analysis_results"
+log_dir = "register_tree/vivado_register_tree_analysis_results"
 
 # Dictionary to store data from all files
 all_data = {}
@@ -66,11 +66,14 @@ all_data = {}
 for file_name in sorted(
     os.listdir(log_dir), key=lambda x: int(x.split("_")[-1].split(".")[0])
 ):
-    if file_name.startswith("vivado_analysis_on_tree_depth") and file_name.endswith(".txt"):
-        tree_depth = file_name.split("_")[-1].split(".")[0]
+    if file_name.startswith("vivado_analysis_on_tree_depth") and file_name.endswith(
+        ".txt"
+    ):
+        tree_depth = int(file_name.split("_")[-1].split(".")[0])
+        queue_size = (1 << tree_depth) - 1  # Convert tree depth to queue size
         file_path = os.path.join(log_dir, file_name)
         frequencies, achieved_frequencies = parse_achieved_frequencies(file_path)
-        all_data[tree_depth] = (frequencies, achieved_frequencies)
+        all_data[queue_size] = (frequencies, achieved_frequencies)
 
 # Plotting all achieved frequencies in a single figure
 plt.figure(figsize=(10, 6))
@@ -89,7 +92,10 @@ plt.title("Achieved Frequency vs Frequency for Different QUEUE_SIZE")
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
-plt.show()
+# plt.show()
+output_dir = "register_tree/vivado_register_tree_analysis_results_plots"
+os.makedirs(output_dir, exist_ok=True)
+plt.savefig(os.path.join(output_dir, "achieved_frequency_plotting.png"))
 
 # Dictionary to store final achieved frequencies for each queue size
 final_achieved_frequencies = {}
@@ -97,7 +103,7 @@ final_achieved_frequencies = {}
 # Iterate over all data to find the final achieved frequency for each queue size
 for queue_size, (frequencies, achieved_frequencies) in all_data.items():
     final_achieved_frequency = extrapolate_final_achieved_frequency(
-        achieved_frequencies
+        achieved_frequencies, num_points=5
     )
     final_achieved_frequencies[queue_size] = final_achieved_frequency
 
@@ -108,9 +114,12 @@ queue_sizes = list(final_achieved_frequencies.keys())
 final_frequencies = list(final_achieved_frequencies.values())
 
 plt.plot(queue_sizes, final_frequencies, marker="o")
-plt.xlabel("Queue Size")
+plt.xlabel("QUEUE_SIZE")
 plt.ylabel("Final Achieved Frequency (MHz)")
-plt.title("Final Achieved Frequency vs Queue Size")
+plt.title("Final Achieved Frequency vs QUEUE_SIZE")
 plt.grid(True)
 plt.tight_layout()
-plt.show()
+# plt.show()
+output_dir = "register_tree/vivado_register_tree_analysis_results_plots"
+os.makedirs(output_dir, exist_ok=True)
+plt.savefig(os.path.join(output_dir, "final_achieved_frequency_plotting.png"))

@@ -3,7 +3,7 @@
     Paper
 */
 module register_array #(
-    parameter QUEUE_SIZE = 128, 
+    parameter QUEUE_SIZE = 1024, 
     parameter DATA_WIDTH = 32
 )
 (
@@ -62,5 +62,9 @@ module register_array #(
     end
 
 endmodule
+
+
+
+
 
 

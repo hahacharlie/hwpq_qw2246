@@ -72,3 +72,6 @@ _xmsgs/
 # editor specific folders
 .nvim/
 .vscode/
+
+# LSP
+.svlangserver/

@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Wed Sep  4 18:28:20 2024
+# Process ID: 803789
+# Current directory: /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/vivado_systolic_array_tcl/vivado_systolic_array_tcl.runs/synth_1
+# Command line: vivado -log open_list_queue.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source open_list_queue.tcl
+# Log file: /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/vivado_systolic_array_tcl/vivado_systolic_array_tcl.runs/synth_1/open_list_queue.vds
+# Journal file: /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/vivado_systolic_array_tcl/vivado_systolic_array_tcl.runs/synth_1/vivado.jou
+# Running On        :archlinux
+# Platform          :Arch
+# Operating System  :Arch Linux
+# Processor Detail  :12th Gen Intel(R) Core(TM) i9-12900KF
+# CPU Frequency     :5087.335 MHz
+# CPU Physical cores:16
+# CPU Logical cores :24
+# Host memory       :33479 MB
+# Swap memory       :4294 MB
+# Total Virtual     :37774 MB
+# Available Virtual :17519 MB
+#-----------------------------------------------------------
+source open_list_queue.tcl -notrace

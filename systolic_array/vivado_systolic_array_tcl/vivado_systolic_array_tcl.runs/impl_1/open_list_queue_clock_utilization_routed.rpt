@@ -1,0 +1,1518 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
+| Date              : Wed Sep  4 18:32:37 2024
+| Host              : archlinux running 64-bit Arch Linux
+| Command           : report_clock_utilization -file open_list_queue_clock_utilization_routed.rpt
+| Design            : open_list_queue
+| Device            : xcu250-figd2104
+| Speed File        : -2L  PRODUCTION 1.28 03-30-2022
+| Temperature Grade : E
+| Design State      : Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+Clock Utilization Report
+
+Table of Contents
+-----------------
+1. Clock Primitive Utilization
+2. Global Clock Resources
+3. Global Clock Source Details
+4. Clock Regions : Clock Primitives
+5. Clock Regions : Load Primitives
+6. Clock Regions : Global Clock Summary
+7. Clock Regions : Routing Resource Utilization
+8. Device Cell Placement Summary for Global Clock g0
+9. Device Cell Placement Summary for Global Clock g1
+10. Device Cell Placement Summary for Global Clock g2
+11. Device Cell Placement Summary for Global Clock g3
+12. Device Cell Placement Summary for Global Clock g4
+13. Device Cell Placement Summary for Global Clock g5
+14. Device Cell Placement Summary for Global Clock g6
+15. Device Cell Placement Summary for Global Clock g7
+16. Device Cell Placement Summary for Global Clock g8
+17. Device Cell Placement Summary for Global Clock g9
+18. Device Cell Placement Summary for Global Clock g10
+19. Device Cell Placement Summary for Global Clock g11
+20. Device Cell Placement Summary for Global Clock g12
+21. Device Cell Placement Summary for Global Clock g13
+22. Device Cell Placement Summary for Global Clock g14
+23. Device Cell Placement Summary for Global Clock g15
+24. Device Cell Placement Summary for Global Clock g16
+25. Device Cell Placement Summary for Global Clock g17
+26. Device Cell Placement Summary for Global Clock g18
+27. Device Cell Placement Summary for Global Clock g19
+28. Device Cell Placement Summary for Global Clock g20
+29. Device Cell Placement Summary for Global Clock g21
+30. Device Cell Placement Summary for Global Clock g22
+31. Device Cell Placement Summary for Global Clock g23
+32. Clock Region Cell Placement per Global Clock: Region X4Y6
+33. Clock Region Cell Placement per Global Clock: Region X3Y7
+34. Clock Region Cell Placement per Global Clock: Region X4Y7
+
+1. Clock Primitive Utilization
+------------------------------
+
++------------+------+-----------+-----+--------------+--------+
+| Type       | Used | Available | LOC | Clock Region | Pblock |
++------------+------+-----------+-----+--------------+--------+
+| BUFGCE     |   24 |       384 |   0 |            0 |      0 |
+| BUFGCE_DIV |    0 |        64 |   0 |            0 |      0 |
+| BUFGCTRL   |    0 |       128 |   0 |            0 |      0 |
+| BUFG_GT    |    0 |       768 |   0 |            0 |      0 |
+| MMCM       |    0 |        16 |   0 |            0 |      0 |
+| PLL        |    0 |        32 |   0 |            0 |      0 |
++------------+------+-----------+-----+--------------+--------+
+
+
+2. Global Clock Resources
+-------------------------
+
++-----------+-----------+-----------------+------------+---------------+--------------+------+-------------------+------------------+-------------------+-------------+-----------------+--------------+-------+----------------------------------------------+-----------------------------------------+
+| Global Id | Source Id | Driver Type/Pin | Constraint | Site          | Clock Region | Root | Clock Delay Group | Clock Low Fanout | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock | Driver Pin                                   | Net                                     |
++-----------+-----------+-----------------+------------+---------------+--------------+------+-------------------+------------------+-------------------+-------------+-----------------+--------------+-------+----------------------------------------------+-----------------------------------------+
+| g0        | src0      | BUFGCE/O        | None       | BUFGCE_X0Y189 | X4Y7         | X4Y7 |                   |                  |                 2 |          32 |               0 |              |       | n_0_2717_BUFG_inst/O                         | n_0_2717_BUFG                           |
+| g1        | src1      | BUFGCE/O        | None       | BUFGCE_X0Y168 | X4Y7         | X4Y6 |                   |                  |                 1 |          32 |               0 |              |       | n_10_2711_BUFG_inst/O                        | n_10_2711_BUFG                          |
+| g2        | src2      | BUFGCE/O        | None       | BUFGCE_X0Y169 | X4Y7         | X4Y6 |                   |                  |                 1 |          32 |               0 |              |       | n_11_2712_BUFG_inst/O                        | n_11_2712_BUFG                          |
+| g3        | src3      | BUFGCE/O        | None       | BUFGCE_X0Y170 | X4Y7         | X4Y7 |                   |                  |                 2 |          32 |               0 |              |       | n_1_2704_BUFG_inst/O                         | n_1_2704_BUFG                           |
+| g4        | src4      | BUFGCE/O        | None       | BUFGCE_X0Y171 | X4Y7         | X4Y7 |                   |                  |                 2 |          32 |               0 |              |       | n_2_2705_BUFG_inst/O                         | n_2_2705_BUFG                           |
+| g5        | src5      | BUFGCE/O        | None       | BUFGCE_X0Y172 | X4Y7         | X4Y6 |                   |                  |                 1 |          32 |               0 |              |       | n_3_2706_BUFG_inst/O                         | n_3_2706_BUFG                           |
+| g6        | src6      | BUFGCE/O        | None       | BUFGCE_X0Y190 | X4Y7         | X4Y6 |                   |                  |                 1 |          32 |               0 |              |       | n_4_2707_BUFG_inst/O                         | n_4_2707_BUFG                           |
+| g7        | src7      | BUFGCE/O        | None       | BUFGCE_X0Y173 | X4Y7         | X4Y7 |                   |                  |                 1 |          32 |               0 |              |       | n_5_2710_BUFG_inst/O                         | n_5_2710_BUFG                           |
+| g8        | src8      | BUFGCE/O        | None       | BUFGCE_X0Y174 | X4Y7         | X4Y7 |                   |                  |                 1 |          32 |               0 |              |       | n_6_21857_BUFG_inst/O                        | n_6_21857_BUFG                          |
+| g9        | src9      | BUFGCE/O        | None       | BUFGCE_X0Y175 | X4Y7         | X4Y7 |                   |                  |                 1 |          32 |               0 |              |       | n_7_2709_BUFG_inst/O                         | n_7_2709_BUFG                           |
+| g10       | src10     | BUFGCE/O        | None       | BUFGCE_X0Y176 | X4Y7         | X4Y7 |                   |                  |                 1 |          32 |               0 |              |       | n_8_21858_BUFG_inst/O                        | n_8_21858_BUFG                          |
+| g11       | src11     | BUFGCE/O        | None       | BUFGCE_X0Y177 | X4Y7         | X4Y6 |                   |                  |                 1 |          32 |               0 |              |       | n_9_2708_BUFG_inst/O                         | n_9_2708_BUFG                           |
+| g12       | src12     | BUFGCE/O        | None       | BUFGCE_X0Y178 | X4Y7         | X4Y7 |                   |                  |                 1 |          32 |               0 |              |       | ob_reg[10][f_value][31]_i_2_n_12_BUFG_inst/O | ob_reg[10][f_value][31]_i_2_n_12_BUFGCE |
+| g13       | src13     | BUFGCE/O        | None       | BUFGCE_X0Y179 | X4Y7         | X4Y7 |                   |                  |                 1 |          32 |               0 |              |       | ob_reg[11][f_value][31]_i_2_n_12_BUFG_inst/O | ob_reg[11][f_value][31]_i_2_n_12_BUFGCE |
+| g14       | src14     | BUFGCE/O        | None       | BUFGCE_X0Y180 | X4Y7         | X4Y7 |                   |                  |                 1 |          32 |               0 |              |       | ob_reg[12][f_value][31]_i_2_n_12_BUFG_inst/O | ob_reg[12][f_value][31]_i_2_n_12_BUFGCE |
+| g15       | src15     | BUFGCE/O        | None       | BUFGCE_X0Y181 | X4Y7         | X4Y7 |                   |                  |                 1 |          32 |               0 |              |       | ob_reg[13][f_value][31]_i_2_n_12_BUFG_inst/O | ob_reg[13][f_value][31]_i_2_n_12_BUFGCE |
+| g16       | src16     | BUFGCE/O        | None       | BUFGCE_X0Y182 | X4Y7         | X4Y7 |                   |                  |                 1 |          32 |               0 |              |       | ob_reg[14][f_value][31]_i_2_n_12_BUFG_inst/O | ob_reg[14][f_value][31]_i_2_n_12_BUFGCE |
+| g17       | src17     | BUFGCE/O        | None       | BUFGCE_X0Y183 | X4Y7         | X4Y7 |                   |                  |                 1 |          32 |               0 |              |       | ob_reg[15][f_value][31]_i_2_n_12_BUFG_inst/O | ob_reg[15][f_value][31]_i_2_n_12_BUFGCE |
+| g18       | src18     | BUFGCE/O        | None       | BUFGCE_X0Y184 | X4Y7         | X4Y7 |                   |                  |                 1 |          32 |               0 |              |       | ob_reg[16][f_value][31]_i_2_n_12_BUFG_inst/O | ob_reg[16][f_value][31]_i_2_n_12_BUFGCE |
+| g19       | src19     | BUFGCE/O        | None       | BUFGCE_X0Y191 | X4Y7         | X4Y7 |                   |                  |                 1 |          32 |               0 |              |       | ob_reg[17][f_value][31]_i_2_n_12_BUFG_inst/O | ob_reg[17][f_value][31]_i_2_n_12_BUFGCE |
+| g20       | src20     | BUFGCE/O        | None       | BUFGCE_X0Y185 | X4Y7         | X4Y7 |                   |                  |                 1 |          32 |               0 |              |       | ob_reg[18][f_value][31]_i_2_n_12_BUFG_inst/O | ob_reg[18][f_value][31]_i_2_n_12_BUFGCE |
+| g21       | src21     | BUFGCE/O        | None       | BUFGCE_X0Y186 | X4Y7         | X4Y7 |                   |                  |                 1 |          32 |               0 |              |       | ob_reg[19][f_value][31]_i_2_n_12_BUFG_inst/O | ob_reg[19][f_value][31]_i_2_n_12_BUFGCE |
+| g22       | src22     | BUFGCE/O        | None       | BUFGCE_X0Y164 | X4Y6         | X3Y7 |                   |                  |                 1 |          32 |               0 |              |       | ob_reg[1][f_value][31]_i_2_n_12_BUFG_inst/O  | ob_reg[1][f_value][31]_i_2_n_12_BUFGCE  |
+| g23       | src23     | BUFGCE/O        | None       | BUFGCE_X0Y187 | X4Y7         | X4Y7 |                   |                  |                 1 |          32 |               0 |              |       | ob_reg[20][f_value][31]_i_2_n_12_BUFG_inst/O | ob_reg[20][f_value][31]_i_2_n_12_BUFGCE |
++-----------+-----------+-----------------+------------+---------------+--------------+------+-------------------+------------------+-------------------+-------------+-----------------+--------------+-------+----------------------------------------------+-----------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+
+
+3. Global Clock Source Details
+------------------------------
+
++-----------+-----------+-----------------+------------+----------------+--------------+-------------+-----------------+---------------------+--------------+-------------------------------+----------------------------------+
+| Source Id | Global Id | Driver Type/Pin | Constraint | Site           | Clock Region | Clock Loads | Non-Clock Loads | Source Clock Period | Source Clock | Driver Pin                    | Net                              |
++-----------+-----------+-----------------+------------+----------------+--------------+-------------+-----------------+---------------------+--------------+-------------------------------+----------------------------------+
+| src0      | g0        | LUT6/O          | None       | SLICE_X120Y422 | X4Y7         |           1 |               0 |                     |              | n_0_2717_BUFG_inst_i_1/O      | n_0_2717_BUFG_inst_n_1           |
+| src1      | g1        | LUT6/O          | None       | SLICE_X123Y406 | X4Y6         |           1 |               0 |                     |              | n_10_2711_BUFG_inst_i_1/O     | n_10_2711_BUFG_inst_n_11         |
+| src2      | g2        | LUT6/O          | None       | SLICE_X123Y402 | X4Y6         |           1 |               0 |                     |              | n_11_2712_BUFG_inst_i_1/O     | n_11_2712_BUFG_inst_n_12         |
+| src3      | g3        | LUT6/O          | None       | SLICE_X120Y421 | X4Y7         |           1 |               0 |                     |              | n_1_2704_BUFG_inst_i_1/O      | n_1_2704_BUFG_inst_n_2           |
+| src4      | g4        | LUT6/O          | None       | SLICE_X121Y421 | X4Y7         |           1 |               0 |                     |              | n_2_2705_BUFG_inst_i_1/O      | n_2_2705_BUFG_inst_n_3           |
+| src5      | g5        | LUT6/O          | None       | SLICE_X126Y419 | X4Y6         |           1 |               0 |                     |              | n_3_2706_BUFG_inst_i_1/O      | n_3_2706_BUFG_inst_n_4           |
+| src6      | g6        | LUT6/O          | None       | SLICE_X125Y414 | X4Y6         |           1 |               0 |                     |              | n_4_2707_BUFG_inst_i_1/O      | n_4_2707_BUFG_inst_n_5           |
+| src7      | g7        | LUT6/O          | None       | SLICE_X129Y434 | X4Y7         |           1 |               0 |                     |              | n_5_2710_BUFG_inst_i_1/O      | n_5_2710_BUFG_inst_n_6           |
+| src8      | g8        | LUT6/O          | None       | SLICE_X129Y435 | X4Y7         |           1 |               0 |                     |              | n_6_21857_BUFG_inst_i_1/O     | n_6_21857_BUFG_inst_n_7          |
+| src9      | g9        | LUT6/O          | None       | SLICE_X129Y434 | X4Y7         |           1 |               0 |                     |              | n_7_2709_BUFG_inst_i_1/O      | n_7_2709_BUFG_inst_n_8           |
+| src10     | g10       | LUT6/O          | None       | SLICE_X127Y439 | X4Y7         |           1 |               0 |                     |              | n_8_21858_BUFG_inst_i_1/O     | n_8_21858_BUFG_inst_n_9          |
+| src11     | g11       | LUT6/O          | None       | SLICE_X124Y409 | X4Y6         |           1 |               0 |                     |              | n_9_2708_BUFG_inst_i_1/O      | n_9_2708_BUFG_inst_n_10          |
+| src12     | g12       | LUT6/O          | None       | SLICE_X120Y451 | X4Y7         |           1 |               0 |                     |              | ob_reg[10][f_value][31]_i_2/O | ob_reg[10][f_value][31]_i_2_n_12 |
+| src13     | g13       | LUT6/O          | None       | SLICE_X123Y461 | X4Y7         |           1 |               0 |                     |              | ob_reg[11][f_value][31]_i_2/O | ob_reg[11][f_value][31]_i_2_n_12 |
+| src14     | g14       | LUT6/O          | None       | SLICE_X127Y466 | X4Y7         |           1 |               0 |                     |              | ob_reg[12][f_value][31]_i_2/O | ob_reg[12][f_value][31]_i_2_n_12 |
+| src15     | g15       | LUT6/O          | None       | SLICE_X128Y466 | X4Y7         |           1 |               0 |                     |              | ob_reg[13][f_value][31]_i_2/O | ob_reg[13][f_value][31]_i_2_n_12 |
+| src16     | g16       | LUT6/O          | None       | SLICE_X129Y466 | X4Y7         |           1 |               0 |                     |              | ob_reg[14][f_value][31]_i_2/O | ob_reg[14][f_value][31]_i_2_n_12 |
+| src17     | g17       | LUT6/O          | None       | SLICE_X130Y463 | X4Y7         |           1 |               0 |                     |              | ob_reg[15][f_value][31]_i_2/O | ob_reg[15][f_value][31]_i_2_n_12 |
+| src18     | g18       | LUT6/O          | None       | SLICE_X130Y460 | X4Y7         |           1 |               0 |                     |              | ob_reg[16][f_value][31]_i_2/O | ob_reg[16][f_value][31]_i_2_n_12 |
+| src19     | g19       | LUT6/O          | None       | SLICE_X132Y457 | X4Y7         |           1 |               0 |                     |              | ob_reg[17][f_value][31]_i_2/O | ob_reg[17][f_value][31]_i_2_n_12 |
+| src20     | g20       | LUT6/O          | None       | SLICE_X132Y451 | X4Y7         |           1 |               0 |                     |              | ob_reg[18][f_value][31]_i_2/O | ob_reg[18][f_value][31]_i_2_n_12 |
+| src21     | g21       | LUT6/O          | None       | SLICE_X132Y451 | X4Y7         |           1 |               0 |                     |              | ob_reg[19][f_value][31]_i_2/O | ob_reg[19][f_value][31]_i_2_n_12 |
+| src22     | g22       | LUT2/O          | None       | SLICE_X107Y466 | X3Y7         |           1 |               0 |                     |              | ob_reg[1][f_value][31]_i_2/O  | ob_reg[1][f_value][31]_i_2_n_12  |
+| src23     | g23       | LUT6/O          | None       | SLICE_X127Y449 | X4Y7         |           1 |               0 |                     |              | ob_reg[20][f_value][31]_i_2/O | ob_reg[20][f_value][31]_i_2_n_12 |
++-----------+-----------+-----------------+------------+----------------+--------------+-------------+-----------------+---------------------+--------------+-------------------------------+----------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+
+
+4. Clock Regions : Clock Primitives
+-----------------------------------
+
++-------------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+
+|                   |  Global Clock |     BUFGCE    |   BUFGCE_DIV  |    BUFGCTRL   |    BUFG_GT    |      MMCM     |      PLL      |
++-------------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| Clock Region Name | Used  | Avail | Used  | Avail | Used  | Avail | Used  | Avail | Used  | Avail | Used  | Avail | Used  | Avail |
++-------------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| X0Y0              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y0              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y0              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y0              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y0              |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y0              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y0              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y0              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y1              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y1              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y1              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y1              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y1              |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y1              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y1              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y1              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y2              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y2              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y2              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y2              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y2              |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y2              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y2              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y2              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y3              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y3              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y3              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y3              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y3              |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y3              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y3              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y3              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y4              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y4              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y4              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y4              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y4              |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y4              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y4              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y4              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y5              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y5              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y5              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y5              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y5              |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y5              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y5              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y5              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y6              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y6              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y6              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y6              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y6              |     8 |    24 |     1 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y6              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y6              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y6              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y7              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y7              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y7              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y7              |     1 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y7              |    18 |    24 |    23 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y7              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y7              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y7              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y8              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y8              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y8              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y8              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y8              |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y8              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y8              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y8              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y9              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y9              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y9              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y9              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y9              |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y9              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y9              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y9              |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y10             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y10             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y10             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y10             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y10             |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y10             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y10             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y10             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y11             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y11             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y11             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y11             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y11             |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y11             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y11             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y11             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y12             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y12             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y12             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y12             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y12             |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y12             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y12             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y12             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y13             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y13             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y13             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y13             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y13             |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y13             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y13             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y13             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y14             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y14             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y14             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y14             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y14             |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y14             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y14             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y14             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X0Y15             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y15             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X2Y15             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X3Y15             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X4Y15             |     0 |    24 |     0 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X5Y15             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X6Y15             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |
+| X7Y15             |     0 |    24 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
++-------------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+* Global Clock column represents track count; while other columns represents cell counts
+
+
+5. Clock Regions : Load Primitives
+----------------------------------
+
++-------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+|                   |   Global Clock   |        FF        |      LUTRAM      |  Block RAM (18K) |       URAM       |        DSP       |        GT        |      HARD IP     |
++-------------------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+
+| Clock Region Name | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   |
++-------------------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+
+| X0Y0              |      0 |      24 |      0 |   27840 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y0              |      0 |      24 |      0 |   23040 |      0 |    5760 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y0              |      0 |      24 |      0 |   34560 |      0 |    6720 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y0              |      0 |      24 |      0 |   19200 |      0 |    4800 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y0              |      0 |      24 |      0 |   25920 |      0 |    5280 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y0              |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y0              |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y0              |      0 |      24 |      0 |   24000 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       1 |
+| X0Y1              |      0 |      24 |      0 |   29760 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y1              |      0 |      24 |      0 |   24960 |      0 |    6720 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y1              |      0 |      24 |      0 |   36480 |      0 |    7680 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y1              |      0 |      24 |      0 |   21120 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y1              |      0 |      24 |      0 |   27840 |      0 |    6240 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y1              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y1              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y1              |      0 |      24 |      0 |   25920 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       0 |
+| X0Y2              |      0 |      24 |      0 |   29760 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y2              |      0 |      24 |      0 |   24960 |      0 |    6720 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y2              |      0 |      24 |      0 |   36480 |      0 |    7680 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y2              |      0 |      24 |      0 |   21120 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y2              |      0 |      24 |      0 |   27840 |      0 |    6240 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y2              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y2              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y2              |      0 |      24 |      0 |   25920 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       0 |
+| X0Y3              |      0 |      24 |      0 |   27840 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y3              |      0 |      24 |      0 |   23040 |      0 |    5760 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y3              |      0 |      24 |      0 |   34560 |      0 |    6720 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y3              |      0 |      24 |      0 |   19200 |      0 |    4800 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y3              |      0 |      24 |      0 |   25920 |      0 |    5280 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y3              |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y3              |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y3              |      0 |      24 |      0 |   24000 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       1 |
+| X0Y4              |      0 |      24 |      0 |   27840 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y4              |      0 |      24 |      0 |   23040 |      0 |    5760 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y4              |      0 |      24 |      0 |   34560 |      0 |    6720 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y4              |      0 |      24 |      0 |   19200 |      0 |    4800 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y4              |      0 |      24 |      0 |   25920 |      0 |    5280 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y4              |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y4              |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y4              |      0 |      24 |      0 |   24000 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       1 |
+| X0Y5              |      0 |      24 |      0 |   29760 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y5              |      0 |      24 |      0 |   24960 |      0 |    6720 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y5              |      0 |      24 |      0 |   36480 |      0 |    7680 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y5              |      0 |      24 |      0 |   21120 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y5              |      0 |      24 |      0 |   27840 |      0 |    6240 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y5              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y5              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y5              |      0 |      24 |      0 |   25920 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       0 |
+| X0Y6              |      0 |      24 |      0 |   29760 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y6              |      0 |      24 |      0 |   24960 |      0 |    6720 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y6              |      0 |      24 |      0 |   36480 |      0 |    7680 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y6              |      0 |      24 |      0 |   21120 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y6              |      8 |      24 |      0 |   27840 |      0 |    6240 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y6              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y6              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y6              |      0 |      24 |      0 |   25920 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       0 |
+| X0Y7              |      0 |      24 |      0 |   27840 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y7              |      0 |      24 |      0 |   23040 |      0 |    5760 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y7              |      0 |      24 |      0 |   34560 |      0 |    6720 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y7              |      1 |      24 |      0 |   19200 |      0 |    4800 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y7              |     18 |      24 |      0 |   25920 |      0 |    5280 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y7              |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y7              |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y7              |      0 |      24 |      0 |   24000 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       1 |
+| X0Y8              |      0 |      24 |      0 |   27840 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y8              |      0 |      24 |      0 |   23040 |      0 |    5760 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y8              |      0 |      24 |      0 |   34560 |      0 |    6720 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y8              |      0 |      24 |      0 |   19200 |      0 |    4800 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y8              |      0 |      24 |      0 |   25920 |      0 |    5280 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y8              |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y8              |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y8              |      0 |      24 |      0 |   24000 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       1 |
+| X0Y9              |      0 |      24 |      0 |   29760 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y9              |      0 |      24 |      0 |   24960 |      0 |    6720 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y9              |      0 |      24 |      0 |   36480 |      0 |    7680 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y9              |      0 |      24 |      0 |   21120 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y9              |      0 |      24 |      0 |   27840 |      0 |    6240 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y9              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y9              |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y9              |      0 |      24 |      0 |   25920 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       0 |
+| X0Y10             |      0 |      24 |      0 |   29760 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y10             |      0 |      24 |      0 |   24960 |      0 |    6720 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y10             |      0 |      24 |      0 |   36480 |      0 |    7680 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y10             |      0 |      24 |      0 |   21120 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y10             |      0 |      24 |      0 |   27840 |      0 |    6240 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y10             |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y10             |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y10             |      0 |      24 |      0 |   25920 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       0 |
+| X0Y11             |      0 |      24 |      0 |   27840 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y11             |      0 |      24 |      0 |   23040 |      0 |    5760 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y11             |      0 |      24 |      0 |   34560 |      0 |    6720 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y11             |      0 |      24 |      0 |   19200 |      0 |    4800 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y11             |      0 |      24 |      0 |   25920 |      0 |    5280 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y11             |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y11             |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y11             |      0 |      24 |      0 |   24000 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       1 |
+| X0Y12             |      0 |      24 |      0 |   27840 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y12             |      0 |      24 |      0 |   23040 |      0 |    5760 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y12             |      0 |      24 |      0 |   34560 |      0 |    6720 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y12             |      0 |      24 |      0 |   19200 |      0 |    4800 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y12             |      0 |      24 |      0 |   25920 |      0 |    5280 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y12             |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y12             |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y12             |      0 |      24 |      0 |   24000 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       1 |
+| X0Y13             |      0 |      24 |      0 |   29760 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y13             |      0 |      24 |      0 |   24960 |      0 |    6720 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y13             |      0 |      24 |      0 |   36480 |      0 |    7680 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y13             |      0 |      24 |      0 |   21120 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y13             |      0 |      24 |      0 |   27840 |      0 |    6240 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y13             |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y13             |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y13             |      0 |      24 |      0 |   25920 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       0 |
+| X0Y14             |      0 |      24 |      0 |   29760 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y14             |      0 |      24 |      0 |   24960 |      0 |    6720 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y14             |      0 |      24 |      0 |   36480 |      0 |    7680 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y14             |      0 |      24 |      0 |   21120 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y14             |      0 |      24 |      0 |   27840 |      0 |    6240 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y14             |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y14             |      0 |      24 |      0 |   28800 |      0 |    6720 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y14             |      0 |      24 |      0 |   25920 |      0 |    6720 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       0 |
+| X0Y15             |      0 |      24 |      0 |   27840 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      96 |      0 |       4 |      0 |       1 |
+| X1Y15             |      0 |      24 |      0 |   23040 |      0 |    5760 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X2Y15             |      0 |      24 |      0 |   34560 |      0 |    6720 |      0 |      72 |      0 |       0 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X3Y15             |      0 |      24 |      0 |   19200 |      0 |    4800 |      0 |      24 |      0 |      16 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X4Y15             |      0 |      24 |      0 |   25920 |      0 |    5280 |      0 |      48 |      0 |      16 |      0 |      96 |      0 |       0 |      0 |       0 |
+| X5Y15             |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X6Y15             |      0 |      24 |      0 |   26880 |      0 |    5760 |      0 |      24 |      0 |      16 |      0 |     120 |      0 |       0 |      0 |       0 |
+| X7Y15             |      0 |      24 |      0 |   24000 |      0 |    5760 |      0 |      48 |      0 |       0 |      0 |      48 |      0 |       4 |      0 |       1 |
++-------------------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+
+* Global Clock column represents track count; while other columns represents cell counts
+
+
+6. Clock Regions : Global Clock Summary
+---------------------------------------
+
+All Modules
++-----+----+----+----+----+----+----+----+----+
+|     | X0 | X1 | X2 | X3 | X4 | X5 | X6 | X7 |
++-----+----+----+----+----+----+----+----+----+
+| Y15 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y14 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y13 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y12 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y11 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y10 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y9  |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y8  |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y7  |  0 |  0 |  0 |  1 | 23 |  0 |  0 |  0 |
+| Y6  |  0 |  0 |  0 |  0 |  9 |  0 |  0 |  0 |
+| Y5  |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y4  |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y3  |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y2  |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y1  |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
+| Y0  |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |
++-----+----+----+----+----+----+----+----+----+
+
+
+7. Clock Regions : Routing Resource Utilization
+-----------------------------------------------
+
+All Modules
++-------------------+----------------------+----------------------+----------------------+----------------------+
+|                   |        HROUTES       |        HDISTRS       |        VROUTES       |        VDISTRS       |
++-------------------+------+-------+-------+------+-------+-------+------+-------+-------+------+-------+-------+
+| Clock Region Name | Used | Avail | Util% | Used | Avail | Util% | Used | Avail | Util% | Used | Avail | Util% |
++-------------------+------+-------+-------+------+-------+-------+------+-------+-------+------+-------+-------+
+| X0Y0              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y0              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y0              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y0              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y0              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y0              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y0              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y0              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y1              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y1              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y1              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y1              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y1              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y1              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y1              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y1              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y2              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y2              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y2              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y2              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y2              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y2              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y2              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y2              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y3              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y4              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y4              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y4              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y4              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y4              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y4              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y4              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y4              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y5              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y5              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y5              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y5              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y5              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y5              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y5              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y5              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y6              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y6              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y6              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y6              |    1 |    24 |  4.17 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y6              |    1 |    24 |  4.17 |    8 |    24 | 33.33 |    5 |    24 | 20.83 |    8 |    24 | 33.33 |
+| X5Y6              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y6              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y6              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y7              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y7              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y7              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y7              |    0 |    24 |  0.00 |    1 |    24 |  4.17 |    1 |    24 |  4.17 |    1 |    24 |  4.17 |
+| X4Y7              |    6 |    24 | 25.00 |   18 |    24 | 75.00 |    5 |    24 | 20.83 |    3 |    24 | 12.50 |
+| X5Y7              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y7              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y7              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y8              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y8              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y8              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y8              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y8              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y8              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y8              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y8              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y9              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y9              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y9              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y9              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y9              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y9              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y9              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y9              |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y10             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y10             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y10             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y10             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y10             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y10             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y10             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y10             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y11             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y11             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y11             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y11             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y11             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y11             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y11             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y11             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y12             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y12             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y12             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y12             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y12             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y12             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y12             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y12             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y13             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y13             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y13             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y13             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y13             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y13             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y13             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y13             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y14             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y14             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y14             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y14             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y14             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y14             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y14             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y14             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X0Y15             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X1Y15             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X2Y15             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X3Y15             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X4Y15             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X5Y15             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X6Y15             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
+| X7Y15             |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |    0 |    24 |  0.00 |
++-------------------+------+-------+-------+------+-------+-------+------+-------+-------+------+-------+-------+
+
+
+8. Device Cell Placement Summary for Global Clock g0
+----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net           |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+| g0        | BUFGCE/O        | X4Y7              |       |             |               | X4Y7     |          32 |        0 |              0 |        0 | n_0_2717_BUFG |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4         | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 | (R) (D) 15 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |  0 |         17 |  0 |  0 |  0 |                     0 |
+| Y5  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+
+
+9. Device Cell Placement Summary for Global Clock g1
+----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net            |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------+
+| g1        | BUFGCE/O        | X4Y7              |       |             |               | X4Y6     |          32 |        0 |              0 |        0 | n_10_2711_BUFG |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 |  (D) 0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |  0 | (R) 32 |  0 |  0 |  0 |                     0 |
+| Y5  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+
+
+10. Device Cell Placement Summary for Global Clock g2
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net            |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------+
+| g2        | BUFGCE/O        | X4Y7              |       |             |               | X4Y6     |          32 |        0 |              0 |        0 | n_11_2712_BUFG |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 |  (D) 0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |  0 | (R) 32 |  0 |  0 |  0 |                     0 |
+| Y5  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+
+
+11. Device Cell Placement Summary for Global Clock g3
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net           |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+| g3        | BUFGCE/O        | X4Y7              |       |             |               | X4Y7     |          32 |        0 |              0 |        0 | n_1_2704_BUFG |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+-----------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4        | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+-----------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 | (R) (D) 5 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |  0 |        27 |  0 |  0 |  0 |                     0 |
+| Y5  |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+-----------+----+----+----+-----------------------+
+
+
+12. Device Cell Placement Summary for Global Clock g4
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net           |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+| g4        | BUFGCE/O        | X4Y7              |       |             |               | X4Y7     |          32 |        0 |              0 |        0 | n_2_2705_BUFG |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+-----------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4        | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+-----------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 | (R) (D) 4 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |  0 |        28 |  0 |  0 |  0 |                     0 |
+| Y5  |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |         0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+-----------+----+----+----+-----------------------+
+
+
+13. Device Cell Placement Summary for Global Clock g5
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net           |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+| g5        | BUFGCE/O        | X4Y7              |       |             |               | X4Y6     |          32 |        0 |              0 |        0 | n_3_2706_BUFG |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 |  (D) 0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |  0 | (R) 32 |  0 |  0 |  0 |                     0 |
+| Y5  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+
+
+14. Device Cell Placement Summary for Global Clock g6
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net           |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+| g6        | BUFGCE/O        | X4Y7              |       |             |               | X4Y6     |          32 |        0 |              0 |        0 | n_4_2707_BUFG |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 |  (D) 0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |  0 | (R) 32 |  0 |  0 |  0 |                     0 |
+| Y5  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+
+
+15. Device Cell Placement Summary for Global Clock g7
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net           |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+| g7        | BUFGCE/O        | X4Y7              |       |             |               | X4Y7     |          32 |        0 |              0 |        0 | n_5_2710_BUFG |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4         | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 | (R) (D) 32 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+
+
+16. Device Cell Placement Summary for Global Clock g8
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net            |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------+
+| g8        | BUFGCE/O        | X4Y7              |       |             |               | X4Y7     |          32 |        0 |              0 |        0 | n_6_21857_BUFG |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4         | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 | (R) (D) 32 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+
+
+17. Device Cell Placement Summary for Global Clock g9
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net           |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+| g9        | BUFGCE/O        | X4Y7              |       |             |               | X4Y7     |          32 |        0 |              0 |        0 | n_7_2709_BUFG |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4         | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 | (R) (D) 32 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+
+
+18. Device Cell Placement Summary for Global Clock g10
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net            |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------+
+| g10       | BUFGCE/O        | X4Y7              |       |             |               | X4Y7     |          32 |        0 |              0 |        0 | n_8_21858_BUFG |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4         | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 | (R) (D) 32 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+
+
+19. Device Cell Placement Summary for Global Clock g11
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net           |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+| g11       | BUFGCE/O        | X4Y7              |       |             |               | X4Y6     |          32 |        0 |              0 |        0 | n_9_2708_BUFG |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 |  (D) 0 |  0 |  0 |  0 |                     - |
+| Y6  |  0 |  0 |  0 |  0 | (R) 32 |  0 |  0 |  0 |                     0 |
+| Y5  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |      0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+--------+----+----+----+-----------------------+
+
+
+20. Device Cell Placement Summary for Global Clock g12
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                     |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| g12       | BUFGCE/O        | X4Y7              |       |             |               | X4Y7     |          32 |        0 |              0 |        0 | ob_reg[10][f_value][31]_i_2_n_12_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4         | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 | (R) (D) 32 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+
+
+21. Device Cell Placement Summary for Global Clock g13
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                     |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| g13       | BUFGCE/O        | X4Y7              |       |             |               | X4Y7     |          32 |        0 |              0 |        0 | ob_reg[11][f_value][31]_i_2_n_12_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4         | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 | (R) (D) 32 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+
+
+22. Device Cell Placement Summary for Global Clock g14
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                     |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| g14       | BUFGCE/O        | X4Y7              |       |             |               | X4Y7     |          32 |        0 |              0 |        0 | ob_reg[12][f_value][31]_i_2_n_12_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4         | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 | (R) (D) 32 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+
+
+23. Device Cell Placement Summary for Global Clock g15
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                     |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| g15       | BUFGCE/O        | X4Y7              |       |             |               | X4Y7     |          32 |        0 |              0 |        0 | ob_reg[13][f_value][31]_i_2_n_12_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4         | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 | (R) (D) 32 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+
+
+24. Device Cell Placement Summary for Global Clock g16
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                     |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| g16       | BUFGCE/O        | X4Y7              |       |             |               | X4Y7     |          32 |        0 |              0 |        0 | ob_reg[14][f_value][31]_i_2_n_12_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4         | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 | (R) (D) 32 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+
+
+25. Device Cell Placement Summary for Global Clock g17
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                     |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| g17       | BUFGCE/O        | X4Y7              |       |             |               | X4Y7     |          32 |        0 |              0 |        0 | ob_reg[15][f_value][31]_i_2_n_12_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4         | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 | (R) (D) 32 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+
+
+26. Device Cell Placement Summary for Global Clock g18
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                     |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| g18       | BUFGCE/O        | X4Y7              |       |             |               | X4Y7     |          32 |        0 |              0 |        0 | ob_reg[16][f_value][31]_i_2_n_12_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4         | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 | (R) (D) 32 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+
+
+27. Device Cell Placement Summary for Global Clock g19
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                     |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| g19       | BUFGCE/O        | X4Y7              |       |             |               | X4Y7     |          32 |        0 |              0 |        0 | ob_reg[17][f_value][31]_i_2_n_12_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4         | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 | (R) (D) 32 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+
+
+28. Device Cell Placement Summary for Global Clock g20
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                     |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| g20       | BUFGCE/O        | X4Y7              |       |             |               | X4Y7     |          32 |        0 |              0 |        0 | ob_reg[18][f_value][31]_i_2_n_12_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4         | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 | (R) (D) 32 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+
+
+29. Device Cell Placement Summary for Global Clock g21
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                     |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| g21       | BUFGCE/O        | X4Y7              |       |             |               | X4Y7     |          32 |        0 |              0 |        0 | ob_reg[19][f_value][31]_i_2_n_12_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4         | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 | (R) (D) 32 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+
+
+30. Device Cell Placement Summary for Global Clock g22
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                    |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------------------------------+
+| g22       | BUFGCE/O        | X4Y6              |       |             |               | X3Y7     |          32 |        0 |              0 |        0 | ob_reg[1][f_value][31]_i_2_n_12_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+----------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3     | X4     | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 | (R) 32 |      0 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |      0 |  (D) 0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |      0 |      0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+--------+--------+----+----+----+-----------------------+
+
+
+31. Device Cell Placement Summary for Global Clock g23
+------------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                     |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+| g23       | BUFGCE/O        | X4Y7              |       |             |               | X4Y7     |          32 |        0 |              0 |        0 | ob_reg[20][f_value][31]_i_2_n_12_BUFGCE |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+|     | X0 | X1 | X2 | X3 | X4         | X5 | X6 | X7 | HORIZONTAL PROG DELAY |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+| Y15 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y14 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y13 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y12 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y11 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y10 |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y9  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y8  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y7  |  0 |  0 |  0 |  0 | (R) (D) 32 |  0 |  0 |  0 |                     0 |
+| Y6  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y5  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y4  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y3  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y2  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y1  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
+| Y0  |  0 |  0 |  0 |  0 |          0 |  0 |  0 |  0 |                     - |
++-----+----+----+----+----+------------+----+----+----+-----------------------+
+
+
+32. Clock Region Cell Placement per Global Clock: Region X4Y6
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+----------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                    |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+----------------------------------------+
+| g0        | 21    | BUFGCE/O        | None       |          17 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_0_2717_BUFG                          |
+| g1        | 0     | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_10_2711_BUFG                         |
+| g2        | 1     | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_11_2712_BUFG                         |
+| g3        | 2     | BUFGCE/O        | None       |          27 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_1_2704_BUFG                          |
+| g4        | 3     | BUFGCE/O        | None       |          28 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_2_2705_BUFG                          |
+| g5        | 4     | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_3_2706_BUFG                          |
+| g6        | 22    | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_4_2707_BUFG                          |
+| g11       | 9     | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_9_2708_BUFG                          |
+| g22+      | 20    | BUFGCE/O        | None       |           0 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | ob_reg[1][f_value][31]_i_2_n_12_BUFGCE |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+----------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+**** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
+
+
+33. Clock Region Cell Placement per Global Clock: Region X3Y7
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+----------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                    |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+----------------------------------------+
+| g22       | 20    | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | ob_reg[1][f_value][31]_i_2_n_12_BUFGCE |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+----------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+
+
+34. Clock Region Cell Placement per Global Clock: Region X4Y7
+-------------------------------------------------------------
+
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | URAM | DSP | GT | MMCM | PLL | Hard IP | Net                                     |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------+
+| g0        | 21    | BUFGCE/O        | None       |          15 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_0_2717_BUFG                           |
+| g1+       | 0     | BUFGCE/O        | None       |           0 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_10_2711_BUFG                          |
+| g2+       | 1     | BUFGCE/O        | None       |           0 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_11_2712_BUFG                          |
+| g3        | 2     | BUFGCE/O        | None       |           5 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_1_2704_BUFG                           |
+| g4        | 3     | BUFGCE/O        | None       |           4 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_2_2705_BUFG                           |
+| g5+       | 4     | BUFGCE/O        | None       |           0 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_3_2706_BUFG                           |
+| g6+       | 22    | BUFGCE/O        | None       |           0 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_4_2707_BUFG                           |
+| g7        | 5     | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_5_2710_BUFG                           |
+| g8        | 6     | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_6_21857_BUFG                          |
+| g9        | 7     | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_7_2709_BUFG                           |
+| g10       | 8     | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_8_21858_BUFG                          |
+| g11+      | 9     | BUFGCE/O        | None       |           0 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | n_9_2708_BUFG                           |
+| g12       | 10    | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | ob_reg[10][f_value][31]_i_2_n_12_BUFGCE |
+| g13       | 11    | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | ob_reg[11][f_value][31]_i_2_n_12_BUFGCE |
+| g14       | 12    | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | ob_reg[12][f_value][31]_i_2_n_12_BUFGCE |
+| g15       | 13    | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | ob_reg[13][f_value][31]_i_2_n_12_BUFGCE |
+| g16       | 14    | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | ob_reg[14][f_value][31]_i_2_n_12_BUFGCE |
+| g17       | 15    | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | ob_reg[15][f_value][31]_i_2_n_12_BUFGCE |
+| g18       | 16    | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | ob_reg[16][f_value][31]_i_2_n_12_BUFGCE |
+| g19       | 23    | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | ob_reg[17][f_value][31]_i_2_n_12_BUFGCE |
+| g20       | 17    | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | ob_reg[18][f_value][31]_i_2_n_12_BUFGCE |
+| g21       | 18    | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | ob_reg[19][f_value][31]_i_2_n_12_BUFGCE |
+| g23       | 19    | BUFGCE/O        | None       |          32 |               0 |  0 |           0 |    0 |    0 |   0 |  0 |    0 |   0 |       0 | ob_reg[20][f_value][31]_i_2_n_12_BUFGCE |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+------+-----+----+------+-----+---------+-----------------------------------------+
+* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
+** Non-Clock Loads column represents cell count of non-clock pin loads
+*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
+**** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
+
+

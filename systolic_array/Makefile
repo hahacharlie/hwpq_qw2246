@@ -1,6 +1,6 @@
 # Makefile for running verilator binary simulation
 
-MODULE=open_list_queue
+MODULE=tmp_open_list_queue
 
 .PHONY:sim
 sim: waveform.vcd

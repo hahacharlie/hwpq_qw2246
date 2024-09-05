@@ -5,18 +5,12 @@
     written by Zhou etc.
     P.S. This is a Min Queue, which means the smallest element is always at the head of the queue.
 */
-
-/* verilator lint_off ASCRANGE */
-/* verilator lint_off ALWCOMBORDER */
-/* verilator lint_off UNOPTFLAT */
-/* verilator lint_off LATCH */
-
 module open_list_queue #(
-    parameter QUEUE_SIZE = 8,
+    parameter QUEUE_SIZE = 4,
     parameter DATA_WIDTH = 32
 ) (
     input logic clk,
-    // input logic rst_n,
+    input logic rst_n, // Added reset signal
     input logic insert,
     input logic pop,
     input logic [DATA_WIDTH-1:0] in_data,
@@ -33,92 +27,105 @@ module open_list_queue #(
     logic [DATA_WIDTH-1:0] f_value;
   } node_t;
 
-  node_t ib[QUEUE_SIZE-2:0];
-  node_t ob[QUEUE_SIZE-1:0];
-  node_t temp_node;
+  node_t [QUEUE_SIZE-2:0] ib, ib_next;
+  node_t [QUEUE_SIZE-1:0] ob, ob_next;
+  node_t temp_node = '0;
 
-  logic [0:QUEUE_SIZE-2] ib_valid;
-  logic [0:QUEUE_SIZE-1] ob_valid;
-
-  // synthesis translate_off
-  //Intialization of two buffers to invalid state indicating that the buffers are empty
-  initial begin
-    for (int i = 0; i < QUEUE_SIZE; i++) begin
-      ib[i].data = 32'hFFFFFFFF;
-      ib[i].f_value = 32'hFFFFFFFF;
-      ob[i].data = 32'hFFFFFFFF;
-      ob[i].f_value = 32'hFFFFFFFF;
-    end
-  end
-  // synthesis translate_on
+  logic [QUEUE_SIZE-2:0] ib_valid;
+  logic [QUEUE_SIZE-1:0] ob_valid;
 
   // Main logic
-  always_ff @(posedge clk) begin
-    if (insert && !full) begin
-      ib[0].data <= in_data;
-      ib[0].f_value <= in_f_value;
-    end
-    if (pop && !empty) begin
-      out_data <= ob[0].data;
-      out_f_value <= ob[0].f_value;
-      ob[0].data <= 32'hFFFFFFFF;
-      ob[0].f_value <= 32'hFFFFFFFF;
+  always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+      // Initialization of two buffers to mimic the example in the paper
+      ib[0].data <= 32'd1;
+      ib[0].f_value <= 32'd3;
+      ib[1].data <= 32'd2;
+      ib[1].f_value <= '1;
+      ib[2].data <= 32'd3;
+      ib[2].f_value <= '1;
+
+      ob[0].data <= 32'd4;
+      ob[0].f_value <= 32'd2;
+      ob[1].data <= 32'd5;
+      ob[1].f_value <= 32'd5;
+      ob[2].data <= 32'd6;
+      ob[2].f_value <= 32'd7;
+      ob[3].data <= 32'd7;
+      ob[3].f_value <= '1;
+    end else begin
+      ib <= ib_next;
+      ob <= ob_next;
     end
   end
 
   always_comb begin
-    if (ob[0].f_value == 32'hFFFFFFFF) begin
+
+    // ib_next = ib;
+    // ob_next = ob;
+
+    if (insert && ib[0].f_value == '1) begin
+      ib_next[0] = {in_data, in_f_value};
+    end
+
+    if (pop && ob[0].f_value != '1) begin
       if (ib[0].f_value < ob[1].f_value) begin
-        ob[0] = ib[0];
-        ib[0].data = 32'hFFFFFFFF;
-        ib[0].f_value = 32'hFFFFFFFF;
-      end else begin // if the valud f if IB[0] is not smaller than the f value of OB[1], the node in OB[1] will be put in OB[0], and the bubble will shift right
-        ob[0] = ob[1];
-        ob[1].data = 32'hFFFFFFFF;
-        ob[1].f_value = 32'hFFFFFFFF;
+        ob_next[0] = ib[0];
+        ib_next[0].data = '0;
+        ib_next[0].f_value = '1;
+      end else begin
+        ob_next[0] = ob[1];
+        ob_next[1].data = '0;
+        ob_next[1].f_value = '1;
       end
     end
+
     // IB[i] sorting logic 
     for (int i = 0; i <= QUEUE_SIZE - 2; i++) begin
       if (ib[i].f_value < ob[i].f_value) begin
-        ob[i] = ib[i];
-        ib[i].data = 32'hFFFFFFFF;
-        ib[i].f_value = 32'hFFFFFFFF;
+        ob_next[i] = ib[i];
+        ib_next[i].data = '0;
+        ib_next[i].f_value = '1;
       end else begin
         if (ib[i].f_value < ob[i+1].f_value) begin
-          temp_node = ob[i+1];
-          ob[i+1] = ib[i];
-          ib[i+1] = temp_node;
-          ib[i].data = 32'hFFFFFFFF;
-          ib[i].f_value = 32'hFFFFFFFF;
+          ob_next[i+1] = ib[i];
+          ib_next[i+1] = ob[i+1];
+          ib_next[i].data = '0;
+          ib_next[i].f_value = '1;
         end else begin
-          ib[i+1] = ib[i];
-          ib[i].data = 32'hFFFFFFFF;
-          ib[i].f_value = 32'hFFFFFFFF;
+          ib_next[i+1] = ib[i];
+          ib_next[i].data = '0;
+          ib_next[i].f_value = '1;
         end
       end
+    end
+
+    // OB[i] sorting logic
+    for (int i = 0; i <= QUEUE_SIZE - 2; i++) begin
       if (ob[i+1].f_value < ob[i].f_value) begin
-        temp_node = ob[i+1];
-        ob[i+1] = ob[i];
-        ob[i] = temp_node;
+        ob_next[i+1] = ob[i];
+        ob_next[i] = ob[i+1];
       end
     end
+
     // identify for validity
-    for (int i = 0; i < QUEUE_SIZE-1; i++) begin
-      if (ib[i].f_value == 32'hFFFFFFFF) begin
-        ib_valid [i] = 0;
+    for (int i = 0; i < QUEUE_SIZE; i++) begin
+      if (ib[i].f_value == '1) begin
+        ib_valid[i] = 0;
       end else begin
-        ib_valid [i] = 1;
+        ib_valid[i] = 1;
       end
-      if (ob[i].f_value == 32'hFFFFFFFF) begin
+      if (ob[i].f_value == '1) begin
         ob_valid[i] = 0;
       end else begin
-        ob_valid [i] = 1;
+        ob_valid[i] = 1;
       end
     end
   end 
 
   assign empty = ob_valid == {QUEUE_SIZE{1'b0}};
   assign full = ib_valid == {QUEUE_SIZE-1{1'b1}};
+  assign out_data = ob[0].data;
+  assign out_f_value = ob[0].f_value;
 
 endmodule
