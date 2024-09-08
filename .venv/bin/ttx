@@ -1,4 +1,4 @@
-#!/home/charlie/Workspace/pq_research/hwpq_qw2246/.venv/bin/python
+#!/Users/charlie/Workspace/pq_research/hwpq_qw2246/.venv/bin/python3.12
 # -*- coding: utf-8 -*-
 import re
 import sys

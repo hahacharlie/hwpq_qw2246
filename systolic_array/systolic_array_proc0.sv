@@ -2,22 +2,24 @@
 //  Processing node 0 for Lieserson's Systolic Priority Queue
 //
 
-module systolic_array_proc0 #(parameter KW=8, VW=4) (
+module systolic_array_proc0 #(
+    parameter QUEUE_SIZE=4,
+    parameter KEY_WIDTH=8,
+    parameter DATA_WIDTH=32
+) (
     input logic clk, rst,
-    output logic even, odd,
     input logic ivalid,
-    input logic [KW+VW-1:0] idata,
-    output logic irdy,
     input logic ovalid,
     input logic ordy,
-    output logic [KW+VW-1:0] bo, ao,
-    );
+    input logic [KEY_WIDTH+DATA_WIDTH-1:0] idata,
+    output logic even, odd,
+    output logic irdy,
+    output logic [KEY_WIDTH+DATA_WIDTH-1:0] bo, ao
+);
 
     // may want to move these to the main module?
-    parameter logic [KW+VW-1:0] PQINF = '1;
-    parameter logic [KW+VW-1:0] PQNEGINF = '0;
-
-    parameter PQ_CAPACITY = 4;
+    localparam [KEY_WIDTH+DATA_WIDTH-1:0] PQINF = '{KEY_WIDTH{1'b1}, DATA_WIDTH{1'b0}};
+    localparam [KEY_WIDTH+DATA_WIDTH-1:0] PQNEGINF = '{KEY_WIDTH{1'b0}, DATA_WIDTH{1'b0}};
 
     //--------------------------------------------------
     // Generate odd, even enables
@@ -29,14 +31,13 @@ module systolic_array_proc0 #(parameter KW=8, VW=4) (
 
     assign even = !odd;
 
-
     //--------------------------------------------------
     // write logic to place stuff in the queue
     //--------------------------------------------------
 
-    logic [2:0] pq_count;
+    logic [$clog2(QUEUE_SIZE):0] pq_count;
 
-    assign irdy = (pq_count <= PQ_CAPACITY) && even;
+    assign irdy = (pq_count <= QUEUE_SIZE) && even;
 
     always_ff @(posedge clk) begin
       if (rst)
