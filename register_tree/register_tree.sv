@@ -37,14 +37,14 @@ module register_tree #(
         end
     endgenerate
 
-    // synthesis translate_off
+    // synthesis off
     // Initial block to initialize the tree entries
     initial begin
         for (integer j = 0; j < NUM_NODES; j = j + 1) begin
             tree[j] = (j + 1) * 10; // Initialize tree entries to fixed values
         end
     end
-    // synthesis translate_on
+    // synthesis on
 
     // State machine control
     always @(posedge clk) begin

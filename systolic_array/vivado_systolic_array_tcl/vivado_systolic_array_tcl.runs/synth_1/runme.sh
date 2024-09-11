@@ -37,4 +37,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log open_list_queue.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source open_list_queue.tcl
+EAStep vivado -log systolic_array.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source systolic_array.tcl

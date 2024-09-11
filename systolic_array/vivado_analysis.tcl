@@ -1,9 +1,12 @@
 # Define the range of TREE_DEPTH and clock frequencies to test
-set queue_sizes {64}
+set queue_sizes {8}
 
 # Create a single project
 create_project -force vivado_systolic_array_tcl ./vivado_systolic_array_tcl -part xcu250-figd2104-2L-e
-add_files ./open_list_queue.sv
+add_files ./systolic_array.sv
+add_files ./systolic_array_proc.sv
+add_files ./systolic_array_proc0.sv
+add_files ./systolic_array_sort3.sv
 close_project
 
 # Create the results directory if it doesn't exist
@@ -12,8 +15,8 @@ file mkdir ./vivado_systolic_array_analysis_results
 # Loop through each QUEUE_SIZE
 foreach queue_size $queue_sizes {
 
-    # Open the open_list_queue.sv file
-    set file_id [open "./open_list_queue.sv" r+]
+    # Open the systolic_array.sv file
+    set file_id [open "./systolic_array.sv" r+]
 
     # Read the file content
     set file_content [read $file_id]

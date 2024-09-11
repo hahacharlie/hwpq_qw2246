@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+
 //////////////////////////////////////////////////////////////////////////////////
 // Company:
 // Engineer:
@@ -23,75 +24,65 @@
 module systolic_array_tb;
 
   parameter QUEUE_SIZE=4;
-  parameter KEY_WIDTH=8; 
   parameter DATA_WIDTH=32;
 
-  logic clk, rst, ivalid;
-  logic [KEY_WIDTH+DATA_WIDTH-1:0] idata;
-  logic irdy;
+  logic clk, rst;
+  logic insert, extract;
+  logic [DATA_WIDTH-1:0] idata;
   logic ovalid;
-  logic [KEY_WIDTH+DATA_WIDTH-1:0] odata;
-  logic ordy;
+  logic [DATA_WIDTH-1:0] odata;
 
   systolic_array #(
     .QUEUE_SIZE(QUEUE_SIZE),
-    .KEY_WIDTH(KEY_WIDTH),
     .DATA_WIDTH(DATA_WIDTH)
   ) DUV (
     .clk(clk),
     .rst(rst),
-    .ivalid(ivalid),
+    .insert(insert),
+    .extract(extract),
     .idata(idata),
-    .irdy(irdy),
     .ovalid(ovalid),
-    .odata(odata),
-    .ordy(ordy)
+    .odata(odata)
   );
 
-  task insert (input logic [KEY_WIDTH+DATA_WIDTH-1:0] kv);
-    idata = kv;
-    ivalid = 1;
-    while (!irdy) @(posedge clk);
+  task insert_op (input logic [DATA_WIDTH-1:0] data);
+    idata = data;
+    insert = 1;
     @(posedge clk);
-    ivalid = 0;
-  endtask: insert
+    idata = '{DATA_WIDTH{1'bx}};
+    insert = 0;
+  endtask: insert_op
 
-  task extract ();
-    ordy = 1;
-    while (!ovalid) @(posedge clk);
-    @(posedge clk) #1;
-    ordy = 0;
-  endtask: extract
+  task extract_op ();
+    extract = 1;
+    @(posedge clk);
+    extract = 0;
+  endtask: extract_op
 
   always begin
-    clk <= 0;
     #5; clk <= ~clk;
   end
 
   initial begin
+    clk = 1;
     rst = 1;
-    ivalid = 0;
-    idata = 0;
-    ordy = 0;
-
-    repeat (2) @(posedge clk);
-    rst = 0;
-    @(posedge clk);
-    insert(40'h111);
-    repeat (4) @(posedge clk);
-    insert(40'h202);
-    @(posedge clk);
-    insert(40'h143);
-    repeat (3) @(posedge clk);
-    insert(40'h304);
-    repeat (10) @(posedge clk);
-    extract();
-    repeat (3) @(posedge clk);
-    insert(40'h155);
-    repeat (8) @(posedge clk);
-    extract();
+    insert = 0;
+    extract = 0;
     repeat (5) @(posedge clk);
-   $stop;
+    rst = 0;
+
+    // repeat (5) @(posedge clk);
+    insert_op(10);
+    repeat (5) @(posedge clk);
+    insert_op(128);
+    repeat (5) @(posedge clk);
+    insert_op(55);
+    repeat (5) @(posedge clk);
+    extract_op();
+    repeat (5) @(posedge clk);
+    extract_op();
+    repeat (5) @(posedge clk);
+    $stop;
   end
 
 endmodule

@@ -1,32 +1,28 @@
+`timescale 1ns / 1ps
+
 //
 // Sort three values into minimum, median, and maximum values
 //
 
 module systolic_array_sort3 #(
-    parameter KEY_WIDTH=8,
     parameter DATA_WIDTH=32
 ) (
-    input logic [KEY_WIDTH+DATA_WIDTH-1:0] a, 
-    input logic [KEY_WIDTH+DATA_WIDTH-1:0] b, 
-    input logic [KEY_WIDTH+DATA_WIDTH-1:0] c,
-    output logic [KEY_WIDTH+DATA_WIDTH-1:0] minv, medv, maxv
+    input logic [DATA_WIDTH-1:0] a, 
+    input logic [DATA_WIDTH-1:0] b, 
+    input logic [DATA_WIDTH-1:0] c,
+    output logic [DATA_WIDTH-1:0] minv, medv, maxv
 );
 
   // Some internal used constants
-  localparam [KEY_WIDTH+DATA_WIDTH-1:0] PQINF = {{KEY_WIDTH{1'b1}}, {DATA_WIDTH{1'b0}}};
+  // localparam [DATA_WIDTH-1:0] PQINF = '{DATA_WIDTH{1'b1}};
   // localparam [KEY_WIDTH+DATA_WIDTH-1:0] PQNEGINF = '{KEY_WIDTH{1'b0}, DATA_WIDTH{1'b0}};
 
-  logic [KEY_WIDTH-1:0] a_key, b_key, c_key;
   logic a_gt_b, a_gt_c, b_gt_c;
 
   // extract the keys
-  assign a_key = a[KEY_WIDTH+DATA_WIDTH-1:DATA_WIDTH];
-  assign b_key = b[KEY_WIDTH+DATA_WIDTH-1:DATA_WIDTH];
-  assign c_key = c[KEY_WIDTH+DATA_WIDTH-1:DATA_WIDTH];
-
-  assign a_gt_b = a_key > b_key;
-  assign a_gt_c = a_key > c_key;
-  assign b_gt_c = b_key > c_key;
+  assign a_gt_b = a > b;
+  assign a_gt_c = a > c;
+  assign b_gt_c = b > c;
 
   always_comb begin
     case ({a_gt_b, a_gt_c, b_gt_c})
@@ -60,11 +56,13 @@ module systolic_array_sort3 #(
         medv = b;
         maxv = a;
       end
-      // default : begin // remaining cases 3'b010, 3'b101 cannot occur! If happened, revoke keys
+      // remaining cases 3'b010, 3'b101 cannot occur! If happened, revoke keys
+      // default : begin       
       //   minv = PQINF;
       //   medv = PQINF;
       //   maxv = PQINF;
       // end
     endcase
   end
+
 endmodule : systolic_array_sort3

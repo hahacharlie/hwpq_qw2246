@@ -1,0 +1,586 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Sun Sep  8 23:16:18 2024
+# Process ID: 185606
+# Current directory: /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/vivado_systolic_array/vivado_systolic_array.runs/synth_1
+# Command line: vivado -log systolic_array.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source systolic_array.tcl
+# Log file: /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/vivado_systolic_array/vivado_systolic_array.runs/synth_1/systolic_array.vds
+# Journal file: /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/vivado_systolic_array/vivado_systolic_array.runs/synth_1/vivado.jou
+# Running On        :archlinux
+# Platform          :Arch
+# Operating System  :Arch Linux
+# Processor Detail  :12th Gen Intel(R) Core(TM) i9-12900KF
+# CPU Frequency     :4950.825 MHz
+# CPU Physical cores:16
+# CPU Logical cores :24
+# Host memory       :33479 MB
+# Swap memory       :4294 MB
+# Total Virtual     :37774 MB
+# Available Virtual :22945 MB
+#-----------------------------------------------------------
+source systolic_array.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/vivado_systolic_array/vivado_systolic_array.srcs/utils_1/imports/synth_1/systolic_array.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/vivado_systolic_array/vivado_systolic_array.srcs/utils_1/imports/synth_1/systolic_array.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top systolic_array -part xcu250-figd2104-2L-e
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcu250'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcu250'
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 185725
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1804.121 ; gain = 416.629 ; free physical = 11969 ; free virtual = 20876
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'systolic_array' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'systolic_array_proc' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:7]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'systolic_array_sort3' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_sort3.sv:7]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_sort3.sv:28]
+INFO: [Synth 8-6155] done synthesizing module 'systolic_array_sort3' (0#1) [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_sort3.sv:7]
+INFO: [Synth 8-6155] done synthesizing module 'systolic_array_proc' (0#1) [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'systolic_array_proc0' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc0.sv:7]
+	Parameter QUEUE_SIZE bound to: 8 - type: integer 
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'systolic_array_proc0' (0#1) [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc0.sv:7]
+INFO: [Synth 8-6155] done synthesizing module 'systolic_array' (0#1) [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array.sv:7]
+WARNING: [Synth 8-87] always_comb on 'minv_reg' did not result in combinational logic [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_sort3.sv:30]
+WARNING: [Synth 8-87] always_comb on 'medv_reg' did not result in combinational logic [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_sort3.sv:31]
+WARNING: [Synth 8-87] always_comb on 'maxv_reg' did not result in combinational logic [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_sort3.sv:32]
+WARNING: [Synth 8-6014] Unused sequential element pq_count_reg was removed.  [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc0.sv:46]
+WARNING: [Synth 8-7129] Port b_i[31] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[30] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[29] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[28] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[27] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[26] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[25] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[24] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[23] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[22] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[21] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[20] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[19] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[18] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[17] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[16] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[15] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[14] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[13] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[12] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[11] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[10] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[9] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[8] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[7] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[6] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[5] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[4] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[3] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[2] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[1] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[0] in module systolic_array_proc is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1881.090 ; gain = 493.598 ; free physical = 11878 ; free virtual = 20786
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1895.934 ; gain = 508.441 ; free physical = 11869 ; free virtual = 20777
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcu250-figd2104-2L-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xcu250-figd2104-2L-e
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1912.844 ; gain = 525.352 ; free physical = 11861 ; free virtual = 20769
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-327] inferring latch for variable 'minv_reg' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_sort3.sv:30]
+WARNING: [Synth 8-327] inferring latch for variable 'medv_reg' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_sort3.sv:31]
+WARNING: [Synth 8-327] inferring latch for variable 'maxv_reg' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_sort3.sv:32]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1912.844 ; gain = 525.352 ; free physical = 11857 ; free virtual = 20765
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 30    
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   7 Input   32 Bit        Muxes := 21    
+	   2 Input   32 Bit        Muxes := 1     
+	   7 Input    1 Bit        Muxes := 7     
+	   2 Input    1 Bit        Muxes := 8     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 12288 (col length:96)
+BRAMs: 5376 (col length: RAMB18 384 RAMB36 192)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port b_i[31] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[30] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[29] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[28] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[27] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[26] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[25] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[24] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[23] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[22] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[21] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[20] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[19] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[18] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[17] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[16] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[15] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[14] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[13] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[12] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[11] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[10] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[9] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[8] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[7] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[6] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[5] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[4] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[3] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[2] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[1] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_i[0] in module systolic_array_proc is either unconnected or has no load
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[31]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[30]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[29]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[28]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[27]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[26]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[25]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[24]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[23]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[22]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[21]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[20]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[19]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[18]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[17]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[16]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[15]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[14]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[13]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[12]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[11]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[10]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[9]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[8]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[7]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[6]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[5]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[4]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[3]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[2]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[1]) is unused and will be removed from module systolic_array_proc.
+WARNING: [Synth 8-3332] Sequential element (U_SORT3/maxv_reg[0]) is unused and will be removed from module systolic_array_proc.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2899.188 ; gain = 1511.695 ; free physical = 10817 ; free virtual = 19728
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2899.188 ; gain = 1511.695 ; free physical = 10818 ; free virtual = 19729
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[31]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[30]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[29]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[28]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[27]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[26]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[25]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[24]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[23]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[22]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[21]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[20]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[19]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[18]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[17]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[16]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[15]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[14]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[13]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[12]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[11]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[10]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[9]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[8]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[7]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[6]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[5]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[4]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[3]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[2]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[1]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[1].U_PROC/U_SORT3/maxv_reg[0]) is unused and will be removed from module systolic_array.
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[31]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[30]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[29]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[28]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[27]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[26]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[25]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[24]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[23]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[22]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[21]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[20]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[19]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[18]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[17]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[16]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[15]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[14]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[13]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[12]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[11]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[10]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[9]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[8]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[7]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[6]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[5]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[4]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[3]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[2]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[1]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[1].U_PROC/b_o_reg[0]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[31]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[30]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[29]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[28]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[27]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[26]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[25]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[24]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[23]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[22]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[21]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[20]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[19]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[18]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[17]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[16]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[15]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[14]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[13]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[12]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[11]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[10]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[9]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[8]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[7]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[6]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[5]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[4]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[3]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[2]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[1]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[2].U_PROC/U_SORT3/maxv_reg[0]) is unused and will be removed from module systolic_array.
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[2].U_PROC/b_o_reg[31]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[2].U_PROC/b_o_reg[30]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[2].U_PROC/b_o_reg[29]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[2].U_PROC/b_o_reg[28]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[2].U_PROC/b_o_reg[27]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[2].U_PROC/b_o_reg[26]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[2].U_PROC/b_o_reg[25]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[2].U_PROC/b_o_reg[24]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[2].U_PROC/b_o_reg[23]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[2].U_PROC/b_o_reg[22]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[2].U_PROC/b_o_reg[21]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[2].U_PROC/b_o_reg[20]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[2].U_PROC/b_o_reg[19]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[2].U_PROC/b_o_reg[18]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[2].U_PROC/b_o_reg[17]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[2].U_PROC/b_o_reg[16]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[2].U_PROC/b_o_reg[15]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'gen_systolic_array_proc[2].U_PROC/b_o_reg[14]/Q' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+INFO: [Common 17-14] Message 'Synth 8-6859' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[3].U_PROC/U_SORT3/maxv_reg[31]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[3].U_PROC/U_SORT3/maxv_reg[30]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[3].U_PROC/U_SORT3/maxv_reg[29]) is unused and will be removed from module systolic_array.
+WARNING: [Synth 8-3332] Sequential element (gen_systolic_array_proc[3].U_PROC/U_SORT3/maxv_reg[28]) is unused and will be removed from module systolic_array.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv:29]
+INFO: [Common 17-14] Message 'Synth 8-6858' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2899.188 ; gain = 1511.695 ; free physical = 10814 ; free virtual = 19725
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2899.188 ; gain = 1511.695 ; free physical = 10817 ; free virtual = 19728
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2899.188 ; gain = 1511.695 ; free physical = 10817 ; free virtual = 19728
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2899.188 ; gain = 1511.695 ; free physical = 10817 ; free virtual = 19728
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2899.188 ; gain = 1511.695 ; free physical = 10817 ; free virtual = 19728
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2899.188 ; gain = 1511.695 ; free physical = 10817 ; free virtual = 19728
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2899.188 ; gain = 1511.695 ; free physical = 10817 ; free virtual = 19728
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |OBUF |    33|
++------+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |    33|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2899.188 ; gain = 1511.695 ; free physical = 10817 ; free virtual = 19728
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 672 critical warnings and 744 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2899.188 ; gain = 1511.695 ; free physical = 10817 ; free virtual = 19728
+Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2899.195 ; gain = 1511.695 ; free physical = 10816 ; free virtual = 19727
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2910.094 ; gain = 0.000 ; free physical = 11061 ; free virtual = 19972
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3019.773 ; gain = 0.000 ; free physical = 11026 ; free virtual = 19937
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: ef2dc5d6
+INFO: [Common 17-83] Releasing license: Synthesis
+27 Infos, 172 Warnings, 200 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 3019.773 ; gain = 1644.156 ; free physical = 11026 ; free virtual = 19937
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2430.518; main = 2430.518; forked = 0.000
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3019.777; main = 3019.777; forked = 0.000
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3043.785 ; gain = 0.000 ; free physical = 11026 ; free virtual = 19937
+INFO: [Common 17-1381] The checkpoint '/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/vivado_systolic_array/vivado_systolic_array.runs/synth_1/systolic_array.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file systolic_array_utilization_synth.rpt -pb systolic_array_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Sep  8 23:16:34 2024...
