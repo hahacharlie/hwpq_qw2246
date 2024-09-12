@@ -68,6 +68,7 @@ _xmsgs/
 
 # Vivado specific files
 .Xil/
+*.str
 
 # editor specific folders
 .nvim/
@@ -75,3 +76,6 @@ _xmsgs/
 
 # LSP
 .svlangserver/
+
+# Python environment file
+.venv/

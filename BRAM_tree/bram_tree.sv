@@ -7,8 +7,8 @@ module bram_tree (
 );
 
   // BRAM interface signals
-  logic [3:0] bram_addr_a[0:3];
-  logic [3:0] bram_addr_b[0:3];
+  logic [31:0] bram_addr_a[0:3];
+  logic [31:0] bram_addr_b[0:3];
   logic [31:0] bram_din_a[0:3];
   logic [31:0] bram_din_b[0:3];
   logic bram_we_a[0:3];
@@ -77,7 +77,7 @@ module bram_tree (
 
   // logic even_odd_flag;
   integer level, addr, done_flag;
-  always_ff @(posedge clk or posedge rst) begin
+  always_ff @(posedge clk) begin
     if (rst) begin
       for (int j = 0; j < 4; j++) begin
         bram_addr_a[j] <= '0;
@@ -123,7 +123,6 @@ module bram_tree (
             bram_we_a[k] <= '0;
             bram_we_b[k] <= '0;
           end
-
           for (level = 0; level < 4; level = level + 2) begin
             if (level != 3) begin  // not equal to second last level
               if (addr < (1 << level)) begin
@@ -133,25 +132,20 @@ module bram_tree (
                 bram_addr_b[level]             <= addr;
                 bram_addr_a[level+1]           <= (addr << 1);
                 bram_addr_b[level+1]           <= (addr << 1) + 1;
-
                 // read from BRAMs
                 parent[(1<<level)-1+addr]      <= bram_dout_b[level];
                 left_child[(1<<level)-1+addr]  <= bram_dout_a[level+1];
                 right_child[(1<<level)-1+addr] <= bram_dout_b[level+1];
-
                 // get results from comparators
                 bram_din_b[level]              <= new_parent[(1<<level)-1+addr];
                 bram_din_a[level+1]            <= new_left_child[(1<<level)-1+addr];
                 bram_din_b[level+1]            <= new_right_child[(1<<level)-1+addr];
-
-                // write into BRAMS
                 // bram_we_b[level]               <= '1;
                 // bram_we_a[level+1]             <= '1;
                 // bram_we_b[level+1]             <= '1;
               end
             end
           end
-
           if (replace) begin
             STATE <= REPLACE;
           end else if (done_flag == 1) begin
@@ -171,7 +165,6 @@ module bram_tree (
             bram_we_a[k] <= '0;
             bram_we_b[k] <= '0;
           end
-
           for (level = 1; level < 4; level = level + 2) begin
             if (level != 3) begin  // not equal to second last level
               if (addr < (1 << level)) begin
@@ -181,17 +174,14 @@ module bram_tree (
                 bram_addr_b[level]             <= addr;
                 bram_addr_a[level+1]           <= (addr << 1);
                 bram_addr_b[level+1]           <= (addr << 1) + 1;
-
                 // read from BRAMs
                 parent[(1<<level)-1+addr]      <= bram_dout_b[level];
                 left_child[(1<<level)-1+addr]  <= bram_dout_a[level+1];
                 right_child[(1<<level)-1+addr] <= bram_dout_b[level+1];
-
                 // get results from comparators
                 bram_din_b[level]              <= new_parent[(1<<level)-1+addr];
                 bram_din_a[level+1]            <= new_left_child[(1<<level)-1+addr];
                 bram_din_b[level+1]            <= new_right_child[(1<<level)-1+addr];
-
                 // write into BRAMS
                 // bram_we_b[level]               <= '1;
                 // bram_we_a[level+1]             <= '1;
@@ -199,7 +189,6 @@ module bram_tree (
               end
             end
           end
-
           if (replace) begin
             STATE <= REPLACE;
           end else if (done_flag == 1) begin
@@ -212,7 +201,6 @@ module bram_tree (
             addr <= addr + 1;
           end
         end
-
         // WRITE: begin
         //   for (int k = 0; k < 4; k++) begin
         //     bram_we_a[k] <= '1;
