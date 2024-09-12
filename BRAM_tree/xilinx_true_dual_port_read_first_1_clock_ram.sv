@@ -1,4 +1,3 @@
-
 //  Xilinx True Dual Port RAM, Read First, Single Clock
 //  This code implements a parameterizable true dual port memory (both ports can read and write).
 //  The behavior of this RAM is when data is written, the prior memory contents at the write
@@ -13,8 +12,8 @@ module xilinx_true_dual_port_read_first_1_clock_ram #(
     parameter RAM_PERFORMANCE = "HIGH_PERFORMANCE",  // Select "HIGH_PERFORMANCE" or "LOW_LATENCY"
     parameter INIT_FILE = ""                        // Specify name/location of RAM initialization file if using one (leave blank if not)
 ) (
-    input [$clog2(RAM_DEPTH-1)-1:0] addra,  // Port A address bus, width determined from RAM_DEPTH
-    input [$clog2(RAM_DEPTH-1)-1:0] addrb,  // Port B address bus, width determined from RAM_DEPTH
+    input [$clog2(RAM_DEPTH-1):0] addra,  // Port A address bus, width determined from RAM_DEPTH
+    input [$clog2(RAM_DEPTH-1):0] addrb,  // Port B address bus, width determined from RAM_DEPTH
     input [RAM_WIDTH-1:0] dina,  // Port A RAM input data
     input [RAM_WIDTH-1:0] dinb,  // Port B RAM input data
     input clka,  // Clock
@@ -42,7 +41,7 @@ module xilinx_true_dual_port_read_first_1_clock_ram #(
       integer ram_index;
       initial
         for (ram_index = 0; ram_index < RAM_DEPTH; ram_index = ram_index + 1)
-          BRAM[ram_index] = {RAM_WIDTH{1'b0}};
+          BRAM[ram_index] = RAM_WIDTH'($urandom_range(0, 200));
     end
   endgenerate
 

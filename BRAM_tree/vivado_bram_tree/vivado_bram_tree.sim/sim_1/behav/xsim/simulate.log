@@ -1,0 +1,25 @@
+Time resolution is 1 ps
+Time 5000: Valid output - 0
+Time 15000: Valid output - 0
+Time 25000: Valid output - 0
+Time 35000: Valid output - 0
+Time 45000: Valid output - 99
+Time 55000: Valid output - 99
+Time 65000: Valid output - 99
+Time 75000: Valid output - 99
+Time 85000: Valid output - 99
+Time 95000: Valid output - 99
+Time 105000: Valid output - 99
+Time 115000: Valid output - 99
+Time 125000: Valid output - 99
+Time 135000: Valid output - 99
+Time 145000: Valid output - 99
+Time 155000: Valid output - 99
+Time 165000: Valid output - 99
+Time 175000: Valid output - 99
+Time 185000: Valid output - 99
+Time 195000: Valid output - 99
+Time 205000: Valid output - 99
+Time 215000: Valid output - 99
+Time 225000: Valid output - 99
+$finish called at time : 235 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/BRAM_tree/bram_tree_tb.sv" Line 64

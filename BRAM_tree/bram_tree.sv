@@ -7,8 +7,8 @@ module bram_tree (
 );
 
   // BRAM interface signals
-  logic [2:0] bram_addr_a[0:3];
-  logic [2:0] bram_addr_b[0:3];
+  logic [3:0] bram_addr_a[0:3];
+  logic [3:0] bram_addr_b[0:3];
   logic [31:0] bram_din_a[0:3];
   logic [31:0] bram_din_b[0:3];
   logic bram_we_a[0:3];
@@ -24,17 +24,13 @@ module bram_tree (
   logic [31:0] new_left_child[0:6];
   logic [31:0] new_right_child[0:6];
 
-  // even and odd flags
-  logic even_flag, read_flag;
-  integer level, addr;
-
   // Generate 4 BRAMs
   genvar i;
   generate
     for (i = 0; i < 4; i++) begin : BRAM_gen
       xilinx_true_dual_port_read_first_1_clock_ram #(
           .RAM_WIDTH(32),
-          .RAM_DEPTH(8),
+          .RAM_DEPTH(2 ** i),
           .RAM_PERFORMANCE("HIGH_PERFORMANCE"),
           .INIT_FILE("")
       ) bram (
@@ -73,13 +69,14 @@ module bram_tree (
   endgenerate
 
   enum logic [1:0] {
-    IDLE = 2'b00,
-    REPLACE = 2'b01,
-    READ = 2'b10,
-    WRITE = 2'b11
+    REPLACE = 2'b00,
+    EVEN = 2'b01,
+    ODD = 2'b10,
+    IDLE = 2'b11
   } STATE;
 
-
+  // logic even_odd_flag;
+  integer level, addr, done_flag;
   always_ff @(posedge clk or posedge rst) begin
     if (rst) begin
       for (int j = 0; j < 4; j++) begin
@@ -87,10 +84,8 @@ module bram_tree (
         bram_addr_b[j] <= '0;
         bram_we_a[j]   <= '0;
         bram_din_a[j]  <= '0;
-        bram_dout_a[j] <= '0;
         bram_we_b[j]   <= '0;
         bram_din_b[j]  <= '0;
-        bram_dout_b[j] <= '0;
       end
       for (int k = 0; k < 7; k++) begin
         parent[k]          <= '0;
@@ -100,80 +95,136 @@ module bram_tree (
         new_left_child[k]  <= '0;
         new_right_child[k] <= '0;
       end
-      level     <= 0;
-      addr      <= 0;
-      // even_flag <= '0;
-      read_flag <= '0;
-      STATE     <= IDLE;
+      level <= 0;
+      addr <= 0;
+      // even_odd_flag <= 0;
+      done_flag <= 0;
+      STATE <= IDLE;
     end else begin
       case (STATE)
         IDLE: begin
           if (replace) begin
             STATE <= REPLACE;
-          end else if (read_flag == '0) begin
-            STATE <= READ;
-          end else if (read_flag == '1) begin
-            STATE <= WRITE;
+          end else begin
+            STATE <= EVEN;
           end
         end
+
         REPLACE: begin
           bram_addr_b[0] <= '0;
           bram_din_b[0] <= new_item;
           bram_we_b[0] <= '1;
-          // even_flag <= '1;
-          STATE <= READ;
+          STATE <= EVEN;
         end
-        READ: begin
+
+        EVEN: begin
+          // close all wea ports just in case 
+          for (int k = 0; k < 4; k++) begin
+            bram_we_a[k] <= '0;
+            bram_we_b[k] <= '0;
+          end
+
+          for (level = 0; level < 4; level = level + 2) begin
+            if (level != 3) begin  // not equal to second last level
+              if (addr < (1 << level)) begin
+                if (addr == 3) begin
+                  done_flag <= 1;
+                end
+                bram_addr_b[level]             <= addr;
+                bram_addr_a[level+1]           <= (addr << 1);
+                bram_addr_b[level+1]           <= (addr << 1) + 1;
+
+                // read from BRAMs
+                parent[(1<<level)-1+addr]      <= bram_dout_b[level];
+                left_child[(1<<level)-1+addr]  <= bram_dout_a[level+1];
+                right_child[(1<<level)-1+addr] <= bram_dout_b[level+1];
+
+                // get results from comparators
+                bram_din_b[level]              <= new_parent[(1<<level)-1+addr];
+                bram_din_a[level+1]            <= new_left_child[(1<<level)-1+addr];
+                bram_din_b[level+1]            <= new_right_child[(1<<level)-1+addr];
+
+                // write into BRAMS
+                // bram_we_b[level]               <= '1;
+                // bram_we_a[level+1]             <= '1;
+                // bram_we_b[level+1]             <= '1;
+              end
+            end
+          end
+
+          if (replace) begin
+            STATE <= REPLACE;
+          end else if (done_flag == 1) begin
+            level <= 0;
+            addr <= 0;
+            // even_odd_flag <= 0;
+            done_flag <= 0;
+            STATE <= ODD;
+          end else begin
+            addr <= addr + 1;
+          end
+        end
+
+        ODD: begin
           // close all wea ports
           for (int k = 0; k < 4; k++) begin
             bram_we_a[k] <= '0;
             bram_we_b[k] <= '0;
           end
 
-          // read from BRAMs
-          bram_addr_b[level] <= addr;
-          parent[(1<<level)-1+addr] <= bram_dout_b[level];
+          for (level = 1; level < 4; level = level + 2) begin
+            if (level != 3) begin  // not equal to second last level
+              if (addr < (1 << level)) begin
+                if (addr == 1) begin
+                  done_flag <= 1;
+                end
+                bram_addr_b[level]             <= addr;
+                bram_addr_a[level+1]           <= (addr << 1);
+                bram_addr_b[level+1]           <= (addr << 1) + 1;
 
-          bram_addr_a[level+1] <= (addr << 1);
-          left_child[(1<<level)-1+addr] <= bram_dout_a[level+1];
+                // read from BRAMs
+                parent[(1<<level)-1+addr]      <= bram_dout_b[level];
+                left_child[(1<<level)-1+addr]  <= bram_dout_a[level+1];
+                right_child[(1<<level)-1+addr] <= bram_dout_b[level+1];
 
-          bram_addr_b[level+1] <= (addr << 1) + 1;
-          right_child[(1<<level)-1+addr] <= bram_dout_b[level+1];
+                // get results from comparators
+                bram_din_b[level]              <= new_parent[(1<<level)-1+addr];
+                bram_din_a[level+1]            <= new_left_child[(1<<level)-1+addr];
+                bram_din_b[level+1]            <= new_right_child[(1<<level)-1+addr];
+
+                // write into BRAMS
+                // bram_we_b[level]               <= '1;
+                // bram_we_a[level+1]             <= '1;
+                // bram_we_b[level+1]             <= '1;
+              end
+            end
+          end
 
           if (replace) begin
             STATE <= REPLACE;
+          end else if (done_flag == 1) begin
+            level <= 0;
+            addr <= 0;
+            done_flag <= 0;
+            // even_odd_flag <= 0;
+            STATE <= EVEN;
           end else begin
-            STATE <= WRITE;
+            addr <= addr + 1;
           end
-
         end
-        WRITE: begin
-          // close all wea ports
-          for (int k = 0; k < 4; k++) begin
-            bram_we_a[k] <= '0;
-            bram_we_b[k] <= '0;
-          end
 
-          // write into BRAMS
-          bram_addr_b[level] <= addr;
-          bram_din_b[level] <= new_parent[(1<<level)-1+addr];
-          bram_we_b[level] <= '1;
+        // WRITE: begin
+        //   for (int k = 0; k < 4; k++) begin
+        //     bram_we_a[k] <= '1;
+        //     bram_we_b[k] <= '1;
+        //   end
 
-          bram_addr_a[level+1] <= (addr << 1);
-          bram_din_a[level+1] <= new_left_child[(1<<level)-1+addr];
-          bram_we_a[level+1] <= '1;
-
-          bram_addr_b[level+1] <= (addr << 1) + 1;
-          bram_din_b[level+1] <= new_right_child[(1<<level)-1+addr];
-          bram_we_b[level+1] <= '1;
-
-          if (replace) begin
-            STATE <= REPLACE;
-          end else begin
-            STATE <= IDLE;
-          end
-
-        end
+        //   if (even_odd_flag == 0) begin
+        //     STATE <= EVEN;
+        //   end else begin
+        //     STATE <= ODD;
+        //   end
+        // end
       endcase
     end
   end
