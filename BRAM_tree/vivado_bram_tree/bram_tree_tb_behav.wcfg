@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="75.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="175.190 ns"></ZoomEndTime>
-      <Cursor1Time time="86.816 ns"></Cursor1Time>
+      <ZoomStartTime time="5.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="97.201 ns"></ZoomEndTime>
+      <Cursor1Time time="85.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="215"></NameColumnWidth>
-      <ValueColumnWidth column_width="159"></ValueColumnWidth>
+      <ValueColumnWidth column_width="155"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="58" />
    <wvobject type="logic" fp_name="/bram_tree_tb/uut/clk">
@@ -33,8 +33,8 @@
       <obj_property name="ObjectShortName">replace</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/bram_tree_tb/uut/STATE">
-      <obj_property name="ElementShortName">STATE[1:0]</obj_property>
-      <obj_property name="ObjectShortName">STATE[1:0]</obj_property>
+      <obj_property name="ElementShortName">STATE[2:0]</obj_property>
+      <obj_property name="ObjectShortName">STATE[2:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/bram_tree_tb/uut/new_item">
       <obj_property name="ElementShortName">new_item[31:0]</obj_property>
@@ -45,12 +45,16 @@
       <obj_property name="ObjectShortName">top_item[31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/bram_tree_tb/uut/bram_addr_a">
-      <obj_property name="ElementShortName">bram_addr_a[0:3][3:0]</obj_property>
-      <obj_property name="ObjectShortName">bram_addr_a[0:3][3:0]</obj_property>
+      <obj_property name="ElementShortName">bram_addr_a[0:3][31:0]</obj_property>
+      <obj_property name="ObjectShortName">bram_addr_a[0:3][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/bram_tree_tb/uut/bram_addr_b">
-      <obj_property name="ElementShortName">bram_addr_b[0:3][3:0]</obj_property>
-      <obj_property name="ObjectShortName">bram_addr_b[0:3][3:0]</obj_property>
+      <obj_property name="ElementShortName">bram_addr_b[0:3][31:0]</obj_property>
+      <obj_property name="ObjectShortName">bram_addr_b[0:3][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/bram_tree_tb/uut/bram_din_a">
       <obj_property name="ElementShortName">bram_din_a[0:3][31:0]</obj_property>
@@ -127,8 +131,8 @@
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/bram_tree_tb/uut/\BRAM_gen[0].bram /addra">
-      <obj_property name="ElementShortName">addra[0:0]</obj_property>
-      <obj_property name="ObjectShortName">addra[0:0]</obj_property>
+      <obj_property name="ElementShortName">addra[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[31:0]</obj_property>
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
@@ -151,8 +155,8 @@
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/bram_tree_tb/uut/\BRAM_gen[0].bram /addrb">
-      <obj_property name="ElementShortName">addrb[0:0]</obj_property>
-      <obj_property name="ObjectShortName">addrb[0:0]</obj_property>
+      <obj_property name="ElementShortName">addrb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb[31:0]</obj_property>
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
@@ -181,8 +185,8 @@
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/bram_tree_tb/uut/\BRAM_gen[1].bram /addra">
-      <obj_property name="ElementShortName">addra[0:0]</obj_property>
-      <obj_property name="ObjectShortName">addra[0:0]</obj_property>
+      <obj_property name="ElementShortName">addra[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[31:0]</obj_property>
       <obj_property name="CustomSignalColor">#F0E68C</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
@@ -205,8 +209,8 @@
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/bram_tree_tb/uut/\BRAM_gen[1].bram /addrb">
-      <obj_property name="ElementShortName">addrb[0:0]</obj_property>
-      <obj_property name="ObjectShortName">addrb[0:0]</obj_property>
+      <obj_property name="ElementShortName">addrb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb[31:0]</obj_property>
       <obj_property name="CustomSignalColor">#F0E68C</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
@@ -235,8 +239,8 @@
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/bram_tree_tb/uut/\BRAM_gen[2].bram /addra">
-      <obj_property name="ElementShortName">addra[2:0]</obj_property>
-      <obj_property name="ObjectShortName">addra[2:0]</obj_property>
+      <obj_property name="ElementShortName">addra[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[31:0]</obj_property>
       <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
@@ -259,8 +263,8 @@
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/bram_tree_tb/uut/\BRAM_gen[2].bram /addrb">
-      <obj_property name="ElementShortName">addrb[2:0]</obj_property>
-      <obj_property name="ObjectShortName">addrb[2:0]</obj_property>
+      <obj_property name="ElementShortName">addrb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb[31:0]</obj_property>
       <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
@@ -289,8 +293,8 @@
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/bram_tree_tb/uut/\BRAM_gen[3].bram /addra">
-      <obj_property name="ElementShortName">addra[3:0]</obj_property>
-      <obj_property name="ObjectShortName">addra[3:0]</obj_property>
+      <obj_property name="ElementShortName">addra[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[31:0]</obj_property>
       <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
@@ -313,8 +317,8 @@
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/bram_tree_tb/uut/\BRAM_gen[3].bram /addrb">
-      <obj_property name="ElementShortName">addrb[3:0]</obj_property>
-      <obj_property name="ObjectShortName">addrb[3:0]</obj_property>
+      <obj_property name="ElementShortName">addrb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb[31:0]</obj_property>
       <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
