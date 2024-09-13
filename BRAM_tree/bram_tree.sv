@@ -136,14 +136,15 @@ module bram_tree (
             level <= level + 2;
             addr  <= 0;
           end else begin
-            addr <= addr + 1;
+            addr  <= addr + 1;
+            STATE <= EVEN;
           end
           if (level == 2 && addr == 3) begin  //TODO: need to be scalable.
             level <= 1;
             addr  <= 0;
             STATE <= ODD;
           end
-          STATE <= EVEN;
+          // STATE <= EVEN;
         end
 
         WRITE: begin
