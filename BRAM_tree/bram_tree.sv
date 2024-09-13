@@ -123,39 +123,47 @@ module bram_tree (
             bram_we_a[k] <= '0;
             bram_we_b[k] <= '0;
           end
-          for (level = 0; level < 4; level = level + 2) begin
-            if (level != 3) begin  // not equal to second last level
-              if (addr < (1 << level)) begin
-                if (addr == 3) begin
-                  done_flag <= 1;
-                end
-                bram_addr_b[level]             <= addr;
-                bram_addr_a[level+1]           <= (addr << 1);
-                bram_addr_b[level+1]           <= (addr << 1) + 1;
-                // read from BRAMs
-                parent[(1<<level)-1+addr]      <= bram_dout_b[level];
-                left_child[(1<<level)-1+addr]  <= bram_dout_a[level+1];
-                right_child[(1<<level)-1+addr] <= bram_dout_b[level+1];
-                // get results from comparators
-                bram_din_b[level]              <= new_parent[(1<<level)-1+addr];
-                bram_din_a[level+1]            <= new_left_child[(1<<level)-1+addr];
-                bram_din_b[level+1]            <= new_right_child[(1<<level)-1+addr];
-                // bram_we_b[level]               <= '1;
-                // bram_we_a[level+1]             <= '1;
-                // bram_we_b[level+1]             <= '1;
-              end
-            end
-          end
+
+          // for (level = 0; level < 4; level = level + 2) begin
+          // for (addr = 0; addr < (1 << level); addr++) begin
+          // if (level < 4) begin
+          // if (level != 3) begin  // not equal to second last level, for scaling purpose in future
+          // if (addr < (1 << level)) begin
+          // bram_addr_b[level]   <= addr;
+          // bram_addr_a[level+1] <= (addr << 1);
+          // bram_addr_b[level+1] <= (addr << 1) + 1;
+          // read from BRAMs
+          // parent[(1<<level)-1+addr]      <= bram_dout_b[level];
+          // left_child[(1<<level)-1+addr]  <= bram_dout_a[level+1];
+          // right_child[(1<<level)-1+addr] <= bram_dout_b[level+1];
+          // get results from comparators
+          // bram_din_b[level]              <= new_parent[(1<<level)-1+addr];
+          // bram_din_a[level+1]            <= new_left_child[(1<<level)-1+addr];
+          // bram_din_b[level+1]            <= new_right_child[(1<<level)-1+addr];
+          // write into BRAMS
+          // bram_we_b[level]               <= '1;
+          // bram_we_a[level+1]             <= '1;
+          // bram_we_b[level+1]             <= '1;
+          // end
+          // end
+          // end
+          // end
+
           if (replace) begin
             STATE <= REPLACE;
-          end else if (done_flag == 1) begin
+          end else if (level == 2 && addr == 3) begin  //TODO: need to be scalable.
             level <= 0;
             addr <= 0;
-            // even_odd_flag <= 0;
             done_flag <= 0;
+            // even_odd_flag <= 0;
             STATE <= ODD;
           end else begin
-            addr <= addr + 1;
+            if (addr == (1 << level) - 1) begin
+              level <= level + 2;
+              addr  <= 0;
+            end else begin
+              addr <= addr + 1;
+            end
           end
         end
 
@@ -165,23 +173,24 @@ module bram_tree (
             bram_we_a[k] <= '0;
             bram_we_b[k] <= '0;
           end
-          for (level = 1; level < 4; level = level + 2) begin
+          // for (level = 1; level < 4; level = level + 2) begin
+          if (level < 4) begin
             if (level != 3) begin  // not equal to second last level
               if (addr < (1 << level)) begin
                 if (addr == 1) begin
                   done_flag <= 1;
                 end
-                bram_addr_b[level]             <= addr;
-                bram_addr_a[level+1]           <= (addr << 1);
-                bram_addr_b[level+1]           <= (addr << 1) + 1;
+                bram_addr_b[level]   <= addr;
+                bram_addr_a[level+1] <= (addr << 1);
+                bram_addr_b[level+1] <= (addr << 1) + 1;
                 // read from BRAMs
-                parent[(1<<level)-1+addr]      <= bram_dout_b[level];
-                left_child[(1<<level)-1+addr]  <= bram_dout_a[level+1];
-                right_child[(1<<level)-1+addr] <= bram_dout_b[level+1];
+                // parent[(1<<level)-1+addr]      <= bram_dout_b[level];
+                // left_child[(1<<level)-1+addr]  <= bram_dout_a[level+1];
+                // right_child[(1<<level)-1+addr] <= bram_dout_b[level+1];
                 // get results from comparators
-                bram_din_b[level]              <= new_parent[(1<<level)-1+addr];
-                bram_din_a[level+1]            <= new_left_child[(1<<level)-1+addr];
-                bram_din_b[level+1]            <= new_right_child[(1<<level)-1+addr];
+                // bram_din_b[level]              <= new_parent[(1<<level)-1+addr];
+                // bram_din_a[level+1]            <= new_left_child[(1<<level)-1+addr];
+                // bram_din_b[level+1]            <= new_right_child[(1<<level)-1+addr];
                 // write into BRAMS
                 // bram_we_b[level]               <= '1;
                 // bram_we_a[level+1]             <= '1;
@@ -198,23 +207,48 @@ module bram_tree (
             // even_odd_flag <= 0;
             STATE <= EVEN;
           end else begin
-            addr <= addr + 1;
+            level <= level + 2;
+            addr  <= addr + 1;
           end
         end
-        // WRITE: begin
-        //   for (int k = 0; k < 4; k++) begin
-        //     bram_we_a[k] <= '1;
-        //     bram_we_b[k] <= '1;
-        //   end
-
-        //   if (even_odd_flag == 0) begin
-        //     STATE <= EVEN;
-        //   end else begin
-        //     STATE <= ODD;
-        //   end
-        // end
       endcase
     end
+  end
+
+  always_comb begin
+    case (STATE)
+      IDLE: begin
+      end
+      REPLACE: begin
+      end
+      EVEN: begin
+        if (level < 4) begin
+          if (level != 3) begin  // not equal to second last level, for scaling purpose in future
+            if (addr < (1 << level)) begin
+              bram_addr_b[level]   = addr;
+              bram_addr_a[level+1] = (addr << 1);
+              bram_addr_b[level+1] = (addr << 1) + 1;
+              if (bram_addr_a[level+1] != bram_addr_b[level+1]) begin
+                // read from BRAMs
+                parent[(1<<level)-1+addr]      = bram_dout_b[level];
+                left_child[(1<<level)-1+addr]  = bram_dout_a[level+1];
+                right_child[(1<<level)-1+addr] = bram_dout_b[level+1];
+                // get results from comparators
+                bram_din_b[level]              = new_parent[(1<<level)-1+addr];
+                bram_din_a[level+1]            = new_left_child[(1<<level)-1+addr];
+                bram_din_b[level+1]            = new_right_child[(1<<level)-1+addr];
+                // write into BRAMS
+                // bram_we_b[level]               <= '1;
+                // bram_we_a[level+1]             <= '1;
+                // bram_we_b[level+1]             <= '1;
+              end
+            end
+          end
+        end
+      end
+      ODD: begin
+      end
+    endcase
   end
 
   // Reserve port A on BRAM 0 to read continously
