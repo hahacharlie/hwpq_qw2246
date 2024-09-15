@@ -60,7 +60,7 @@ module bram_tree_tb;
     // end
 
     // End simulation
-    repeat (20) @(posedge clk);
+    repeat (40) @(posedge clk);
     $finish;
   end
 

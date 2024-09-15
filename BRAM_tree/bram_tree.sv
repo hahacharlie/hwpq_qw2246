@@ -77,6 +77,7 @@ module bram_tree (
     WRITE = 3'b101
   } STATE;
 
+  logic even, odd;
   integer level, addr;
 
   // Synchronized Finite State Machine
@@ -100,6 +101,8 @@ module bram_tree (
       end
       level <= 0;
       addr  <= 0;
+      even  <= 0;
+      odd   <= 0;
       STATE <= IDLE;
     end else begin
       case (STATE)
@@ -107,18 +110,21 @@ module bram_tree (
           if (replace) begin
             STATE <= REPLACE;
           end else begin
+            even  <= 1;
             STATE <= EVEN;
           end
         end
 
         REPLACE: begin
-          STATE <= READ;
+          STATE <= EVEN;  //? Maybe should go to EVEN state
         end
 
         EVEN: begin
           if (replace) begin
             STATE <= REPLACE;
           end else begin
+            even  <= 1;
+            odd   <= 0;
             STATE <= READ;
           end
         end
@@ -127,33 +133,64 @@ module bram_tree (
           if (replace) begin
             STATE <= REPLACE;
           end else begin
+            even  <= 0;
+            odd   <= 1;
             STATE <= READ;
           end
         end
 
         READ: begin
-          if (addr == (1 << level) - 1) begin
-            level <= level + 2;
-            addr  <= 0;
-          end else begin
-            addr  <= addr + 1;
-            STATE <= EVEN;
+          if (even == 1) begin
+            if (addr == (1 << level) - 1) begin
+              level <= level + 2;
+              addr  <= 0;
+              STATE <= EVEN;
+            end else begin
+              addr  <= addr + 1;
+              STATE <= WRITE;
+            end
+            if (level == 2 && addr == 3) begin
+              // level <= 1;
+              // addr  <= 0;
+              STATE <= WRITE;
+            end
           end
-          if (level == 2 && addr == 3) begin  //TODO: need to be scalable.
-            level <= 1;
-            addr  <= 0;
-            STATE <= ODD;
+          if (odd == 1) begin
+            if (addr == (1 << level) - 1) begin
+              level <= level + 2;
+              addr  <= 0;
+              STATE <= ODD;
+            end else begin
+              addr  <= addr + 1;
+              STATE <= WRITE;
+            end
+            // if (level == 1 && addr == 1) begin
+            //   level <= 0;
+            //   addr  <= 0;
+            //   STATE <= WRITE;
+            // end
           end
-          // STATE <= EVEN;
         end
 
         WRITE: begin
           if (replace) begin
             STATE <= REPLACE;
-          end else if (level == 0) begin
-            STATE <= EVEN;
-          end else if (level == 1) begin
-            STATE <= ODD;
+          end else if (even == 1) begin
+            if (level == 2 && addr == 3) begin
+              level <= 1;
+              addr  <= 0;
+              STATE <= ODD;
+            end else begin
+              STATE <= EVEN;
+            end
+          end else if (odd == 1) begin
+            if (level == 1 && addr == 1) begin
+              level <= 0;
+              addr  <= 0;
+              STATE <= EVEN;
+            end else begin
+              STATE <= ODD;
+            end
           end
         end
 
@@ -222,14 +259,10 @@ module bram_tree (
       end
 
       WRITE: begin
-        // read from BRAMs
-        parent[(1<<level)-1+addr]      = bram_dout_b[level];
-        left_child[(1<<level)-1+addr]  = bram_dout_a[level+1];
-        right_child[(1<<level)-1+addr] = bram_dout_b[level+1];
         // write into BRAMS
-        bram_we_b[level]               = '1;
-        bram_we_a[level+1]             = '1;
-        bram_we_b[level+1]             = '1;
+        bram_we_b[level]   = '1;
+        bram_we_a[level+1] = '1;
+        bram_we_b[level+1] = '1;
       end
 
       default: begin
