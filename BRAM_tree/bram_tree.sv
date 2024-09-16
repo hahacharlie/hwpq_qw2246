@@ -1,4 +1,7 @@
-module bram_tree (
+module bram_tree #(
+    parameter TREE_DEPTH = 4,
+    parameter DATA_WIDTH = 32
+) (
     input logic clk,
     input logic rst,
     input logic replace,
@@ -7,29 +10,29 @@ module bram_tree (
 );
 
   // BRAM interface signals
-  logic [31:0] bram_addr_a[0:3];
-  logic [31:0] bram_addr_b[0:3];
-  logic [31:0] bram_din_a[0:3];
-  logic [31:0] bram_din_b[0:3];
-  logic bram_we_a[0:3];
-  logic bram_we_b[0:3];
-  logic [31:0] bram_dout_a[0:3];
-  logic [31:0] bram_dout_b[0:3];
+  logic [DATA_WIDTH-1:0] bram_addr_a[0:TREE_DEPTH-1];
+  logic [DATA_WIDTH-1:0] bram_addr_b[0:TREE_DEPTH-1];
+  logic [DATA_WIDTH-1:0] bram_din_a[0:TREE_DEPTH-1];
+  logic [DATA_WIDTH-1:0] bram_din_b[0:TREE_DEPTH-1];
+  logic bram_we_a[0:TREE_DEPTH-1];
+  logic bram_we_b[0:TREE_DEPTH-1];
+  logic [DATA_WIDTH-1:0] bram_dout_a[0:TREE_DEPTH-1];
+  logic [DATA_WIDTH-1:0] bram_dout_b[0:TREE_DEPTH-1];
 
   // Comparator signals
-  logic [31:0] parent[0:6];
-  logic [31:0] left_child[0:6];
-  logic [31:0] right_child[0:6];
-  logic [31:0] new_parent[0:6];
-  logic [31:0] new_left_child[0:6];
-  logic [31:0] new_right_child[0:6];
+  logic [DATA_WIDTH-1:0] parent[0:(1 << (TREE_DEPTH - 1)) - 2];
+  logic [DATA_WIDTH-1:0] left_child[0:(1 << (TREE_DEPTH - 1)) - 2];
+  logic [DATA_WIDTH-1:0] right_child[0:(1 << (TREE_DEPTH - 1)) - 2];
+  logic [DATA_WIDTH-1:0] new_parent[0:(1 << (TREE_DEPTH - 1)) - 2];
+  logic [DATA_WIDTH-1:0] new_left_child[0:(1 << (TREE_DEPTH - 1)) - 2];
+  logic [DATA_WIDTH-1:0] new_right_child[0:(1 << (TREE_DEPTH - 1)) - 2];
 
   // Generate 4 BRAMs
   genvar i;
   generate
-    for (i = 0; i < 4; i++) begin : BRAM_gen
+    for (i = 0; i < TREE_DEPTH; i++) begin : BRAM_gen
       xilinx_true_dual_port_read_first_1_clock_ram #(
-          .RAM_WIDTH(32),
+          .RAM_WIDTH(DATA_WIDTH),
           .RAM_DEPTH(2 ** i),
           .RAM_PERFORMANCE("LOW_LATENCY"),
           .INIT_FILE("")
@@ -54,9 +57,9 @@ module bram_tree (
   endgenerate
 
   generate
-    for (i = 0; i < 7; i++) begin : comparator_gen
+    for (i = 0; i < (1 << (TREE_DEPTH - 1)) - 1; i++) begin : comparator_gen
       comparator #(
-          .DATA_WIDTH(32)
+          .DATA_WIDTH(DATA_WIDTH)
       ) comparator (
           .parent(parent[i]),
           .left_child(left_child[i]),
@@ -83,7 +86,7 @@ module bram_tree (
   // Synchronized Finite State Machine
   always_ff @(posedge clk) begin
     if (rst) begin
-      for (int j = 0; j < 4; j++) begin
+      for (int j = 0; j < (1 << TREE_DEPTH); j++) begin
         bram_addr_a[j] <= '0;
         bram_addr_b[j] <= '0;
         bram_we_a[j]   <= '0;
@@ -91,7 +94,7 @@ module bram_tree (
         bram_we_b[j]   <= '0;
         bram_din_b[j]  <= '0;
       end
-      for (int k = 0; k < 7; k++) begin
+      for (int k = 0; k < (1 << (TREE_DEPTH - 1)) - 1; k++) begin
         parent[k]          <= '0;
         left_child[k]      <= '0;
         right_child[k]     <= '0;
@@ -201,13 +204,13 @@ module bram_tree (
 
       EVEN: begin
         // close all wea ports just in case 
-        for (int k = 0; k < 4; k++) begin
+        for (int k = 0; k < TREE_DEPTH; k++) begin
           bram_we_a[k] = '0;
           bram_we_b[k] = '0;
         end
         // Giving address to BRAMs
-        if (level < 4) begin
-          if (level != 3) begin  //* not equal to second last level, for scaling purpose in future
+        if (level < TREE_DEPTH) begin
+          if (level != TREE_DEPTH - 1) begin  //* not equal to second last level, for scaling purpose in future
             if (addr < (1 << level)) begin
               bram_addr_b[level]   = addr;
               bram_addr_a[level+1] = (addr << 1);
@@ -219,13 +222,13 @@ module bram_tree (
 
       ODD: begin
         // close all wea ports just in case 
-        for (int k = 0; k < 4; k++) begin
+        for (int k = 0; k < TREE_DEPTH; k++) begin
           bram_we_a[k] = '0;
           bram_we_b[k] = '0;
         end
         // Giving address to BRAMs
-        if (level < 4) begin
-          if (level != 3) begin  //* not equal to second last level, for scaling purpose in future
+        if (level < TREE_DEPTH) begin
+          if (level != TREE_DEPTH - 1) begin  //* not equal to second last level, for scaling purpose in future
             if (addr < (1 << level)) begin
               bram_addr_b[level]   = addr;
               bram_addr_a[level+1] = (addr << 1);

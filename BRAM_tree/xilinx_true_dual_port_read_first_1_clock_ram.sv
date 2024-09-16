@@ -12,8 +12,8 @@ module xilinx_true_dual_port_read_first_1_clock_ram #(
     parameter RAM_PERFORMANCE = "HIGH_PERFORMANCE",  // Select "HIGH_PERFORMANCE" or "LOW_LATENCY"
     parameter INIT_FILE = ""                        // Specify name/location of RAM initialization file if using one (leave blank if not)
 ) (
-    input [31:0] addra,  // Port A address bus, width determined from RAM_DEPTH
-    input [31:0] addrb,  // Port B address bus, width determined from RAM_DEPTH
+    input [RAM_WIDTH-1:0] addra,  // Port A address bus, width determined from RAM_DEPTH
+    input [RAM_WIDTH-1:0] addrb,  // Port B address bus, width determined from RAM_DEPTH
     input [RAM_WIDTH-1:0] dina,  // Port A RAM input data
     input [RAM_WIDTH-1:0] dinb,  // Port B RAM input data
     input clka,  // Clock
