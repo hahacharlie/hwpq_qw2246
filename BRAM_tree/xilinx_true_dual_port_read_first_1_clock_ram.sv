@@ -68,7 +68,6 @@ module xilinx_true_dual_port_read_first_1_clock_ram #(
     end else begin : output_register
 
       // The following is a 2 clock cycle read latency with improve clock-to-out timing
-
       reg [RAM_WIDTH-1:0] douta_reg = {RAM_WIDTH{1'b0}};
       reg [RAM_WIDTH-1:0] doutb_reg = {RAM_WIDTH{1'b0}};
 

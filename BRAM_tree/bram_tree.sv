@@ -110,12 +110,15 @@ module bram_tree (
           if (replace) begin
             STATE <= REPLACE;
           end else begin
-            even  <= 1;
             STATE <= EVEN;
           end
         end
 
         REPLACE: begin
+          addr  <= 0;
+          level <= 0;
+          even  <= 0;
+          odd   <= 0;
           STATE <= EVEN;  //? Maybe should go to EVEN state
         end
 
@@ -140,35 +143,10 @@ module bram_tree (
         end
 
         READ: begin
-          if (even == 1) begin
-            if (addr == (1 << level) - 1) begin
-              level <= level + 2;
-              addr  <= 0;
-              STATE <= EVEN;
-            end else begin
-              addr  <= addr + 1;
-              STATE <= WRITE;
-            end
-            if (level == 2 && addr == 3) begin
-              // level <= 1;
-              // addr  <= 0;
-              STATE <= WRITE;
-            end
-          end
-          if (odd == 1) begin
-            if (addr == (1 << level) - 1) begin
-              level <= level + 2;
-              addr  <= 0;
-              STATE <= ODD;
-            end else begin
-              addr  <= addr + 1;
-              STATE <= WRITE;
-            end
-            // if (level == 1 && addr == 1) begin
-            //   level <= 0;
-            //   addr  <= 0;
-            //   STATE <= WRITE;
-            // end
+          if (replace) begin
+            STATE <= REPLACE;
+          end else begin
+            STATE <= WRITE;
           end
         end
 
@@ -180,7 +158,12 @@ module bram_tree (
               level <= 1;
               addr  <= 0;
               STATE <= ODD;
+            end else if (addr == (1 << level) - 1) begin
+              level <= level + 2;
+              addr  <= 0;
+              STATE <= EVEN;
             end else begin
+              addr  <= addr + 1;
               STATE <= EVEN;
             end
           end else if (odd == 1) begin
@@ -188,7 +171,12 @@ module bram_tree (
               level <= 0;
               addr  <= 0;
               STATE <= EVEN;
+            end else if (addr == (1 << level) - 1) begin
+              level <= level + 2;
+              addr  <= 0;
+              STATE <= ODD;
             end else begin
+              addr  <= addr + 1;
               STATE <= ODD;
             end
           end
@@ -200,7 +188,7 @@ module bram_tree (
     end
   end
 
-  always_comb begin
+  always_latch begin
     case (STATE)
       IDLE: begin
       end
@@ -237,7 +225,7 @@ module bram_tree (
         end
         // Giving address to BRAMs
         if (level < 4) begin
-          if (level != 3) begin  // not equal to second last level, for scaling purpose in future
+          if (level != 3) begin  //* not equal to second last level, for scaling purpose in future
             if (addr < (1 << level)) begin
               bram_addr_b[level]   = addr;
               bram_addr_a[level+1] = (addr << 1);

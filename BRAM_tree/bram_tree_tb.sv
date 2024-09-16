@@ -38,29 +38,22 @@ module bram_tree_tb;
     repeat (4) @(posedge clk);
     rst = 0;
 
-    // // Initialize the queue with ascending numbers
-    // for (int i = 0; i < 16; i++) begin
-    //   replace  = 1;
-    //   new_item = (i + 1) * 10;
-    //   @(posedge clk);
-    //   replace = 0;
-    //   repeat (5) @(posedge clk);
-    // end
+    // Initial Sorting
+    repeat (80) @(posedge clk);
 
-    // // Perform 5 replace operations with random numbers
-    // for (int i = 0; i < 5; i++) begin
-    //   replace  = 1;
-    //   new_item = $urandom_range(1, 250);  // Random number between 1 and 1000
-    //   @(posedge clk);
-    //   replace = 0;
-    //   repeat (5) @(posedge clk);  // Wait for the replace operation to complete
+    // Perform 5 replace operations with random numbers
+    for (int i = 0; i < 5; i++) begin
+      replace  = 1;
+      new_item = $urandom_range(1, 250);  // Random number between 1 and 1000
+      @(posedge clk);
+      replace = 0;
+      repeat (10) @(posedge clk);  // Wait for the replace operation to complete
+    end
 
-    //   // Display the replaced value and the new input
-    //   $display("Replace %0d: Removed %0d, Inserted %0d", i + 1, top_item, new_item);
-    // end
+    // Wait for couple of clock cycles
+    repeat (40) @(posedge clk);
 
     // End simulation
-    repeat (40) @(posedge clk);
     $finish;
   end
 
