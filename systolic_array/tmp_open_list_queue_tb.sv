@@ -1,4 +1,3 @@
-/* verilator lint_off UNUSEDSIGNAL */
 module tmp_open_list_queue_tb;
 
   // Parameters
@@ -19,24 +18,24 @@ module tmp_open_list_queue_tb;
 
   // Instantiate the Unit Under Test (UUT)
   tmp_open_list_queue #(
-    .length(length),
-    .width(width)
+      .length(length),
+      .width (width)
   ) uut (
-    .clk(clk),
-    .reset(reset),
-    .insert(insert),
-    .pop(pop),
-    .in_f_value(in_f_value),
-    .out_f_value(out_f_value),
-    .empty(empty),
-    .full(full)
+      .clk(clk),
+      .reset(reset),
+      .insert(insert),
+      .pop(pop),
+      .in_f_value(in_f_value),
+      .out_f_value(out_f_value),
+      .empty(empty),
+      .full(full)
   );
 
   // Clock generation
   initial begin
-    clk = 0;
+    clk   = 0;
     reset = 1;
-    forever #5 clk = ~clk; // 10ns period
+    forever #5 clk = ~clk;  // 10ns period
   end
 
   // Test sequence

@@ -2,3 +2,6 @@ Running: xsim.dir/bram_tree_tb_behav/xsimk -simmode gui -wdb bram_tree_tb_behav.
 Design successfully loaded
 Design Loading Memory Usage: 20112 KB (Peak: 20740 KB)
 Design Loading CPU Usage: 10 ms
+Simulation completed
+Simulation Memory Usage: 102108 KB (Peak: 159380 KB)
+Simulation CPU Usage: 10 ms

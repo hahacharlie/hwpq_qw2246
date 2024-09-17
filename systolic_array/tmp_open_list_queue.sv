@@ -1,161 +1,121 @@
 module tmp_open_list_queue #(
-  parameter width = 32,
-  parameter length = 32
-)
-(
-  input  logic clk,
-  input  logic reset,
+    parameter QUEUE_SIZE = 4,
+    parameter DATA_WIDTH = 32
+) (
+    input logic CLK,
+    input logic RSTn,
 
-  input  logic insert,
-  input  logic pop,
+    /* Input control signals */
+    input logic i_wrt,  // enqueue
+    input logic i_read,  // dequeue
+    input logic i_valid,  // ready for next instruction
+    input logic [DATA_WIDTH-1:0] i_node_f,  // node data input 
 
-  input  logic [width-1:0] in_f_value,
-
-  output logic [width-1:0] out_f_value,
-
-  output logic full,
-  output logic empty
+    /* Output control signals */
+    output logic o_ready_deq,  // read ready flag
+    output logic o_ready_enq,  // write ready flag
+    output logic o_ready_rep,  // replace ready flag
+    output logic o_full,  // OB full
+    output logic o_empty,  // OB empty
+    output logic o_valid,  // OB[0] valid
+    output logic [DATA_WIDTH-1:0] o_node_f  // node data output
 );
 
-localparam l_bits = $clog2(length);
+  localparam QUEUE_SIZE_BITS_NEEDED = $clog2(QUEUE_SIZE);
 
-logic [(l_bits+1):0] next_size, curr_size;
+  // Internal buffers
+  logic   [          DATA_WIDTH-1:0] queue       [0:QUEUE_SIZE-1];
+  logic   [          QUEUE_SIZE-1:0] queue_valid;
 
-logic [length-1:0][width-1:0] IB, next_IB;
-logic [length-1:0][width-1:0] OB, next_OB;
+  // Queue pointers and size
+  logic   [QUEUE_SIZE_BITS_NEEDED:0] queue_size;
+  logic                              queue_full;
+  logic                              queue_empty;
 
-// Valid signals
-logic [length-1:0] IB_valid;
-logic [length-1:0] next_IB_valid;
-logic [length-1:0] OB_valid;
-logic [length-1:0] next_OB_valid;
+  integer                            i;
 
-// Comparators
-logic [length-1:0] less_then_previous_IB;
-logic [length-1:0] less_then_next_IB;
-logic [length-1:0] less_then_same_OB;
-logic [length-1:0] less_then_next_OB;
-logic [length-1:0] less_then_next_next_OB;
+  // Output assignments
+  assign o_full      = queue_full;
+  assign o_empty     = queue_empty;
+  assign o_valid     = queue_valid[0];
+  assign o_node_f    = queue[0];
+  assign o_ready_enq = !queue_full;
+  assign o_ready_deq = !queue_empty;
 
-assign full      = next_size == length;
-assign empty     = next_size == '0;
+  // Queue full and empty indicators
+  always_comb begin
+    queue_full  = (queue_size == QUEUE_SIZE);
+    queue_empty = (queue_size == 0);
+  end
 
-integer i, j;
-
-assign out_f_value = OB[0];
-
-always_comb begin
-  // defaults
-  next_IB = '1;
-  next_OB = OB;
-  next_IB_valid = '0;
-  next_OB_valid = OB_valid;
-  next_size = curr_size;
-
-  if (insert && pop) begin
-    next_size = curr_size;
-    if ((in_f_value < OB[0]) && (in_f_value < OB[1]) && (!IB_valid[0] || (in_f_value < IB[0]))) begin
-      // enqueue directly into outQueue[0]
-      next_OB[0] = in_f_value;
-      next_OB_valid[0] = 1;
+  // Sequential logic for queue operations
+  always_ff @(posedge CLK or negedge RSTn) begin
+    if (!RSTn) begin
+      // Reset state
+      queue_size <= 0;
+      for (i = 0; i < QUEUE_SIZE; i++) begin
+        queue[i]       <= '0;
+        queue_valid[i] <= 1'b0;
+      end
     end else begin
-      // enqueue into inQueue[0]
-      next_IB[0] = in_f_value;
-      next_IB_valid[0] = 1;
-      // dequeue outQueue[0]
-      next_OB_valid[0] = 0;
-      next_OB[0] = '1;
-    end
-  end else if (insert) begin
-    next_size = curr_size + 1;
-    if ((in_f_value < OB[0]) && (in_f_value < OB[1]) && (!IB_valid[0] || (in_f_value < IB[0]))) begin
-      // enqueue directly into outQueue[0]
-      next_OB[0] = in_f_value;
-      next_OB_valid[0] = 1;
-      // Bump outQueue[0] into inQueue[0]
-      next_IB[0] = OB[0];
-      next_IB_valid[0] = OB_valid[0];
-    end else begin
-      // enqueue into inQueue[0]
-      next_IB[0] = in_f_value;
-      next_IB_valid[0] = 1;
-    end
-  end else if (pop) begin
-    next_size = curr_size - 1;
-    next_OB_valid[0] = 0;
-    next_OB[0] = '1;
-  end
+      if (i_wrt && o_ready_enq && i_valid) begin
+        // Enqueue operation
+        // Insert the new node into the queue maintaining sorted order
+        integer insert_pos;
+        insert_pos = queue_size;
 
-  // Calculate whether inQueue[j] < inQueue[j+1] or inQueue
-  less_then_next_IB      = '0;
-  less_then_same_OB     = '0;
-  less_then_next_OB     = '0;
-  less_then_next_next_OB = '0;
+        // Find the correct position to insert
+        for (i = 0; i < queue_size; i++) begin
+          if (i_node_f < queue[i]) begin
+            insert_pos = i;
+            break;
+          end
+        end
 
-  for (j = 0; j < length; j += 1) begin
-    // Special handle length at end of queue
-    less_then_previous_IB[j]      = (j > 0        ) ? (IB[j] < IB[j-1] ) : !insert || (IB[j] <= in_f_value); // TODO needs to be less than or equals
-    less_then_next_IB[j]      = (j < length-1) ? (IB[j] < IB[j+1] ) : 1;
+        // Shift elements to make room for the new node
+        for (i = queue_size; i > insert_pos; i--) begin
+          queue[i]       <= queue[i-1];
+          queue_valid[i] <= queue_valid[i-1];
+        end
 
-    less_then_same_OB[j]     =                   (OB[j] < OB[j]  )    ;
-    less_then_next_OB[j]     = (j < length-1) ? (OB[j] < OB[j+1]) : 1;
-    less_then_next_next_OB[j] = (j < length-2) ? (OB[j] < OB[j+2]) : 1;
-  end
+        // Insert the new node
+        queue[insert_pos]       <= i_node_f;
+        queue_valid[insert_pos] <= 1'b1;
 
-  // Perform any additional sorting
-  for (j = 0; j < length - 1; j += 1) begin
-    if (less_then_same_OB[j] && less_then_next_OB[j] && less_then_previous_IB[j]) begin
-      // Insert inQueue into empty outQueue slot
-      next_OB[j] = IB[j];
-      next_OB_valid[j] = IB_valid[j];
-    end else if (less_then_next_OB[j] && less_then_next_IB[j] && less_then_next_next_OB[j]) begin
-      // Swap inQueue and outQueue
-      next_OB[j+1] = IB[j+1];
-      next_OB_valid[j+1] = IB_valid[j+1];
+        // Update queue size
+        if (!i_read) begin
+          queue_size <= queue_size + 1;
+        end
+      end
 
-      next_IB[j+1] = OB[j];
-      next_IB_valid[j+1] = OB_valid[j];
-    end else if ((j == length - 2) && !OB_valid[j+1] && IB_valid[j+1]) begin
-      next_OB[j+1] = IB[j+1];
-      next_OB_valid[j+1] = IB_valid[j+1];
-    end else begin
-      // Shift inQueue down
-      next_IB[j+1] = IB[j];
-      next_IB_valid[j+1] = IB_valid[j];
+      if (i_read && o_ready_deq) begin
+        // Dequeue operation
+        if (i_wrt && o_ready_enq && i_valid) begin
+          // If enqueue and dequeue happen simultaneously, size remains the same
+          // Dequeue is already handled by shifting during enqueue
+        end else begin
+          // Shift elements to remove the first element
+          for (i = 0; i < queue_size - 1; i++) begin
+            queue[i]       <= queue[i+1];
+            queue_valid[i] <= queue_valid[i+1];
+          end
+          // Invalidate the last element
+          queue[queue_size-1]       <= '0;
+          queue_valid[queue_size-1] <= 1'b0;
+
+          // Update queue size
+          queue_size                <= queue_size - 1;
+        end
+      end
+
+      if (!i_wrt && !i_read) begin
+        // No operation, maintain current state
+        for (i = 0; i < QUEUE_SIZE; i++) begin
+          queue[i]       <= queue[i];
+          queue_valid[i] <= queue_valid[i];
+        end
+      end
     end
   end
-
-  // Shift outQueue length forward if there is a gap
-  for (j = 0; j < length-1; j += 1) begin
-    // TODO might not be necessary to check current OB_valid
-    if (!OB_valid[j] && !next_OB_valid[j]) begin
-      next_OB[j] = OB[j+1];
-      next_OB_valid[j] = OB_valid[j+1];
-      next_OB[j+1] = '1;
-      next_OB_valid[j+1] = 0;
-    end
-  end
-end
-
-always_ff @(posedge clk) begin
-
-  if (reset) begin
-    curr_size  <= '0;
-    IB_valid  <= '0;
-    OB_valid  <= '0;
-
-    for (i = 0; i < length; i += 1) begin
-      IB[i]  <= '1;
-      OB[i] <= '1;
-    end
-
-  end else begin
-    curr_size  <= next_size;
-    IB         <= next_IB;
-    IB_valid   <= next_IB_valid;
-    OB         <= next_OB;
-    OB_valid   <= next_OB_valid;
-  end
-end
 
 endmodule
