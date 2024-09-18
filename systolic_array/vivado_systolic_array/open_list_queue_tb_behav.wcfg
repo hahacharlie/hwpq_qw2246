@@ -3,295 +3,93 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="systolic_array_tb_behav.wdb" id="1">
+      <db_ref path="tmp_open_list_queue_tb_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
-            <top_module name="systolic_array_tb" />
+            <top_module name="tmp_open_list_queue_tb" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="330.001 ns"></ZoomEndTime>
-      <Cursor1Time time="330.000 ns"></Cursor1Time>
+      <ZoomEndTime time="191.401 ns"></ZoomEndTime>
+      <Cursor1Time time="25.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="161"></NameColumnWidth>
-      <ValueColumnWidth column_width="143"></ValueColumnWidth>
+      <ValueColumnWidth column_width="139"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="49" />
-   <wvobject type="logic" fp_name="/systolic_array_tb/clk">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
+   <WVObjectSize size="14" />
+   <wvobject type="logic" fp_name="/tmp_open_list_queue_tb/CLK">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/systolic_array_tb/rst">
-      <obj_property name="ElementShortName">rst</obj_property>
-      <obj_property name="ObjectShortName">rst</obj_property>
+   <wvobject type="logic" fp_name="/tmp_open_list_queue_tb/i_wrt">
+      <obj_property name="ElementShortName">i_wrt</obj_property>
+      <obj_property name="ObjectShortName">i_wrt</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/systolic_array_tb/insert">
-      <obj_property name="ElementShortName">insert</obj_property>
-      <obj_property name="ObjectShortName">insert</obj_property>
+   <wvobject type="logic" fp_name="/tmp_open_list_queue_tb/i_valid">
+      <obj_property name="ElementShortName">i_valid</obj_property>
+      <obj_property name="ObjectShortName">i_valid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/systolic_array_tb/extract">
-      <obj_property name="ElementShortName">extract</obj_property>
-      <obj_property name="ObjectShortName">extract</obj_property>
+   <wvobject type="logic" fp_name="/tmp_open_list_queue_tb/i_read">
+      <obj_property name="ElementShortName">i_read</obj_property>
+      <obj_property name="ObjectShortName">i_read</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/idata">
-      <obj_property name="ElementShortName">idata[31:0]</obj_property>
-      <obj_property name="ObjectShortName">idata[31:0]</obj_property>
+   <wvobject type="logic" fp_name="/tmp_open_list_queue_tb/o_valid">
+      <obj_property name="ElementShortName">o_valid</obj_property>
+      <obj_property name="ObjectShortName">o_valid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/systolic_array_tb/ovalid">
-      <obj_property name="ElementShortName">ovalid</obj_property>
-      <obj_property name="ObjectShortName">ovalid</obj_property>
+   <wvobject type="logic" fp_name="/tmp_open_list_queue_tb/o_full">
+      <obj_property name="ElementShortName">o_full</obj_property>
+      <obj_property name="ObjectShortName">o_full</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/odata">
-      <obj_property name="ElementShortName">odata[31:0]</obj_property>
-      <obj_property name="ObjectShortName">odata[31:0]</obj_property>
+   <wvobject type="logic" fp_name="/tmp_open_list_queue_tb/o_empty">
+      <obj_property name="ElementShortName">o_empty</obj_property>
+      <obj_property name="ObjectShortName">o_empty</obj_property>
+      <obj_property name="CustomSignalColor">#800000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/systolic_array_tb/DUV/even">
-      <obj_property name="ElementShortName">even</obj_property>
-      <obj_property name="ObjectShortName">even</obj_property>
+   <wvobject type="array" fp_name="/tmp_open_list_queue_tb/i_node_f">
+      <obj_property name="ElementShortName">i_node_f[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_node_f[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/systolic_array_tb/DUV/odd">
-      <obj_property name="ElementShortName">odd</obj_property>
-      <obj_property name="ObjectShortName">odd</obj_property>
+   <wvobject type="array" fp_name="/tmp_open_list_queue_tb/o_node_f">
+      <obj_property name="ElementShortName">o_node_f[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_node_f[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/a">
-      <obj_property name="ElementShortName">a[0:3][31:0]</obj_property>
-      <obj_property name="ObjectShortName">a[0:3][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/b">
-      <obj_property name="ElementShortName">b[0:3][31:0]</obj_property>
-      <obj_property name="ObjectShortName">b[0:3][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/systolic_array_tb/DUV/U_PROC0/clk">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
+   <wvobject type="array" fp_name="/tmp_open_list_queue_tb/uut/IB">
+      <obj_property name="ElementShortName">IB[0:3][31:0]</obj_property>
+      <obj_property name="ObjectShortName">IB[0:3][31:0]</obj_property>
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/systolic_array_tb/DUV/U_PROC0/rst">
-      <obj_property name="ElementShortName">rst</obj_property>
-      <obj_property name="ObjectShortName">rst</obj_property>
+   <wvobject type="array" fp_name="/tmp_open_list_queue_tb/uut/OB">
+      <obj_property name="ElementShortName">OB[0:3][31:0]</obj_property>
+      <obj_property name="ObjectShortName">OB[0:3][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tmp_open_list_queue_tb/uut/IB_valid">
+      <obj_property name="ElementShortName">IB_valid[0:3]</obj_property>
+      <obj_property name="ObjectShortName">IB_valid[0:3]</obj_property>
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/systolic_array_tb/DUV/U_PROC0/insert">
-      <obj_property name="ElementShortName">insert</obj_property>
-      <obj_property name="ObjectShortName">insert</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/systolic_array_tb/DUV/U_PROC0/extract">
-      <obj_property name="ElementShortName">extract</obj_property>
-      <obj_property name="ObjectShortName">extract</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/U_PROC0/idata">
-      <obj_property name="ElementShortName">idata[31:0]</obj_property>
-      <obj_property name="ObjectShortName">idata[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/systolic_array_tb/DUV/U_PROC0/even">
-      <obj_property name="ElementShortName">even</obj_property>
-      <obj_property name="ObjectShortName">even</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/systolic_array_tb/DUV/U_PROC0/odd">
-      <obj_property name="ElementShortName">odd</obj_property>
-      <obj_property name="ObjectShortName">odd</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/U_PROC0/bo">
-      <obj_property name="ElementShortName">bo[31:0]</obj_property>
-      <obj_property name="ObjectShortName">bo[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/U_PROC0/ao">
-      <obj_property name="ElementShortName">ao[31:0]</obj_property>
-      <obj_property name="ObjectShortName">ao[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/systolic_array_tb/DUV/U_PROC0/insert_ready">
-      <obj_property name="ElementShortName">insert_ready</obj_property>
-      <obj_property name="ObjectShortName">insert_ready</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/systolic_array_tb/DUV/U_PROC0/extract_ready">
-      <obj_property name="ElementShortName">extract_ready</obj_property>
-      <obj_property name="ObjectShortName">extract_ready</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/U_PROC0/pq_count">
-      <obj_property name="ElementShortName">pq_count[2:0]</obj_property>
-      <obj_property name="ObjectShortName">pq_count[2:0]</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[1].U_PROC /clk">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
+   <wvobject type="array" fp_name="/tmp_open_list_queue_tb/uut/OB_valid">
+      <obj_property name="ElementShortName">OB_valid[0:3]</obj_property>
+      <obj_property name="ObjectShortName">OB_valid[0:3]</obj_property>
       <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[1].U_PROC /rst">
-      <obj_property name="ElementShortName">rst</obj_property>
-      <obj_property name="ObjectShortName">rst</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[1].U_PROC /en">
-      <obj_property name="ElementShortName">en</obj_property>
-      <obj_property name="ObjectShortName">en</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[1].U_PROC /b_previous_i">
-      <obj_property name="ElementShortName">b_previous_i[31:0]</obj_property>
-      <obj_property name="ObjectShortName">b_previous_i[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[1].U_PROC /b_i">
-      <obj_property name="ElementShortName">b_i[31:0]</obj_property>
-      <obj_property name="ObjectShortName">b_i[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[1].U_PROC /a_previous_i">
-      <obj_property name="ElementShortName">a_previous_i[31:0]</obj_property>
-      <obj_property name="ObjectShortName">a_previous_i[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[1].U_PROC /a_i">
-      <obj_property name="ElementShortName">a_i[31:0]</obj_property>
-      <obj_property name="ObjectShortName">a_i[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[1].U_PROC /b_previous_o">
-      <obj_property name="ElementShortName">b_previous_o[31:0]</obj_property>
-      <obj_property name="ObjectShortName">b_previous_o[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[1].U_PROC /b_o">
-      <obj_property name="ElementShortName">b_o[31:0]</obj_property>
-      <obj_property name="ObjectShortName">b_o[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[1].U_PROC /a_previous_o">
-      <obj_property name="ElementShortName">a_previous_o[31:0]</obj_property>
-      <obj_property name="ObjectShortName">a_previous_o[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[1].U_PROC /a_o">
-      <obj_property name="ElementShortName">a_o[31:0]</obj_property>
-      <obj_property name="ObjectShortName">a_o[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[1].U_PROC /minv">
-      <obj_property name="ElementShortName">minv[31:0]</obj_property>
-      <obj_property name="ObjectShortName">minv[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[1].U_PROC /medv">
-      <obj_property name="ElementShortName">medv[31:0]</obj_property>
-      <obj_property name="ObjectShortName">medv[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[1].U_PROC /maxv">
-      <obj_property name="ElementShortName">maxv[31:0]</obj_property>
-      <obj_property name="ObjectShortName">maxv[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[2].U_PROC /en">
-      <obj_property name="ElementShortName">en</obj_property>
-      <obj_property name="ObjectShortName">en</obj_property>
-      <obj_property name="CustomSignalColor">#800080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[2].U_PROC /b_previous_i">
-      <obj_property name="ElementShortName">b_previous_i[31:0]</obj_property>
-      <obj_property name="ObjectShortName">b_previous_i[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#800080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[2].U_PROC /b_i">
-      <obj_property name="ElementShortName">b_i[31:0]</obj_property>
-      <obj_property name="ObjectShortName">b_i[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#800080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[2].U_PROC /a_previous_i">
-      <obj_property name="ElementShortName">a_previous_i[31:0]</obj_property>
-      <obj_property name="ObjectShortName">a_previous_i[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#800080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[2].U_PROC /a_i">
-      <obj_property name="ElementShortName">a_i[31:0]</obj_property>
-      <obj_property name="ObjectShortName">a_i[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#800080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[2].U_PROC /b_previous_o">
-      <obj_property name="ElementShortName">b_previous_o[31:0]</obj_property>
-      <obj_property name="ObjectShortName">b_previous_o[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#800080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[2].U_PROC /b_o">
-      <obj_property name="ElementShortName">b_o[31:0]</obj_property>
-      <obj_property name="ObjectShortName">b_o[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#800080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[2].U_PROC /a_previous_o">
-      <obj_property name="ElementShortName">a_previous_o[31:0]</obj_property>
-      <obj_property name="ObjectShortName">a_previous_o[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#800080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[2].U_PROC /a_o">
-      <obj_property name="ElementShortName">a_o[31:0]</obj_property>
-      <obj_property name="ObjectShortName">a_o[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#800080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[2].U_PROC /minv">
-      <obj_property name="ElementShortName">minv[31:0]</obj_property>
-      <obj_property name="ObjectShortName">minv[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#800080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[2].U_PROC /medv">
-      <obj_property name="ElementShortName">medv[31:0]</obj_property>
-      <obj_property name="ObjectShortName">medv[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#800080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/systolic_array_tb/DUV/\gen_systolic_array_proc[2].U_PROC /maxv">
-      <obj_property name="ElementShortName">maxv[31:0]</obj_property>
-      <obj_property name="ObjectShortName">maxv[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#800080</obj_property>
+   <wvobject type="array" fp_name="/tmp_open_list_queue_tb/uut/size">
+      <obj_property name="ElementShortName">size[2:0]</obj_property>
+      <obj_property name="ObjectShortName">size[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
 </wave_config>

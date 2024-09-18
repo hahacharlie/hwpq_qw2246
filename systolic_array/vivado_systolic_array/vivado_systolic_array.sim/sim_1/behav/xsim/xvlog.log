@@ -1,10 +1,4 @@
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module systolic_array
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module systolic_array_proc
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc0.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module systolic_array_proc0
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_sort3.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module systolic_array_sort3
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_tb.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module systolic_array_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tmp_open_list_queue
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tmp_open_list_queue_tb
