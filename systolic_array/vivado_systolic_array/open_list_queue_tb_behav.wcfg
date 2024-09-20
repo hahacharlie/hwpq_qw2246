@@ -12,17 +12,21 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="191.401 ns"></ZoomEndTime>
+      <ZoomEndTime time="192.201 ns"></ZoomEndTime>
       <Cursor1Time time="25.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="161"></NameColumnWidth>
-      <ValueColumnWidth column_width="139"></ValueColumnWidth>
+      <ValueColumnWidth column_width="131"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="14" />
+   <WVObjectSize size="21" />
    <wvobject type="logic" fp_name="/tmp_open_list_queue_tb/CLK">
       <obj_property name="ElementShortName">CLK</obj_property>
       <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tmp_open_list_queue_tb/RSTn">
+      <obj_property name="ElementShortName">RSTn</obj_property>
+      <obj_property name="ObjectShortName">RSTn</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/tmp_open_list_queue_tb/i_wrt">
       <obj_property name="ElementShortName">i_wrt</obj_property>
@@ -39,6 +43,10 @@
    <wvobject type="logic" fp_name="/tmp_open_list_queue_tb/o_valid">
       <obj_property name="ElementShortName">o_valid</obj_property>
       <obj_property name="ObjectShortName">o_valid</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tmp_open_list_queue_tb/uut/current_state">
+      <obj_property name="ElementShortName">current_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">current_state[1:0]</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/tmp_open_list_queue_tb/o_full">
       <obj_property name="ElementShortName">o_full</obj_property>
@@ -68,16 +76,16 @@
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tmp_open_list_queue_tb/uut/OB">
-      <obj_property name="ElementShortName">OB[0:3][31:0]</obj_property>
-      <obj_property name="ObjectShortName">OB[0:3][31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
    <wvobject type="array" fp_name="/tmp_open_list_queue_tb/uut/IB_valid">
       <obj_property name="ElementShortName">IB_valid[0:3]</obj_property>
       <obj_property name="ObjectShortName">IB_valid[0:3]</obj_property>
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tmp_open_list_queue_tb/uut/OB">
+      <obj_property name="ElementShortName">OB[0:3][31:0]</obj_property>
+      <obj_property name="ObjectShortName">OB[0:3][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tmp_open_list_queue_tb/uut/OB_valid">
@@ -91,5 +99,25 @@
       <obj_property name="ObjectShortName">size[2:0]</obj_property>
       <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tmp_open_list_queue_tb/uut/next_IB">
+      <obj_property name="ElementShortName">next_IB[0:3][31:0]</obj_property>
+      <obj_property name="ObjectShortName">next_IB[0:3][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tmp_open_list_queue_tb/uut/next_IB_valid">
+      <obj_property name="ElementShortName">next_IB_valid[0:3]</obj_property>
+      <obj_property name="ObjectShortName">next_IB_valid[0:3]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tmp_open_list_queue_tb/uut/next_OB">
+      <obj_property name="ElementShortName">next_OB[0:3][31:0]</obj_property>
+      <obj_property name="ObjectShortName">next_OB[0:3][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tmp_open_list_queue_tb/uut/next_OB_valid">
+      <obj_property name="ElementShortName">next_OB_valid[0:3]</obj_property>
+      <obj_property name="ObjectShortName">next_OB_valid[0:3]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tmp_open_list_queue_tb/uut/next_size">
+      <obj_property name="ElementShortName">next_size[2:0]</obj_property>
+      <obj_property name="ObjectShortName">next_size[2:0]</obj_property>
    </wvobject>
 </wave_config>

@@ -27,7 +27,7 @@ module bram_tree #(
   logic [DATA_WIDTH-1:0] new_left_child[0:(1 << (TREE_DEPTH - 1)) - 2];
   logic [DATA_WIDTH-1:0] new_right_child[0:(1 << (TREE_DEPTH - 1)) - 2];
 
-  // Generate 4 BRAMs
+  // Generate BRAMs for each level of the tree
   genvar i;
   generate
     for (i = 0; i < TREE_DEPTH; i++) begin : BRAM_gen
