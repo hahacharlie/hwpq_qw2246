@@ -32,6 +32,8 @@ module tmp_open_list_queue #(
   logic [DATA_WIDTH-1:0] next_OB                                     [0:QUEUE_SIZE-1];
   logic                  next_OB_valid                               [0:QUEUE_SIZE-1];
   logic [ INDEX_WIDTH:0] next_size;
+  // Temporary variable for swapping
+  logic [DATA_WIDTH-1:0] temp_OB;
 
   // Control signals
   logic [ INDEX_WIDTH:0] size;  // Total number of nodes in the queue
@@ -46,13 +48,6 @@ module tmp_open_list_queue #(
   assign o_valid  = OB_valid[0];
   assign o_node_f = OB[0];
 
-  // typedef enum logic [1:0] {
-  //   IDLE,
-  //   READ,
-  //   WRITE
-  // } state_t;
-  // state_t current_state, next_state;
-
   // Sequential logic
   always_ff @(posedge CLK or negedge RSTn) begin
     if (!RSTn) begin  // Reset
@@ -63,46 +58,17 @@ module tmp_open_list_queue #(
         OB[i]       <= '0;
         OB_valid[i] <= 1'b0;
       end
-      // current_state <= IDLE;
     end else begin  // Normal operation: update registers with next_* signals
       size     <= next_size;
       IB       <= next_IB;
       IB_valid <= next_IB_valid;
       OB       <= next_OB;
       OB_valid <= next_OB_valid;
-      // current_state <= next_state;
     end
   end
 
   // Combinational logic
   always_comb begin
-    // Declare and initialize temporary variables
-    // logic [DATA_WIDTH-1:0] temp_OB = '0;
-
-    // case (current_state)
-    //   IDLE: begin
-    //     next_state = READ;
-    //   end
-    //   READ: begin
-    //     // size = next_size;
-    //     IB = next_IB;
-    //     IB_valid = next_IB_valid;
-    //     OB = next_OB;
-    //     OB_valid = next_OB_valid;
-    //     next_state = WRITE;
-    //   end
-    //   WRITE: begin
-    //     // Default assignments
-    //     next_IB = IB;
-    //     next_IB_valid = IB_valid;
-    //     next_OB = OB;
-    //     next_OB_valid = OB_valid;
-    //     next_size = size;
-    //   end
-    //   default: begin
-    //   end
-    // endcase
-
     // Defaults
     next_IB = IB;
     next_IB_valid = IB_valid;
@@ -111,84 +77,109 @@ module tmp_open_list_queue #(
     next_size = size;
 
     // Enqueue operation
-    if (i_wrt && i_valid  /*&& !full && !IB_valid[0]*/) begin
+    if (i_wrt && i_valid) begin
       next_IB[0]       = i_node_f;
       next_IB_valid[0] = 1'b1;
       next_size        = size + 1;  // Update size
     end
 
     // Dequeue operation
-    if (i_read  /*&& !empty && OB_valid[0]*/) begin
+    if (i_read) begin
       // Remove the head of OB, creating a bubble at OB[0]
       next_OB[0]       = '0;
       next_OB_valid[0] = 1'b0;
       next_size        = size - 1;  // Update size
 
       // Handle the bubble
-      //* This should be correct, and have covered all cases
-      if (next_IB_valid[0]) begin  // IB[0] is valid
-        if (next_OB_valid[1]) begin  // OB[1] is valid
-          if (next_IB[0] < next_OB[1]) begin  // Compare IB[0] and OB[1], if IB[0] has lower 'f' value
-            // Move it to OB[0]
-            next_OB[0]       = next_IB[0];
-            next_OB_valid[0] = 1'b1;
-            next_IB[0]       = '0;
-            next_IB_valid[0] = 1'b0;
-          end else begin  // OB[1] has lower or equal 'f' value
-            // Move it to OB[0]
-            next_OB[0]       = next_OB[1];
-            next_OB_valid[0] = 1'b1;
-            // Shift the bubble to OB[1]
-            next_OB[1]       = '0;
-            next_OB_valid[1] = 1'b0;
-          end
-        end else begin
-          // OB[1] is not valid; move IB[0] to OB[0]
+      if (next_OB_valid[1] && next_IB_valid[0]) begin  // IB[0] and OB[1] are valid
+        if (next_IB[0] < next_OB[1]) begin  // Compare IB[0] and OB[1], if IB[0] has lower 'f' value
+          // Swap IB[0] to OB[0]
           next_OB[0]       = next_IB[0];
           next_OB_valid[0] = 1'b1;
           next_IB[0]       = '0;
           next_IB_valid[0] = 1'b0;
-        end
-      end else begin  // IB[0] is not valid
-        if (next_OB_valid[1]) begin  // OB[1] is valid
+        end else begin  // OB[1] has lower or equal 'f' value
+          // Move OB[1] to OB[0]
           next_OB[0]       = next_OB[1];
           next_OB_valid[0] = 1'b1;
           // Shift the bubble to OB[1]
           next_OB[1]       = '0;
           next_OB_valid[1] = 1'b0;
-        end else begin  // OB[1] is not valid
-          next_OB[0]       = '0;
-          next_OB_valid[0] = 1'b0;
         end
+      end else if (next_IB_valid[0] && !next_OB_valid[1]) begin  // OB[1] is not valid; IB[0] is valid; move IB[0] to OB[0]
+        next_OB[0]       = next_IB[0];
+        next_OB_valid[0] = 1'b1;
+        next_IB[0]       = '0;
+        next_IB_valid[0] = 1'b0;
+      end else if (next_OB_valid[1] && !next_IB_valid[0]) begin  // OB[1] is valid; IB[0] is not valid; move OB[1] to OB[0]
+        next_OB[0]       = next_OB[1];
+        next_OB_valid[0] = 1'b1;
+        next_OB[1]       = '0;
+        next_OB_valid[1] = 1'b0;
       end
     end
 
-    // Sorting logic
-    //! Missing some edge cases
+    // IB sorting logic
     for (int i = 0; i < QUEUE_SIZE; i++) begin  // Iterate through each element in IB
       if (next_IB_valid[i]) begin  // IB[i] is valid
-        if ((i < QUEUE_SIZE - 1) && next_OB_valid[i+1]) begin // If not the last element in IB and OB[i+1] is valid
-          // Case 1: Compare IB[i] with OB[i+1]
-          if (next_IB[i] < next_OB[i+1]) begin  // IB[i] < OB[i+1]
-            // Swap IB[i] and OB[i+1]
-            next_OB[i+1]       = next_IB[i];
-            next_OB_valid[i+1] = 1'b1;
-            next_IB[i]         = next_OB[i+1];
-            next_IB_valid[i]   = 1'b1;
-          end
-        end else begin  // OB[i+1] not valid or last element
-          if (!next_OB_valid[i+1] && next_OB_valid[i]) begin  // OB[i+1] not valid, but OB[i] is valid
-            // Case 2: compare IB[i] and OB[i]
-            if (next_IB[i] < next_OB[i]) begin
+        if (i < QUEUE_SIZE - 1) begin  // If not the last element in IB
+          if (next_OB_valid[i] && next_OB_valid[i+1]) begin  // OB[i] and OB[i+1] are valid
+            // Case 1: Compare IB[i] with OB[i] and OB[i+1]
+            if (next_IB[i] < next_OB[i]) begin  // IB[i] < OB[i]
               // Swap IB[i] and OB[i]
-              logic [DATA_WIDTH-1:0] temp_OB;
+              temp_OB          = next_OB[i];
+              next_OB[i]       = next_IB[i];
+              next_OB_valid[i] = 1'b1;
+              next_IB[i]       = temp_OB;
+              next_IB_valid[i] = 1'b1;
+            end else if (next_IB[i] < next_OB[i+1]) begin  // IB[i] < OB[i+1]
+              // Swap IB[i] and OB[i+1]
+              temp_OB            = next_OB[i+1];
+              next_OB[i+1]       = next_IB[i];
+              next_OB_valid[i+1] = 1'b1;
+              next_IB[i]         = temp_OB;
+              next_IB_valid[i]   = 1'b1;
+            end
+          end else if (next_OB_valid[i] && !next_OB_valid[i+1]) begin  // OB[i] is valid and OB[i+1] is not valid
+            if (next_IB[i] < next_OB[i]) begin  // IB[i] < OB[i]
+              // Swap IB[i] and OB[i]
+              temp_OB          = next_OB[i];
+              next_OB[i]       = next_IB[i];
+              next_OB_valid[i] = 1'b1;
+              next_IB[i]       = temp_OB;
+              next_IB_valid[i] = 1'b1;
+            end else begin
+              // Move IB[i] to OB[i+1]
+              next_OB[i+1]       = next_IB[i];
+              next_OB_valid[i+1] = 1'b1;
+              next_IB[i]         = '0;
+              next_IB_valid[i]   = 1'b0;
+            end
+          end else if (!next_OB_valid[i] && next_OB_valid[i+1]) begin  // OB[i] is not valid and OB[i+1] is valid
+            // Move IB[i] to OB[i]
+            next_OB[i]       = next_IB[i];
+            next_OB_valid[i] = 1'b1;
+            next_IB[i]       = '0;
+            next_IB_valid[i] = 1'b0;
+          end else if (!next_OB_valid[i] && !next_OB_valid[i+1]) begin  // OB[i] and OB[i+1] are not valid
+            // Move IB[i] to OB[i]
+            next_OB[i]       = next_IB[i];
+            next_OB_valid[i] = 1'b1;
+            next_IB[i]       = '0;
+            next_IB_valid[i] = 1'b0;
+          end
+        end else begin  // Last element in IB
+          if (next_OB_valid[i]) begin  // OB[i] is valid
+            // compare IB[i] and OB[i]
+            if (next_IB[i] < next_OB[i]) begin  // IB[i] < OB[i]
+              // Swap IB[i] and OB[i]
               temp_OB          = next_OB[i];
               next_OB[i]       = next_IB[i];
               next_OB_valid[i] = 1'b1;
               next_IB[i]       = temp_OB;
               next_IB_valid[i] = 1'b1;
             end
-          end else begin  // OB [i] is not valid, or last element of IB
+          end else begin  // OB [i] is not valid
             // Move IB[i] to OB[i]
             next_OB[i]       = next_IB[i];
             next_OB_valid[i] = 1'b1;
@@ -204,15 +195,46 @@ module tmp_open_list_queue #(
       next_IB_valid[i]   = 1'b0;
     end
 
-    // Propergating IB and OB, and IB_valid and OB_valid
-    // for (int i = QUEUE_SIZE - 1; i >= 0; i--) begin
-    //   next_IB[i] = next_IB[i-1];
-    //   next_IB_valid[i] = next_IB_valid[i-1];
-    // end
-    // for (int i = 0; i < QUEUE_SIZE; i++) begin
-    //   next_OB[i] = next_OB[i+1];
-    //   next_OB_valid[i] = next_OB_valid[i+1];
-    // end
+    // OB sorting logic
+    for (int i = 0; i < QUEUE_SIZE; i++) begin
+      if (next_OB_valid[i]) begin  // OB[i] is valid
+        if (i < QUEUE_SIZE - 1) begin  // If not the last element in OB
+          if (next_OB_valid[i+1]) begin  // OB[i+1] is valid
+            if (next_IB_valid[i+1]) begin  // IB[i+1] is valid
+              // Compare IB[i+1] and OB[i]
+              if (next_IB[i+1] < next_OB[i]) begin  // IB[i+1] < OB[i]
+                // Swap IB[i+1] and OB[i]
+                temp_OB = next_OB[i];
+                next_OB[i] = next_IB[i+1];
+                next_OB_valid[i] = 1'b1;
+                next_IB[i+1] = temp_OB;
+                next_IB_valid[i+1] = 1'b1;
+              end
+            end else begin  // IB[i+1] is not valid
+              // Compare OB[i] and OB[i+1]
+              if (next_OB[i+1] < next_OB[i]) begin  // OB[i+1] < OB[i]
+                // Swap OB[i] and OB[i+1]
+                temp_OB = next_OB[i];
+                next_OB[i] = next_OB[i+1];
+                next_OB[i+1] = temp_OB;
+                next_OB_valid[i] = 1'b1;
+                next_OB_valid[i+1] = 1'b1;
+              end
+            end
+          end
+        end
+      end else begin  // OB[i] is not valid
+        if (i < QUEUE_SIZE - 1) begin  // If not the last element in OB
+          if (next_OB_valid[i+1]) begin  // OB[i+1] is valid
+            // Move OB[i+1] to OB[i]
+            next_OB[i] = next_OB[i+1];
+            next_OB_valid[i] = 1'b1;
+            next_OB[i+1] = '0;
+            next_OB_valid[i+1] = 1'b0;
+          end
+        end
+      end
+    end
   end
 
 endmodule
