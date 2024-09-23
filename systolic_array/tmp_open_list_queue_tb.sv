@@ -134,6 +134,8 @@ module tmp_open_list_queue_tb;
         @(posedge CLK);
         i_wrt   = 0;
         i_valid = 0;
+        // i_node_f = 0;
+        @(posedge CLK);
       end else begin
         $display("Queue is full. Cannot enqueue node with f = %h", node_f);
       end
@@ -147,6 +149,7 @@ module tmp_open_list_queue_tb;
         i_read = 1;
         @(posedge CLK);
         i_read = 0;
+        @(posedge CLK);
       end else begin
         $display("Queue is empty. Cannot dequeue.");
       end
