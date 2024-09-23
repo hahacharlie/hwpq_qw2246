@@ -76,7 +76,7 @@ module tmp_open_list_queue_tb;
     // Test Case 2: Dequeue nodes
     // Dequeue all nodes and observe the order
     $display("\nTest Case 2: Dequeue nodes");
-    for (i = 0; i < QUEUE_SIZE; i++) begin
+    for (i = 0; i < 4; i++) begin
       dequeue_node();
       @(posedge CLK);
     end
@@ -87,13 +87,14 @@ module tmp_open_list_queue_tb;
     enqueue_node(32'h0000000C);  // f = 12
     @(posedge CLK);
     i_wrt = 1;
-    i_read = 1;
     i_valid = 1;
+    i_read = 1;
     i_node_f = 32'h00000008;  // f = 8
     @(posedge CLK);
     i_wrt   = 0;
     i_read  = 0;
     i_valid = 0;
+    @(posedge CLK);
 
     // Wait and then dequeue remaining nodes
     repeat (2) @(posedge CLK);
@@ -108,15 +109,18 @@ module tmp_open_list_queue_tb;
       enqueue_node(32'h00000010 + i);  // f = 16 + i
       @(posedge CLK);
     end
+    //* This enqueue operation should fail as the queue is full
+    enqueue_node(32'h00000100);  // f = 256
 
     // Test Case 5: Attempt to dequeue when empty
     $display("\nTest Case 5: Attempt to dequeue when empty");
     @(posedge CLK);
     while (!o_empty) begin
       dequeue_node();
-      @(posedge CLK);
+      // @(posedge CLK);
     end
-    dequeue_node();  // Attempt to dequeue when empty
+    //* This dequeue operation should fail as the queue is empty
+    dequeue_node();
     @(posedge CLK);
 
     // Finish simulation
@@ -134,7 +138,6 @@ module tmp_open_list_queue_tb;
         @(posedge CLK);
         i_wrt   = 0;
         i_valid = 0;
-        // i_node_f = 0;
         @(posedge CLK);
       end else begin
         $display("Queue is full. Cannot enqueue node with f = %h", node_f);
