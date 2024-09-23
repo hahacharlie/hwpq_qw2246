@@ -2,3 +2,6 @@ Running: xsim.dir/tmp_open_list_queue_tb_behav/xsimk -simmode gui -wdb tmp_open_
 Design successfully loaded
 Design Loading Memory Usage: 20068 KB (Peak: 20740 KB)
 Design Loading CPU Usage: 20 ms
+Simulation completed
+Simulation Memory Usage: 102064 KB (Peak: 159336 KB)
+Simulation CPU Usage: 310 ms

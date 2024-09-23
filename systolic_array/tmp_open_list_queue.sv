@@ -77,6 +77,9 @@ module tmp_open_list_queue #(
     next_OB = OB;
     next_OB_valid = OB_valid;
     next_size = size;
+    temp_IB = '0;
+    temp_IB_valid = 1'b0;
+    temp_OB = '0;
 
     // Enqueue operation
     if (i_wrt && i_valid) begin

@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/vivado_systolic_array/vivado_systolic_array.runs/synth_1/systolic_array.tcl"
+  variable script "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/vivado_systolic_array/vivado_systolic_array.runs/synth_1/tmp_open_list_queue.tcl"
   variable category "vivado_synth"
 }
 
@@ -59,7 +59,7 @@ OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param power.BramSDPPropagationFix 1
 set_param checkpoint.writeSynthRtdsInDcp 1
 set_param chipscope.maxJobs 6
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-35349-archlinux/incrSyn
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-50744-archlinux/incrSyn
 set_param power.enableUnconnectedCarry8PinPower 1
 set_param power.enableCarry8RouteBelPower 1
 set_param power.enableLutRouteBelPower 1
@@ -80,10 +80,12 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib -sv {
+  /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/open_list_queue.sv
+  /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array.sv
   /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc.sv
   /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_proc0.sv
   /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array_sort3.sv
-  /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/systolic_array.sv
+  /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -94,13 +96,16 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc /home/charlie/Workspace/pq_research/vivado_dir/zhou_2020_hwpq/zhou_2020_hwpq.srcs/constrs_1/imports/Downloads/Basys3_Master.xdc
+set_property used_in_implementation false [get_files /home/charlie/Workspace/pq_research/vivado_dir/zhou_2020_hwpq/zhou_2020_hwpq.srcs/constrs_1/imports/Downloads/Basys3_Master.xdc]
+
 set_param ips.enableIPCacheLiteLoad 1
 
 read_checkpoint -auto_incremental -incremental /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/vivado_systolic_array/vivado_systolic_array.srcs/utils_1/imports/synth_1/systolic_array.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top systolic_array -part xcu250-figd2104-2L-e
+synth_design -top tmp_open_list_queue -part xcu250-figd2104-2L-e
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"
@@ -110,10 +115,10 @@ if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
 OPTRACE "write_checkpoint" START { CHECKPOINT }
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef systolic_array.dcp
+write_checkpoint -force -noxdef tmp_open_list_queue.dcp
 OPTRACE "write_checkpoint" END { }
 OPTRACE "synth reports" START { REPORT }
-generate_parallel_reports -reports { "report_utilization -file systolic_array_utilization_synth.rpt -pb systolic_array_utilization_synth.pb"  } 
+generate_parallel_reports -reports { "report_utilization -file tmp_open_list_queue_utilization_synth.rpt -pb tmp_open_list_queue_utilization_synth.pb"  } 
 OPTRACE "synth reports" END { }
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]

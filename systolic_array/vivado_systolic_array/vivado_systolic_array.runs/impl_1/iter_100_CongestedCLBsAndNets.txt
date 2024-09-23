@@ -1,0 +1,7 @@
+List of CLB Tiles
+CLEL_R_X81Y458
+
+List of Congested Nets
+i_node_f_IBUF[0]_inst/O
+OB_reg[1][0]
+

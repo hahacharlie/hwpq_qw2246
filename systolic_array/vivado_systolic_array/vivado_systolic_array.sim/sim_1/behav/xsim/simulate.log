@@ -169,3 +169,55 @@ Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246
 Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 68
 Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 54
 Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 75
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 76
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 77
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 78
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 79
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 82
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 89
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 125
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 127
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 129
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 134
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 134
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 135
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 136
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 137
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 138
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 140
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 134
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 134
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 135
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 136
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 137
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 138
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 140
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 134
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 134
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 135
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 136
+Stopped at time : 645 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue.sv" Line 137
+645ns	1	0	0	0	00000017	0	0	1	00000011
+Stopped at time : 655 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue_tb.sv" Line 120
+655ns	1	0	1	0	00000017	0	0	1	00000011
+665ns	1	0	0	0	00000017	0	0	1	00000012
+Stopped at time : 675 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue_tb.sv" Line 120
+675ns	1	0	1	0	00000017	0	0	1	00000012
+685ns	1	0	0	0	00000017	0	0	1	00000013
+Stopped at time : 695 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue_tb.sv" Line 120
+695ns	1	0	1	0	00000017	0	0	1	00000013
+705ns	1	0	0	0	00000017	0	0	1	00000014
+Stopped at time : 715 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue_tb.sv" Line 120
+715ns	1	0	1	0	00000017	0	0	1	00000014
+725ns	1	0	0	0	00000017	0	0	1	00000015
+Stopped at time : 735 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue_tb.sv" Line 120
+735ns	1	0	1	0	00000017	0	0	1	00000015
+745ns	1	0	0	0	00000017	0	0	1	00000016
+Stopped at time : 755 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue_tb.sv" Line 120
+755ns	1	0	1	0	00000017	0	0	1	00000016
+765ns	1	0	0	0	00000017	0	0	1	00000017
+Stopped at time : 775 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue_tb.sv" Line 120
+775ns	1	0	1	0	00000017	0	0	1	00000017
+785ns	1	0	0	0	00000017	0	1	0	00000000
+Queue is empty. Cannot dequeue.
+$finish called at time : 825 ns : File "/home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/tmp_open_list_queue_tb.sv" Line 129

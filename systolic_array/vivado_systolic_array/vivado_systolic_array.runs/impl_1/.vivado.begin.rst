@@ -3,3 +3,18 @@
     <Process Command="vivado" Owner="charlie" Host="archlinux" Pid="157587" HostCore="24" HostMemory="32694612">
     </Process>
 </ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="charlie" Host="archlinux" Pid="185925" HostCore="24" HostMemory="32694632">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="charlie" Host="archlinux" Pid="199079" HostCore="24" HostMemory="32694632">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="charlie" Host="archlinux" Pid="249915" HostCore="24" HostMemory="32694632">
+    </Process>
+</ProcessHandle>

@@ -3,22 +3,22 @@
 # SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Sun Sep  8 23:16:18 2024
-# Process ID: 185606
+# Start of session at: Mon Sep 23 14:50:54 2024
+# Process ID: 249274
 # Current directory: /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/vivado_systolic_array/vivado_systolic_array.runs/synth_1
-# Command line: vivado -log systolic_array.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source systolic_array.tcl
-# Log file: /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/vivado_systolic_array/vivado_systolic_array.runs/synth_1/systolic_array.vds
+# Command line: vivado -log tmp_open_list_queue.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source tmp_open_list_queue.tcl
+# Log file: /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/vivado_systolic_array/vivado_systolic_array.runs/synth_1/tmp_open_list_queue.vds
 # Journal file: /home/charlie/Workspace/pq_research/hwpq_qw2246/systolic_array/vivado_systolic_array/vivado_systolic_array.runs/synth_1/vivado.jou
 # Running On        :archlinux
 # Platform          :Arch
 # Operating System  :Arch Linux
 # Processor Detail  :12th Gen Intel(R) Core(TM) i9-12900KF
-# CPU Frequency     :4950.825 MHz
+# CPU Frequency     :5035.209 MHz
 # CPU Physical cores:16
 # CPU Logical cores :24
 # Host memory       :33479 MB
 # Swap memory       :4294 MB
 # Total Virtual     :37774 MB
-# Available Virtual :22945 MB
+# Available Virtual :23810 MB
 #-----------------------------------------------------------
-source systolic_array.tcl -notrace
+source tmp_open_list_queue.tcl -notrace
