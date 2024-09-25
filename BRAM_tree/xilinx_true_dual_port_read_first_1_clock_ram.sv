@@ -12,8 +12,8 @@ module xilinx_true_dual_port_read_first_1_clock_ram #(
     parameter RAM_PERFORMANCE = "HIGH_PERFORMANCE",  // Select "HIGH_PERFORMANCE" or "LOW_LATENCY"
     parameter INIT_FILE = ""                        // Specify name/location of RAM initialization file if using one (leave blank if not)
 ) (
-    input [RAM_WIDTH-1:0] addra,  // Port A address bus, width determined from RAM_DEPTH
-    input [RAM_WIDTH-1:0] addrb,  // Port B address bus, width determined from RAM_DEPTH
+    input [$clog2(RAM_DEPTH-1)-1:0] addra,  // Port A address bus, width determined from RAM_DEPTH
+    input [$clog2(RAM_DEPTH-1)-1:0] addrb,  // Port B address bus, width determined from RAM_DEPTH
     input [RAM_WIDTH-1:0] dina,  // Port A RAM input data
     input [RAM_WIDTH-1:0] dinb,  // Port B RAM input data
     input clka,  // Clock
@@ -37,10 +37,10 @@ module xilinx_true_dual_port_read_first_1_clock_ram #(
   generate
     if (INIT_FILE != "") begin : use_init_file
       initial $readmemh(INIT_FILE, BRAM, 0, RAM_DEPTH - 1);
-    end else begin : init_bram_to_zero
+    end else begin : init_bram_to_random
       integer ram_index;
       initial
-        for (ram_index = 0; ram_index < RAM_DEPTH; ram_index = ram_index + 1)
+        for (ram_index = 0; ram_index < RAM_DEPTH; ram_index++)
           BRAM[ram_index] = RAM_WIDTH'($urandom_range(0, 200));
     end
   endgenerate

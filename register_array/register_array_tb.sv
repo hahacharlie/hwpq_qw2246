@@ -1,60 +1,125 @@
 module register_array_tb;
 
-    // Parameters
-    parameter QUEUE_SIZE = 8;
-    parameter DATA_WIDTH = 32;
+  parameter TREE_DEPTH = 4;
+  parameter QUEUE_SIZE = (1 << TREE_DEPTH) - 1;
+  parameter DATA_WIDTH = 32;
 
-    // Testbench signals
-    logic clk;
-    logic [DATA_WIDTH-1:0] new_entry;
-    logic [DATA_WIDTH-1:0] max_entry;
-    logic replace;
+  reg clk;
+  reg rst;
+  reg replace;
+  reg [DATA_WIDTH-1:0] new_item;
+  wire [DATA_WIDTH-1:0] top_item;
 
-    // Instantiate the priority_queue module
-    register_array #(
-        .QUEUE_SIZE(QUEUE_SIZE),
-        .DATA_WIDTH(DATA_WIDTH)
-    ) uut (
-        .clk(clk),
-        .replace(replace),
-        .new_entry(new_entry),
-        .max_entry(max_entry)
-    );
+  // Reference model: array to hold the items
+  reg [DATA_WIDTH-1:0] ref_items[0:QUEUE_SIZE-1];
+  int ref_count;
+  reg [DATA_WIDTH-1:0] expected_top_item;
 
-    // Clock generation
-    always #5 clk <= ~clk;
+  register_array #(
+      .QUEUE_SIZE(QUEUE_SIZE),
+      .DATA_WIDTH(DATA_WIDTH)
+  ) dut (
+      .clk(clk),
+      .rst(rst),
+      .replace(replace),
+      .new_entry(new_item),
+      .max_entry(top_item)
+  );
 
-    // Test sequence
-    initial begin
-        
-        // Initialize inputs
-        clk = 0;
-        replace = 0;
-        new_entry = 0;
+  // Clock generation
+  always #5 clk <= ~clk;
 
-        // Waveform generation
-        $dumpfile("register_array_tb.vcd");
-        $dumpvars(0, register_array_tb);
-
-        // Wait for a few clock cycles
-        repeat (8) @(posedge clk);
-        
-        // Test case 1: Insert items in ascending order
-        for (int i = 1; i <= 4; i++) begin
-            @(posedge clk);
-            replace = 1;
-            new_entry = i * 10;
-            @(posedge clk);
-            replace = 0;
-            repeat (2) @(posedge clk);
-            $display("max_entry: %d", max_entry);
+  // Function to find the expected top item from the reference model
+  function [DATA_WIDTH-1:0] get_expected_top_item;
+    integer i;
+    reg [DATA_WIDTH-1:0] max_value;
+    begin
+      if (ref_count == 0) begin
+        get_expected_top_item = '0;  // If no items, return zero
+      end else begin
+        max_value = ref_items[0];
+        for (i = 1; i < ref_count; i = i + 1) begin
+          if (ref_items[i] > max_value) begin
+            max_value = ref_items[i];
+          end
         end
+        get_expected_top_item = max_value;
+      end
+    end
+  endfunction
 
-        // Wait for a few clock cycles to observe the output
-        repeat (2) @(posedge clk);
+  // Test Simulation
+  initial begin
+    // Initialize signals
+    clk = 0;
+    rst = 1;
+    replace = 0;
+    new_item = 0;
 
-        // Finish simulation
-        $finish;
+    // Initialize reference model with the same values as the DUT
+    ref_count = (1 << TREE_DEPTH) - 1;
+    for (int j = 0; j < ref_count; j++) begin
+      ref_items[j] = (j + 1) * 10;
     end
 
+    // Finish reset
+    repeat (2) @(posedge clk);
+    rst = 0;
+    repeat (6) @(posedge clk);
+
+    // Initial assertion to check the top item after reset
+    expected_top_item = get_expected_top_item();
+    repeat (2) @(posedge clk);
+    // Assert the top item matches expected after reset
+    assert (top_item == expected_top_item)
+    else
+      $error(
+          "Assertion failed after reset: Expected top_item = %0d, got %0d",
+          expected_top_item,
+          top_item
+      );
+
+    // Test case: Replace items with random values
+    for (int i = 0; i < 10; i++) begin
+      replace  = 1;
+      new_item = $urandom_range(1, 100);
+      @(posedge clk);
+      replace = 0;
+      @(posedge clk);
+
+      // Update reference model
+      // Replace the top item in the reference model with the new item
+      for (int k = 0; k < ref_count; k++) begin
+        if (ref_items[k] == expected_top_item) begin
+          ref_items[k] = new_item;
+          break;
+        end
+      end
+
+      // Get expected top item from reference model
+      expected_top_item = get_expected_top_item();
+      repeat (2) @(posedge clk);
+      // Assert the top item matches expected
+      assert (top_item == expected_top_item)
+      else
+        $error(
+            "Assertion failed at iteration %0d: Expected top_item = %0d, got %0d",
+            i,
+            expected_top_item,
+            top_item
+        );
+      repeat (2) @(posedge clk);
+    end
+
+    // Finish simulation
+    repeat (2) @(posedge clk);
+    $finish;
+  end
+
+  // Monitor top item
+  always @(posedge clk) begin
+    if (replace) begin
+      $display("Replaced top item with %0d, New top item is %0d", new_item, top_item);
+    end
+  end
 endmodule

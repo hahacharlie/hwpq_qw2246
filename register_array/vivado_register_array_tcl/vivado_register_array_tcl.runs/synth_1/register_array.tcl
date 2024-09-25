@@ -56,6 +56,11 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param power.BramSDPPropagationFix 1
+set_param chipscope.maxJobs 1
+set_param power.enableUnconnectedCarry8PinPower 1
+set_param power.enableCarry8RouteBelPower 1
+set_param power.enableLutRouteBelPower 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xcu250-figd2104-2L-e
 
@@ -66,6 +71,7 @@ set_property webtalk.parent_dir /home/charlie/Workspace/pq_research/hwpq_qw2246/
 set_property parent.project_path /home/charlie/Workspace/pq_research/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+set_property ip_output_repo /home/charlie/Workspace/pq_research/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
@@ -80,6 +86,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental /home/charlie/Workspace/pq_research/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.srcs/utils_1/imports/synth_1/register_array.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

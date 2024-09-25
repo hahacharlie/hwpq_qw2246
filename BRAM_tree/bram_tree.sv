@@ -5,8 +5,8 @@ module bram_tree #(
     input logic clk,
     input logic rst,
     input logic replace,
-    input logic [31:0] new_item,
-    output logic [31:0] top_item
+    input logic [DATA_WIDTH-1:0] new_item,
+    output logic [DATA_WIDTH-1:0] top_item
 );
 
   // BRAM interface signals

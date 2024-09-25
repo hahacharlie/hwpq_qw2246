@@ -1,10 +1,8 @@
 module bram_tree_tb;
 
   // Parameters
-  // parameter TREE_DEPTH = 4;
-  // parameter LEVEL_SIZE = 2**TREE_DEPTH;
+  parameter TREE_DEPTH = 4;
   parameter DATA_WIDTH = 32;
-  parameter CLK_PERIOD = 10;  // 10ns clock period
 
   // Signals
   logic clk;
@@ -14,7 +12,10 @@ module bram_tree_tb;
   logic [DATA_WIDTH-1:0] top_item;
 
   // Instantiate the Unit Under Test (UUT)
-  bram_tree uut (
+  bram_tree #(
+      .TREE_DEPTH(TREE_DEPTH),
+      .DATA_WIDTH(DATA_WIDTH)
+  ) uut (
       .clk(clk),
       .rst(rst),
       .replace(replace),
@@ -23,7 +24,7 @@ module bram_tree_tb;
   );
 
   // Clock generation
-  always #(CLK_PERIOD / 2) clk <= ~clk;
+  always #5 clk <= ~clk;  // 100 MHz
 
   // Test procedure
   initial begin

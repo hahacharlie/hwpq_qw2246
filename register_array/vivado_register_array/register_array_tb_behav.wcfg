@@ -12,45 +12,56 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="255.001 ns"></ZoomEndTime>
-      <Cursor1Time time="255.000 ns"></Cursor1Time>
+      <ZoomEndTime time="37.041 ns"></ZoomEndTime>
+      <Cursor1Time time="0.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="161"></NameColumnWidth>
-      <ValueColumnWidth column_width="139"></ValueColumnWidth>
+      <NameColumnWidth column_width="206"></NameColumnWidth>
+      <ValueColumnWidth column_width="156"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="8" />
+   <WVObjectSize size="11" />
    <wvobject type="logic" fp_name="/register_array_tb/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/register_array_tb/uut/replace">
-      <obj_property name="ElementShortName">replace</obj_property>
-      <obj_property name="ObjectShortName">replace</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/register_array_tb/new_entry">
-      <obj_property name="ElementShortName">new_entry[31:0]</obj_property>
-      <obj_property name="ObjectShortName">new_entry[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/register_array_tb/max_entry">
-      <obj_property name="ElementShortName">max_entry[31:0]</obj_property>
-      <obj_property name="ObjectShortName">max_entry[31:0]</obj_property>
+   <wvobject type="logic" fp_name="/register_array_tb/rst">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/register_array_tb/replace">
       <obj_property name="ElementShortName">replace</obj_property>
       <obj_property name="ObjectShortName">replace</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/register_array_tb/QUEUE_SIZE">
-      <obj_property name="ElementShortName">QUEUE_SIZE[31:0]</obj_property>
-      <obj_property name="ObjectShortName">QUEUE_SIZE[31:0]</obj_property>
+   <wvobject type="array" fp_name="/register_array_tb/new_item">
+      <obj_property name="ElementShortName">new_item[31:0]</obj_property>
+      <obj_property name="ObjectShortName">new_item[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/register_array_tb/DATA_WIDTH">
-      <obj_property name="ElementShortName">DATA_WIDTH[31:0]</obj_property>
-      <obj_property name="ObjectShortName">DATA_WIDTH[31:0]</obj_property>
+   <wvobject type="array" fp_name="/register_array_tb/top_item">
+      <obj_property name="ElementShortName">top_item[31:0]</obj_property>
+      <obj_property name="ObjectShortName">top_item[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/register_array_tb/uut/register">
-      <obj_property name="ElementShortName">register[7:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">register[7:0][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject type="array" fp_name="/register_array_tb/dut/register">
+      <obj_property name="ElementShortName">register[0:14][31:0]</obj_property>
+      <obj_property name="ObjectShortName">register[0:14][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/register_array_tb/dut/tmp_register">
+      <obj_property name="ElementShortName">tmp_register[0:14][31:0]</obj_property>
+      <obj_property name="ObjectShortName">tmp_register[0:14][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/register_array_tb/dut/max">
+      <obj_property name="ElementShortName">max[0:6][31:0]</obj_property>
+      <obj_property name="ObjectShortName">max[0:6][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/register_array_tb/dut/min">
+      <obj_property name="ElementShortName">min[0:6][31:0]</obj_property>
+      <obj_property name="ObjectShortName">min[0:6][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/register_array_tb/ref_items">
+      <obj_property name="ElementShortName">ref_items[0:14][31:0]</obj_property>
+      <obj_property name="ObjectShortName">ref_items[0:14][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/register_array_tb/expected_top_item">
+      <obj_property name="ElementShortName">expected_top_item[31:0]</obj_property>
+      <obj_property name="ObjectShortName">expected_top_item[31:0]</obj_property>
    </wvobject>
 </wave_config>
