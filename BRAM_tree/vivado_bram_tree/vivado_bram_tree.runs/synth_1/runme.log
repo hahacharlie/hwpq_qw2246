@@ -7,7 +7,7 @@
   **** SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
   **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
   **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-  **** Start of session at: Wed Sep 25 10:21:27 2024
+  **** Start of session at: Wed Sep 25 12:26:03 2024
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -18,9 +18,9 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xcu250'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcu250'
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 1913022
+INFO: [Synth 8-7075] Helper process launched with PID 2106206
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1801.062 ; gain = 385.777 ; free physical = 1694 ; free virtual = 17848
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1804.000 ; gain = 390.746 ; free physical = 18216 ; free virtual = 25793
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'bram_tree' [/home/charlie/Workspace/pq_research/hwpq_qw2246/BRAM_tree/bram_tree.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'xilinx_true_dual_port_read_first_1_clock_ram' [/home/charlie/Workspace/pq_research/hwpq_qw2246/BRAM_tree/xilinx_true_dual_port_read_first_1_clock_ram.sv:9]
@@ -182,11 +182,11 @@ Reason is one or more of the following :
 WARNING: [Synth 8-4557] Cannot dissolve ram 'BRAM_reg' to registers because of more than 1 writes
 ERROR: [Synth 8-2913] Unsupported Dual Port Block-RAM template for BRAM_reg
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1880.031 ; gain = 464.746 ; free physical = 1604 ; free virtual = 17758
+Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1879.969 ; gain = 466.715 ; free physical = 18129 ; free virtual = 25707
 ---------------------------------------------------------------------------------
 synthesize failed
 INFO: [Common 17-83] Releasing license: Synthesis
 17 Infos, 127 Warnings, 0 Critical Warnings and 2 Errors encountered.
 synth_design failed
 ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
-INFO: [Common 17-206] Exiting Vivado at Wed Sep 25 10:21:34 2024...
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 25 12:26:10 2024...

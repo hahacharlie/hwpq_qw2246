@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xcu250-figd2104-2L-e" LaunchTime="1727274085">
+<GenRun Id="synth_1" LaunchPart="xcu250-figd2104-2L-e" LaunchTime="1727281561">
   <File Type="VDS-TIMINGSUMMARY" Name="bram_tree_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="bram_tree.dcp"/>
   <File Type="RDS-UTIL-PB" Name="bram_tree_utilization_synth.pb"/>
@@ -27,14 +27,6 @@
     </File>
     <File Path="$PPRDIR/../bram_tree.sv">
       <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../xilinx_simple_dual_port_1_clock_ram.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>

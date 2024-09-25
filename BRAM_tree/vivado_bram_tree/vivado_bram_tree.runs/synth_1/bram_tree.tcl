@@ -56,7 +56,6 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 6
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xcu250-figd2104-2L-e
 

@@ -43,7 +43,7 @@ module bram_tree_tb;
     repeat (80) @(posedge clk);
 
     // Perform 5 replace operations with random numbers
-    for (int i = 0; i < 5; i++) begin
+    for (int i = 0; i < 10; i++) begin
       replace  = 1;
       new_item = $urandom_range(1, 250);  // Random number between 1 and 1000
       @(posedge clk);

@@ -8,14 +8,6 @@ module comparator #(
     output reg  [DATA_WIDTH-1:0] new_left_child,
     output reg  [DATA_WIDTH-1:0] new_right_child
 );
-  //   wire left_greater_than_right;
-  //   wire parent_less_than_left;
-  //   wire parent_less_than_right;
-
-  //   // Perform the three simultaneous comparisons
-  //   assign left_greater_than_right = (left_child > right_child);
-  //   assign parent_less_than_left   = (parent < left_child);
-  //   assign parent_less_than_right  = (parent < right_child);
 
   always_comb begin
     if (left_child >= right_child) begin
