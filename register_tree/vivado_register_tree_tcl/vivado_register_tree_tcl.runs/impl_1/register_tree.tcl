@@ -1,5 +1,5 @@
 namespace eval ::optrace {
-  variable script "/home/charlie-wu/Workspace/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.runs/impl_1/register_tree.tcl"
+  variable script "/home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.runs/impl_1/register_tree.tcl"
   variable category "vivado_impl"
 }
 
@@ -111,10 +111,10 @@ set rc [catch {
   set_param power.enableLutRouteBelPower 1
   set_param runs.launchOptions { -jobs 1  }
   reset_param project.defaultXPMLibraries 
-  open_checkpoint /home/charlie-wu/Workspace/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.runs/impl_1/register_tree.dcp
-  set_property webtalk.parent_dir /home/charlie-wu/Workspace/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.cache/wt [current_project]
-  set_property parent.project_path /home/charlie-wu/Workspace/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.xpr [current_project]
-  set_property ip_output_repo /home/charlie-wu/Workspace/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.cache/ip [current_project]
+  open_checkpoint /home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.runs/impl_1/register_tree.dcp
+  set_property webtalk.parent_dir /home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.cache/wt [current_project]
+  set_property parent.project_path /home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.xpr [current_project]
+  set_property ip_output_repo /home/charlie/Workspace/pq_research/hwpq_qw2246/register_tree/vivado_register_tree_tcl/vivado_register_tree_tcl.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "init_design_reports" START { REPORT }
 OPTRACE "init_design_reports" END { }

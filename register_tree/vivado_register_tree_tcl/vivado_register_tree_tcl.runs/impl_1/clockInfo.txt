@@ -1,7 +1,7 @@
 -------------------------------------
 | Tool Version : Vivado v.2024.1
-| Date         : Tue Sep  3 14:57:29 2024
-| Host         : Charlie-ThinkPad-P53
+| Date         : Thu Sep 26 05:28:01 2024
+| Host         : archlinux
 | Design       : checkpoint_register_tree
 | Device       : xcu250-figd2104-2L-E-
 -------------------------------------
@@ -11,8 +11,8 @@ For more information on clockInfo.txt clock routing debug file see https://suppo
 ***********************
 Running Pre-CRP Checker
 ***********************
-Number of global clocks: 1
-	Number of BUFGCE: 1
+Number of global clocks: 2
+	Number of BUFGCE: 2
 	Number of BUFGCE_HDIO: 0
 	Number of BUFG_CTRL: 0
 	Number of BUFGCE_DIV: 0
@@ -27,7 +27,12 @@ Clock Net Route Info (CRP Input)
 Clock 1: clk_IBUF_BUFG
 	Clock source type: BUFGCE
 	Clock source region: X4Y7
-	initial rect ((0, 4), (6, 7))
+	initial rect ((0, 5), (6, 7))
+
+Clock 2: rst_IBUF_BUFG
+	Clock source type: BUFGCE
+	Clock source region: X4Y7
+	initial rect ((0, 5), (6, 7))
 
 
 

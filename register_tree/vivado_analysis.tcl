@@ -1,5 +1,5 @@
 # Define the range of TREE_DEPTH and clock frequencies to test
-set depths {11 12 13 14 15}
+set depths {4 5 6 7 8 9 10}
 
 # Create a single project
 create_project -force vivado_register_tree_tcl ./vivado_register_tree_tcl -part xcu250-figd2104-2L-e
@@ -34,7 +34,7 @@ foreach depth $depths {
     set log_file "./vivado_register_tree_analysis_results/vivado_analysis_on_tree_depth_${depth}.txt"
 
     # Loop through each frequency
-    for {set freq 50} {$freq <= 400} {incr freq 10} {
+    for {set freq 100} {$freq <= 400} {incr freq 50} {
 
         open_project ./vivado_register_tree_tcl/vivado_register_tree_tcl.xpr
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xcu250-figd2104-2L-e" LaunchTime="1725389650" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/register_tree.dcp">
+<GenRun Id="synth_1" LaunchPart="xcu250-figd2104-2L-e" LaunchTime="1727342770" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/register_tree.dcp">
   <File Type="VDS-TIMINGSUMMARY" Name="register_tree_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="register_tree.dcp"/>
   <File Type="RDS-UTIL-PB" Name="register_tree_utilization_synth.pb"/>
@@ -53,8 +53,6 @@
   </FileSet>
   <Strategy Version="1" Minor="2">
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
-    <Step Id="synth_design">
-      <Option Id="FlattenHierarchy">1</Option>
-    </Step>
+    <Step Id="synth_design"/>
   </Strategy>
 </GenRun>
