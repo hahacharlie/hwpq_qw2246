@@ -4,8 +4,8 @@
 */
 
 module register_array #(
-    parameter QUEUE_SIZE = 1023,  // Define the size of the queue
-    parameter DATA_WIDTH = 32  // Define the width of the data
+    parameter QUEUE_SIZE = 4,  // Define the size of the queue
+    parameter DATA_WIDTH = 32   // Define the width of the data
 ) (
     input  logic                  clk,        // Clock signal
     input  logic                  rst,        // Reset signal
@@ -68,3 +68,6 @@ module register_array #(
   assign max_entry = register[0];
 
 endmodule
+
+e
+

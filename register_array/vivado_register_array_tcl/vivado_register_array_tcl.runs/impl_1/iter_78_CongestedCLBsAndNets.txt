@@ -1,0 +1,36 @@
+List of CLB Tiles
+CLEM_X120Y378
+CLEL_R_X120Y378
+CLEM_X115Y381
+CLEL_R_X115Y381
+CLEM_X114Y348
+CLEM_X112Y381
+CLEL_R_X112Y381
+CLEL_L_X110Y257
+CLEL_R_X110Y257
+CLEL_L_X110Y317
+CLEL_R_X110Y317
+CLEL_L_X110Y367
+CLEL_R_X110Y367
+CLEL_L_X110Y389
+CLEL_R_X110Y389
+CLEM_X106Y401
+CLEM_X104Y390
+CLEL_R_X104Y390
+
+List of Congested Nets
+register_reg_n_0_[204][20]
+register[94][4]_i_2_n_0
+register[94][5]_i_2_n_0
+max[103][20]
+register_reg[227][1]
+register[226][1]_i_2_n_0
+register_reg[236][31]_i_2_n_0
+register[236][17]_i_2_n_0
+register_reg[250][17]
+register[250][31]_i_105_n_0
+register_reg[429][25]
+register[429][24]_i_2_n_0
+register_reg[317][31]_i_2_n_0
+register[317][29]_i_2_n_0
+

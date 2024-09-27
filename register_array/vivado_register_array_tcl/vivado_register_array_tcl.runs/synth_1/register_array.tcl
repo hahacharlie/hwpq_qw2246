@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/charlie/Workspace/pq_research/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.runs/synth_1/register_array.tcl"
+  variable script "/home/charlie-wu/Workspace/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.runs/synth_1/register_array.tcl"
   variable category "vivado_synth"
 }
 
@@ -67,15 +67,15 @@ create_project -in_memory -part xcu250-figd2104-2L-e
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /home/charlie/Workspace/pq_research/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.cache/wt [current_project]
-set_property parent.project_path /home/charlie/Workspace/pq_research/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.xpr [current_project]
+set_property webtalk.parent_dir /home/charlie-wu/Workspace/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.cache/wt [current_project]
+set_property parent.project_path /home/charlie-wu/Workspace/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo /home/charlie/Workspace/pq_research/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.cache/ip [current_project]
+set_property ip_output_repo /home/charlie-wu/Workspace/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib -sv /home/charlie/Workspace/pq_research/hwpq_qw2246/register_array/register_array.sv
+read_verilog -library xil_defaultlib -sv /home/charlie-wu/Workspace/hwpq_qw2246/register_array/register_array.sv
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -87,7 +87,7 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 }
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental /home/charlie/Workspace/pq_research/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.srcs/utils_1/imports/synth_1/register_array.dcp
+read_checkpoint -auto_incremental -incremental /home/charlie-wu/Workspace/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.srcs/utils_1/imports/synth_1/register_array.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

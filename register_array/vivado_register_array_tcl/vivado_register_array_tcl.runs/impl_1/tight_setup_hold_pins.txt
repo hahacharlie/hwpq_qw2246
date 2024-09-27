@@ -1,0 +1,17 @@
++====================+===================+=========================+
+| Launch Setup Clock | Launch Hold Clock | Pin                     |
++====================+===================+=========================+
+| sys_clk            | sys_clk           | register_reg[52][28]/D  |
+| sys_clk            | sys_clk           | register_reg[52][5]/D   |
+| sys_clk            | sys_clk           | register_reg[52][29]/D  |
+| sys_clk            | sys_clk           | register_reg[52][4]/D   |
+| sys_clk            | sys_clk           | register_reg[52][22]/D  |
+| sys_clk            | sys_clk           | register_reg[52][14]/D  |
+| sys_clk            | sys_clk           | register_reg[240][8]/D  |
+| sys_clk            | sys_clk           | register_reg[52][11]/D  |
+| sys_clk            | sys_clk           | register_reg[52][24]/D  |
+| sys_clk            | sys_clk           | register_reg[52][19]/D  |
+| sys_clk            | sys_clk           | register_reg[52][18]/D  |
+| sys_clk            | sys_clk           | register_reg[240][10]/D |
+| sys_clk            | sys_clk           | register_reg[52][3]/D   |
++--------------------+-------------------+-------------------------+

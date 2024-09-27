@@ -1,0 +1,15 @@
+List of CLB Tiles
+CLEL_L_X110Y388
+CLEL_R_X110Y388
+CLEM_X93Y408
+CLEL_R_X93Y408
+CLEM_X40Y430
+CLEL_R_X40Y430
+CLEM_X27Y317
+
+List of Congested Nets
+register_reg_n_0_[836][7]
+register[837][7]_i_2_n_0
+register[632][16]_i_2_n_0
+register[632][31]_i_105_n_0
+

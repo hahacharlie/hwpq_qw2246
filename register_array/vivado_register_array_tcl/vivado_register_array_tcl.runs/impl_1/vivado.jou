@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Thu Sep 26 12:17:54 2024
+# Process ID: 1408
+# Current directory: /home/charlie-wu/Workspace/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.runs/impl_1
+# Command line: vivado -log register_array.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source register_array.tcl -notrace
+# Log file: /home/charlie-wu/Workspace/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.runs/impl_1/register_array.vdi
+# Journal file: /home/charlie-wu/Workspace/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.runs/impl_1/vivado.jou
+# Running On        :Charlie-ThinkPad-P53
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 24.04.1 LTS
+# Processor Detail  :Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
+# CPU Frequency     :4188.295 MHz
+# CPU Physical cores:6
+# CPU Logical cores :12
+# Host memory       :16467 MB
+# Swap memory       :4294 MB
+# Total Virtual     :20762 MB
+# Available Virtual :14056 MB
+#-----------------------------------------------------------
+source register_array.tcl -notrace

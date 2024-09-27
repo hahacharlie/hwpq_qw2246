@@ -7,56 +7,134 @@
   **** SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
   **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
   **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-  **** Start of session at: Wed Sep 25 11:03:05 2024
+  **** Start of session at: Thu Sep 26 12:16:00 2024
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source register_array.tcl -notrace
-Command: read_checkpoint -auto_incremental -incremental /home/charlie/Workspace/pq_research/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.srcs/utils_1/imports/synth_1/register_array.dcp
-INFO: [Vivado 12-5825] Read reference checkpoint from /home/charlie/Workspace/pq_research/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.srcs/utils_1/imports/synth_1/register_array.dcp for incremental synthesis
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1458.668 ; gain = 37.840 ; free physical = 8919 ; free virtual = 12998
+Command: read_checkpoint -auto_incremental -incremental /home/charlie-wu/Workspace/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.srcs/utils_1/imports/synth_1/register_array.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/charlie-wu/Workspace/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.srcs/utils_1/imports/synth_1/register_array.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top register_array -part xcu250-figd2104-2L-e
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xcu250'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcu250'
-INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
-INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 1970414
+INFO: [Synth 8-7075] Helper process launched with PID 4191046
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1804.270 ; gain = 420.684 ; free physical = 4323 ; free virtual = 16759
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1891.227 ; gain = 418.684 ; free physical = 7993 ; free virtual = 12245
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'register_array' [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_array/register_array.sv:6]
-INFO: [Synth 8-6155] done synthesizing module 'register_array' (0#1) [/home/charlie/Workspace/pq_research/hwpq_qw2246/register_array/register_array.sv:6]
+INFO: [Synth 8-6157] synthesizing module 'register_array' [/home/charlie-wu/Workspace/hwpq_qw2246/register_array/register_array.sv:6]
+INFO: [Synth 8-6155] done synthesizing module 'register_array' (0#1) [/home/charlie-wu/Workspace/hwpq_qw2246/register_array/register_array.sv:6]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2013.238 ; gain = 629.652 ; free physical = 4083 ; free virtual = 16521
+Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2100.195 ; gain = 627.652 ; free physical = 7746 ; free virtual = 12001
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2028.082 ; gain = 644.496 ; free physical = 4112 ; free virtual = 16551
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2115.039 ; gain = 642.496 ; free physical = 7746 ; free virtual = 12001
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xcu250-figd2104-2L-e
 INFO: [Synth 8-6742] Reading net delay rules and data
----------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xcu250-figd2104-2L-e
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2036.086 ; gain = 652.500 ; free physical = 4112 ; free virtual = 16551
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2123.043 ; gain = 650.500 ; free physical = 7747 ; free virtual = 12002
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 3144.469 ; gain = 1760.883 ; free physical = 2849 ; free virtual = 15290
+Start Preparing Guide Design
 ---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Doing Graph Differ : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2150.082 ; gain = 677.539 ; free physical = 7714 ; free virtual = 11972
+---------------------------------------------------------------------------------
+register_array__GB6register_array__GB2register_array__GB10register_array__GB17register_array__GB22register_array__GB12register_array__GB20register_array__GB24register_array__GB11register_array__GB8register_array__GB23register_array__GB1register_array__GB4register_array__GB0register_array__GB13register_array__GB19register_array__GB25register_array__GB3register_array__GB7register_array__GB18register_array__GB14register_array__GB5register_array__GB9register_array__GB15register_array__GB21register_array__GB16---------------------------------------------------------------------------------
+Finished Preparing Guide Design : Time (s): cpu = 00:00:12 ; elapsed = 00:00:10 . Memory (MB): peak = 2456.527 ; gain = 983.984 ; free physical = 7425 ; free virtual = 11683
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 2456.527 ; gain = 983.984 ; free physical = 7426 ; free virtual = 11684
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Mimic Skeleton from Reference
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Mimic Skeleton from Reference : Time (s): cpu = 00:00:14 ; elapsed = 00:00:11 . Memory (MB): peak = 2456.527 ; gain = 983.984 ; free physical = 7417 ; free virtual = 11675
+---------------------------------------------------------------------------------
+
+
+Incremental Synthesis Report Summary:
+
+1. Incremental synthesis run: yes
+
+   Stitch points used : changed
+
+
+2. Change Summary
+
+Report Incremental Modules: 
++-+----------------+------------+----------+----------+
+| |Changed Modules |Replication |Instances |Changed % |
++-+----------------+------------+----------+----------+
++-+----------------+------------+----------+----------+
+
+
+   Full Design Size (number of cells) : 605090
+   Resynthesis Design Size (number of cells) : 0
+   Resynth % : 0.0000,  Reuse % : 100.0000
+
+3. Reference Checkpoint Information
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| DCP Location:  | /home/charlie-wu/Workspace/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.srcs/utils_1/imports/synth_1/register_array.dcp |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------+------------------------------+
+|         DCP Information        |             Value            |
++--------------------------------+------------------------------+
+| Vivado Version                 |                    v2024.1 |
+| DCP State                      |                              |
++--------------------------------+------------------------------+
+
+
+
+Report RTL Partitions: 
++------+-----------------------------+------------+----------+
+|      |RTL Partition                |Replication |Instances |
++------+-----------------------------+------------+----------+
+|1     |register_array__GB0_#REUSE#  |           1|         0|
+|2     |register_array__GB1_#REUSE#  |           1|         0|
+|3     |register_array__GB2_#REUSE#  |           1|         0|
+|4     |register_array__GB3_#REUSE#  |           1|         0|
+|5     |register_array__GB4_#REUSE#  |           1|         0|
+|6     |register_array__GB5_#REUSE#  |           1|         0|
+|7     |register_array__GB6_#REUSE#  |           1|         0|
+|8     |register_array__GB7_#REUSE#  |           1|         0|
+|9     |register_array__GB8_#REUSE#  |           1|         0|
+|10    |register_array__GB9_#REUSE#  |           1|         0|
+|11    |register_array__GB10_#REUSE# |           1|         0|
+|12    |register_array__GB11_#REUSE# |           1|         0|
+|13    |register_array__GB12_#REUSE# |           1|         0|
+|14    |register_array__GB13_#REUSE# |           1|         0|
+|15    |register_array__GB14_#REUSE# |           1|         0|
+|16    |register_array__GB15_#REUSE# |           1|         0|
+|17    |register_array__GB16_#REUSE# |           1|         0|
+|18    |register_array__GB17_#REUSE# |           1|         0|
+|19    |register_array__GB18_#REUSE# |           1|         0|
+|20    |register_array__GB19_#REUSE# |           1|         0|
+|21    |register_array__GB20_#REUSE# |           1|         0|
+|22    |register_array__GB21_#REUSE# |           1|         0|
+|23    |register_array__GB22_#REUSE# |           1|         0|
+|24    |register_array__GB23_#REUSE# |           1|         0|
+|25    |register_array__GB24_#REUSE# |           1|         0|
+|26    |register_array__GB25_#REUSE# |           1|         0|
++------+-----------------------------+------------+----------+
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
-+---Registers : 
-	               32 Bit    Registers := 1023  
-+---Muxes : 
-	   2 Input   32 Bit        Muxes := 3576  
-	   2 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -69,6 +147,151 @@ BRAMs: 5376 (col length: RAMB18 384 RAMB36 192)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
+No constraint files found.
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7077] IncrSyn: subsequent runs will still be incremental as the reference run was parallel and that data is reused
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:16 . Memory (MB): peak = 3139.121 ; gain = 1666.578 ; free physical = 6581 ; free virtual = 10922
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Stitch Unchanged AreaOpt Partitions
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Stitch Unchanged AreaOpt Partitions : Time (s): cpu = 00:00:21 ; elapsed = 00:00:17 . Memory (MB): peak = 3139.121 ; gain = 1666.578 ; free physical = 6564 ; free virtual = 10905
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:17 . Memory (MB): peak = 3139.121 ; gain = 1666.578 ; free physical = 6533 ; free virtual = 10920
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7077] IncrSyn: subsequent runs will still be incremental as the reference run was parallel and that data is reused
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:17 . Memory (MB): peak = 3139.121 ; gain = 1666.578 ; free physical = 6533 ; free virtual = 10920
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Stitch Unchanged Partitions
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Stitch Unchanged Partitions : Time (s): cpu = 00:00:22 ; elapsed = 00:00:18 . Memory (MB): peak = 3139.121 ; gain = 1666.578 ; free physical = 6534 ; free virtual = 10921
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:28 . Memory (MB): peak = 3198.832 ; gain = 1726.289 ; free physical = 6493 ; free virtual = 10923
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:28 . Memory (MB): peak = 3198.832 ; gain = 1726.289 ; free physical = 6495 ; free virtual = 10925
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:30 . Memory (MB): peak = 3198.832 ; gain = 1726.289 ; free physical = 6500 ; free virtual = 10931
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:30 . Memory (MB): peak = 3198.832 ; gain = 1726.289 ; free physical = 6500 ; free virtual = 10931
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:38 ; elapsed = 00:00:34 . Memory (MB): peak = 3198.832 ; gain = 1726.289 ; free physical = 6526 ; free virtual = 10956
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:38 ; elapsed = 00:00:34 . Memory (MB): peak = 3198.832 ; gain = 1726.289 ; free physical = 6526 ; free virtual = 10956
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY8 |  4635|
+|3     |LUT2   |     1|
+|4     |LUT3   | 32672|
+|5     |LUT4   | 32704|
+|6     |LUT5   | 32672|
+|7     |LUT6   | 32704|
+|8     |FDRE   | 26592|
+|9     |FDSE   |  6144|
+|10    |IBUF   |    35|
+|11    |OBUF   |    32|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------+-------+-------+
+|      |Instance |Module |Cells  |
++------+---------+-------+-------+
+|1     |top      |       | 168192|
++------+---------+-------+-------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:00:34 . Memory (MB): peak = 3198.832 ; gain = 1726.289 ; free physical = 6526 ; free virtual = 10956
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:38 ; elapsed = 00:00:34 . Memory (MB): peak = 3198.832 ; gain = 1726.289 ; free physical = 6526 ; free virtual = 10956
+Synthesis Optimization Complete : Time (s): cpu = 00:00:38 ; elapsed = 00:00:34 . Memory (MB): peak = 3198.840 ; gain = 1726.289 ; free physical = 6526 ; free virtual = 10956
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.83 ; elapsed = 00:00:00.83 . Memory (MB): peak = 3304.199 ; gain = 0.000 ; free physical = 6751 ; free virtual = 11181
+INFO: [Netlist 29-17] Analyzing 4671 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'register_array' is not ideal for floorplanning, since the cellview 'register_array' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3498.617 ; gain = 0.000 ; free physical = 6600 ; free virtual = 11030
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 36 instances were transformed.
+  BUFG => BUFGCE: 1 instance 
+  IBUF => IBUF (IBUFCTRL, INBUF): 35 instances
+
+Synth Design complete | Checksum: 963235
+INFO: [Common 17-83] Releasing license: Synthesis
+17 Infos, 5 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:07 ; elapsed = 00:00:54 . Memory (MB): peak = 3498.617 ; gain = 2034.980 ; free physical = 6601 ; free virtual = 11031
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2834.121; main = 2728.602; forked = 392.549
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4232.305; main = 3498.621; forked = 1033.469
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.6 ; elapsed = 00:00:00.21 . Memory (MB): peak = 3522.629 ; gain = 0.000 ; free physical = 6578 ; free virtual = 11024
+INFO: [Common 17-1381] The checkpoint '/home/charlie-wu/Workspace/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.runs/synth_1/register_array.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 3522.629 ; gain = 24.012 ; free physical = 6497 ; free virtual = 10963
+INFO: [Vivado 12-24828] Executing command : report_utilization -file register_array_utilization_synth.rpt -pb register_array_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Sep 26 12:17:12 2024...

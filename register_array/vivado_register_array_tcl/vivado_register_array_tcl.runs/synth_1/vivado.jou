@@ -3,22 +3,22 @@
 # SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Wed Sep 25 11:03:05 2024
-# Process ID: 1970379
-# Current directory: /home/charlie/Workspace/pq_research/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.runs/synth_1
+# Start of session at: Thu Sep 26 12:16:00 2024
+# Process ID: 4190635
+# Current directory: /home/charlie-wu/Workspace/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.runs/synth_1
 # Command line: vivado -log register_array.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source register_array.tcl
-# Log file: /home/charlie/Workspace/pq_research/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.runs/synth_1/register_array.vds
-# Journal file: /home/charlie/Workspace/pq_research/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.runs/synth_1/vivado.jou
-# Running On        :archlinux
-# Platform          :Arch
-# Operating System  :Arch Linux
-# Processor Detail  :12th Gen Intel(R) Core(TM) i9-12900KF
-# CPU Frequency     :4276.991 MHz
-# CPU Physical cores:16
-# CPU Logical cores :24
-# Host memory       :33479 MB
+# Log file: /home/charlie-wu/Workspace/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.runs/synth_1/register_array.vds
+# Journal file: /home/charlie-wu/Workspace/hwpq_qw2246/register_array/vivado_register_array_tcl/vivado_register_array_tcl.runs/synth_1/vivado.jou
+# Running On        :Charlie-ThinkPad-P53
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 24.04.1 LTS
+# Processor Detail  :Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
+# CPU Frequency     :4192.858 MHz
+# CPU Physical cores:6
+# CPU Logical cores :12
+# Host memory       :16467 MB
 # Swap memory       :4294 MB
-# Total Virtual     :37774 MB
-# Available Virtual :18741 MB
+# Total Virtual     :20762 MB
+# Available Virtual :14044 MB
 #-----------------------------------------------------------
 source register_array.tcl -notrace
