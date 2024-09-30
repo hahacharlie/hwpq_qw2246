@@ -68,6 +68,3 @@ module register_array #(
   assign max_entry = register[0];
 
 endmodule
-
-e
-
